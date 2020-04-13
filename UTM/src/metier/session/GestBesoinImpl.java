@@ -180,7 +180,7 @@ public class GestBesoinImpl implements GestBesoinLocal, GestBesoinRemote
 	@Override
 	public List<PhotoBesoin> getAllPhotoBesoin() {
 		return entityManager.createNamedQuery("PhotoBesoin.findAll",PhotoBesoin.class).getResultList();
-
+ 
 	}
 
 	@Override

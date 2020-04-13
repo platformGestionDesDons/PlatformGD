@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.faire_un_don.org">
+	<class name="Don" table="don">
+		<id name="numero_don" column="numero_don">
+			<generator class="native"></generator>
+		</id>
+		<property name="date_planifiée" column="date_planifiée" type="DATE"></property>
+		<property name="date_reglement" column="date_reglement" type="DATE"></property>
+		<property name="montant" column="montant" type="double"></property>
+		<property name="mode_reglement" column="mode_reglement" type="string"></property>
+		<property name="estAccepte" column="estAccepte" type="boolean"></property>
+		<property name="estSupprime" column="estSupprime" type="boolean"></property>
+		<property name="visibilité" column="visibilité" type="string"></property>
+		<property name="vu" column="vu" type="boolean"></property>
+	</class>
+</hibernate-mapping>
