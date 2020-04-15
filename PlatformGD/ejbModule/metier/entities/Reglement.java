@@ -14,8 +14,7 @@ import javax.persistence.TemporalType;
 public class Reglement extends Don{
 	
 	private double montant;
-	@Temporal(TemporalType.TIME)
-	private Date dateReglement;
+	private String dateReglement;
 	//cheque ou bien virement bancaire
 	private String modeReglement;
 	
@@ -24,11 +23,19 @@ public class Reglement extends Don{
 		super();
 	}
 
-	public Reglement(double montant, Date dateReglement, String modeReglement) {
+	public Reglement(double montant, String dateReglement, String modeReglement) {
 		super();
 		this.montant = montant;
 		this.dateReglement = dateReglement;
 		this.modeReglement = modeReglement;
+	}
+
+	public Reglement(String date_planifiee, boolean estAcceptee, boolean estSupprimee, String visibilite, boolean vu,
+			double montant2, String date_reglement, String mode_reglement) {
+		super(date_planifiee, estAcceptee, estSupprimee, visibilite, vu);
+		this.montant = montant2;
+		this.dateReglement = date_reglement;
+		this.modeReglement = mode_reglement;
 	}
 
 	public double getMontant() {
@@ -39,11 +46,11 @@ public class Reglement extends Don{
 		this.montant = montant;
 	}
 
-	public Date getDateReglement() {
+	public String getDateReglement() {
 		return dateReglement;
 	}
 
-	public void setDateReglement(Date dateReglement) {
+	public void setDateReglement(String dateReglement) {
 		this.dateReglement = dateReglement;
 	}
 

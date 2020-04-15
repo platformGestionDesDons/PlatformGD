@@ -9,6 +9,8 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -26,9 +28,9 @@ public class Don implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id_don;
-	@Temporal(TemporalType.TIME)
-	private Date DatePlanifiee;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id_don;
+	private String DatePlanifiee;
 	private boolean estAccepte;
 	private boolean estSupprime;
 	private String visibilite;
@@ -36,8 +38,8 @@ public class Don implements Serializable{
 	
 	//@ManyToMany
 	//private Collection<Utilisateur> utilisateur;
-	@OneToMany(targetEntity=PhotoDon.class, mappedBy="don" )
-	private Collection<PhotoDon> liste_photos_don;
+	//@OneToMany(targetEntity=PhotoDon.class, mappedBy="don" )
+	//private Collection<PhotoDon> liste_photos_don;
 	//@ManyToMany(targetEntity=Etablissement.class, mappedBy="donE" )
 	//private Collection<Etablissement> etablissement;
 	
@@ -45,19 +47,8 @@ public class Don implements Serializable{
 	public Don() {
 		super();
 	}
-	public Don(Date datePlanifiee, boolean estAccepte, boolean estSupprime, String visibilite, boolean vu) {
-		super();
-		this.id_don = UUID.randomUUID().toString();
-		DatePlanifiee = datePlanifiee;
-		this.estAccepte = estAccepte;
-		this.estSupprime = estSupprime;
-		this.visibilite = visibilite;
-		this.vu = vu;
-	}
-	public Don(String id_don, Date datePlanifiee, boolean estAccepte, boolean estSupprime, String visibilite,
+	public Don(String datePlanifiee, boolean estAccepte, boolean estSupprime, String visibilite,
 			boolean vu) {
-		super();
-		this.id_don = id_don;
 		DatePlanifiee = datePlanifiee;
 		this.estAccepte = estAccepte;
 		this.estSupprime = estSupprime;
@@ -65,7 +56,11 @@ public class Don implements Serializable{
 		this.vu = vu;
 	}
 	
-	
+	public Don(String datePlanifiee, String visibilite, boolean vu) {
+		DatePlanifiee = datePlanifiee;
+		this.visibilite = visibilite;
+		this.vu = vu;
+	}
 	//public Collection<Utilisateur> getUtilisateur() {
 	//	return utilisateur;
 	//}
@@ -78,16 +73,16 @@ public class Don implements Serializable{
 	//public void setListe_photos_don(Collection<PhotoDon> liste_photos_don) {
 	//	this.liste_photos_don = liste_photos_don;
 	//}
-	public String getId_don() {
+	public long getId_don() {
 		return this.id_don;
 	}
-	public void setId_don(String id_don) {
+	public void setId_don(long id_don) {
 		this.id_don = id_don;
 	}
-	public Date getDatePlanifiee() {
+	public String getDatePlanifiee() {
 		return DatePlanifiee;
 	}
-	public void setDatePlanifiee(Date datePlanifiee) {
+	public void setDatePlanifiee(String datePlanifiee) {
 		DatePlanifiee = datePlanifiee;
 	}
 	public boolean isEstAccepte() {

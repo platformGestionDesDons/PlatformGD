@@ -6,6 +6,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
+import metier.entities.Besoin;
 import metier.entities.Don;
 import metier.entities.DonEnNature;
 import metier.entities.Etablissement;
@@ -16,11 +17,40 @@ import java.util.List;
 import metier.session.PlatformGDLocal;
 
 @Stateless
-@WebService
 public class PlatformGDService {
 	
 	@EJB
 	private PlatformGDLocal metier;
+	public List<Don> getAllDonsReglement() {
+		return metier.getAllDonsReglement();
+	}
+	public List<Don> getDonEnNatureNotAcceptedByMinistere() {
+		return metier.getDonEnNatureNotAcceptedByMinistere();
+	}
+	public List<Don> getDonReglementNotAcceptedByMinistere() {
+		return metier.getDonReglementNotAcceptedByMinistere();
+	}
+	public List<Don> getDonEnNatureDeletedByMinistere() {
+		return metier.getDonEnNatureDeletedByMinistere();
+	}
+	public List<Don> getDonReglementDeletedByMinistere() {
+		return metier.getDonReglementDeletedByMinistere();
+	}
+	public void ajouteUtilisateur(Utilisateur utilisateur) {
+		metier.ajouteUtilisateur(utilisateur);
+	}
+	public void ajouteEtablissement(Etablissement etablissement) {
+		metier.ajouteEtablissement(etablissement);
+	}
+	public void ajouterBesoin(Besoin besoin) {
+		metier.ajouterBesoin(besoin);
+	}
+	public void updateBesoin(Besoin besoin) {
+		metier.updateBesoin(besoin);
+	}
+	public List<Besoin> getAllBesoin() {
+		return metier.getAllBesoin();
+	}
 	public void updateDonEnNature(DonEnNature don_en_nature) {
 		metier.updateDonEnNature(don_en_nature);
 	}
@@ -33,8 +63,8 @@ public class PlatformGDService {
 	public void updatePhotoDon(PhotoDon photo_don) {
 		metier.updatePhotoDon(photo_don);
 	}
-	public void ajouterDonEnNature(DonEnNature don_en_nature) {
-		metier.ajouterDonEnNature(don_en_nature);
+	public void ajouterDonEnNature(DonEnNature don_en_nature, long id_besoin) {
+		metier.ajouterDonEnNature(don_en_nature, id_besoin);
 	}
 	public void ajouterDonReglement(Reglement reglement) {
 		metier.ajouterDonReglement(reglement);
@@ -44,8 +74,8 @@ public class PlatformGDService {
 		metier.Faire_Un_Don(don, photo, donnateur, beneficiaire);
 	}
 	@WebMethod
-	public List<Don> getAllDons() {
-		return metier.getAllDons();
+	public List<Don> getAllDonsEnNature() {
+		return metier.getAllDonsEnNature();
 	}
 	@WebMethod
 	public Don getDonById(String id_don) {
@@ -72,12 +102,12 @@ public class PlatformGDService {
 		metier.ajouterPhotoDon(url_photo, id_don);
 	}
 	@WebMethod
-	public void accepterDon(String code_don, boolean estAcceptee) {
-		metier.accepterDon(code_don, estAcceptee);
+	public void accepterDon(long id_don) {
+		metier.accepterDon(id_don);
 	}
 	@WebMethod
-	public void deleteDon(String code_don, boolean estSupprimee) {
-		metier.deleteDon(code_don, estSupprimee);
+	public void deleteDon(long id_don) {
+		metier.deleteDon(id_don);
 	}
 	@WebMethod
 	public void ajouteUtilisateur(String email, String nom, String prenom, String mdp, 

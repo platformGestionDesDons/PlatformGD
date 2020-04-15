@@ -12,6 +12,7 @@
 		<class>metier.entities.PhotoDon</class>
 		<class>metier.entities.Utilisateur</class>
 		<class>metier.entities.Etablissement</class>
+		<class>metier.entities.Besoin</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
