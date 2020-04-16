@@ -26,7 +26,7 @@ public interface PlatformGDRemote {
 	public List<Don> getDonEnNatureDeletedByMinistere();
 	public List<Don> getDonReglementDeletedByMinistere();
 	
-	public void ajouterDonEnNature(DonEnNature don_en_nature, long id_besoin);
+	public void ajouterDonEnNature(DonEnNature don_en_nature);
 	public void ajouterDonReglement(Reglement reglement);
 	public void updateDonEnNature(DonEnNature don_en_nature);
 	public void updateReglement(Reglement reglement);

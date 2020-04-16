@@ -17,6 +17,7 @@ import java.util.List;
 import metier.session.PlatformGDLocal;
 
 @Stateless
+@WebService
 public class PlatformGDService {
 	
 	@EJB
@@ -35,12 +36,6 @@ public class PlatformGDService {
 	}
 	public List<Don> getDonReglementDeletedByMinistere() {
 		return metier.getDonReglementDeletedByMinistere();
-	}
-	public void ajouteUtilisateur(Utilisateur utilisateur) {
-		metier.ajouteUtilisateur(utilisateur);
-	}
-	public void ajouteEtablissement(Etablissement etablissement) {
-		metier.ajouteEtablissement(etablissement);
 	}
 	public void ajouterBesoin(Besoin besoin) {
 		metier.ajouterBesoin(besoin);
@@ -63,8 +58,8 @@ public class PlatformGDService {
 	public void updatePhotoDon(PhotoDon photo_don) {
 		metier.updatePhotoDon(photo_don);
 	}
-	public void ajouterDonEnNature(DonEnNature don_en_nature, long id_besoin) {
-		metier.ajouterDonEnNature(don_en_nature, id_besoin);
+	public void ajouterDonEnNature(DonEnNature don_en_nature) {
+		metier.ajouterDonEnNature(don_en_nature);
 	}
 	public void ajouterDonReglement(Reglement reglement) {
 		metier.ajouterDonReglement(reglement);
@@ -110,15 +105,13 @@ public class PlatformGDService {
 		metier.deleteDon(id_don);
 	}
 	@WebMethod
-	public void ajouteUtilisateur(String email, String nom, String prenom, String mdp, 
-			String role) {
-		Utilisateur utilisateur = new Utilisateur(email, nom, prenom, mdp, role);
+	public void ajouteUtilisateur(String nom) {
+		Utilisateur utilisateur = new Utilisateur(nom);
 		metier.ajouteUtilisateur(utilisateur);
 	}
 	@WebMethod
-	public void ajouteEtablissement(String nomEtablissement, Boolean intermediaire, Boolean ministraire,
-			Boolean drs, String libelle) {
-		Etablissement etablissement = new Etablissement(nomEtablissement, intermediaire, ministraire, drs, libelle);
+	public void ajouteEtablissement(String nomEtablissement) {
+		Etablissement etablissement = new Etablissement(nomEtablissement);
 		metier.ajouteEtablissement(etablissement);
 	}
 	@WebMethod

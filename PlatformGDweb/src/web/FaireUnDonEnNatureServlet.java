@@ -37,7 +37,7 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 			DonEnNature don_en_nature = new DonEnNature(date_planifiee, visibilite, vu,
 					prix_totale, quantite, nom_produit);
 
-			metier.ajouterDonEnNature(don_en_nature, 1);
+			metier.ajouterDonEnNature(don_en_nature);
 			req.getRequestDispatcher("/faireUnDonEnNature.jsp").forward(req, resp);
 		}
 	}

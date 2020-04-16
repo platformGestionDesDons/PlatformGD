@@ -16,14 +16,7 @@ public class Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idut;
-	
-	private String email;
-
 	private String Nom;
-	private String Prenom;
-	private String mdp;
-	private Boolean etatDecompte;
-	private String role;
 	
 	//@ManyToMany(targetEntity = Don.class, mappedBy = "utilisateur")
 	//private Collection<Don> don;
@@ -31,19 +24,13 @@ public class Utilisateur implements Serializable{
 	public Utilisateur() {
 		super();
 	}
-	public Utilisateur(String email, String nom, String prenom, String mdp,
-			String role) {
+	public Utilisateur(String nom) {
 		super();
-		this.email = email;
 		Nom = nom;
-		Prenom = prenom;
-		this.mdp = mdp;
-		this.role = role;
 	}
 	@Override
 	public String toString() {
-		return "Utilisateur [idut=" + idut + ", email=" + email + ", Nom=" + Nom + ", Prenom=" + Prenom + ", mdp=" + mdp
-				+ ", etatDecompte=" + etatDecompte + ", role=" + role + "]";
+		return "Utilisateur [idut=" + idut + ",Nom=" + Nom + "]";
 	}
 	
 	//public Collection<Don> getDon() {
@@ -55,14 +42,8 @@ public class Utilisateur implements Serializable{
 	public long getIdut() {
 		return idut;
 	}
-	public void setIdut(long idut) {
-		this.idut = idut;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setIdut(String nom) {
+		this.Nom = nom;
 	}
 	public String getNom() {
 		return Nom;
@@ -70,30 +51,5 @@ public class Utilisateur implements Serializable{
 	public void setNom(String nom) {
 		Nom = nom;
 	}
-	public String getPrenom() {
-		return Prenom;
-	}
-	public void setPrenom(String prenom) {
-		Prenom = prenom;
-	}
-	public String getMdp() {
-		return mdp;
-	}
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
-	}
-	public Boolean getEtatDecompte() {
-		return etatDecompte;
-	}
-	public void setEtatDecompte(Boolean etatDecompte) {
-		this.etatDecompte = etatDecompte;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
-	
 	
 }

@@ -16,7 +16,7 @@ public class PhotoDon {
 	private long idPhoto;
 	private String urlPhoto;
 	@ManyToOne 
-	@JoinColumn( name="codeDon", nullable=false  )
+	@JoinColumn( name="id_don", nullable=false  )
 	private Don don;
 
 	public PhotoDon() {

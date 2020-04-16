@@ -1,9 +1,8 @@
 package metier.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -16,8 +15,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -38,14 +35,13 @@ public class Don implements Serializable{
 	
 	//@ManyToMany
 	//private Collection<Utilisateur> utilisateur;
-	//@OneToMany(targetEntity=PhotoDon.class, mappedBy="don" )
-	//private Collection<PhotoDon> liste_photos_don;
+	@OneToMany(targetEntity=PhotoDon.class, mappedBy="don" )
+	private List<PhotoDon> liste_photos_don = new ArrayList<>();
 	//@ManyToMany(targetEntity=Etablissement.class, mappedBy="donE" )
 	//private Collection<Etablissement> etablissement;
 	
 	
 	public Don() {
-		super();
 	}
 	public Don(String datePlanifiee, boolean estAccepte, boolean estSupprime, String visibilite,
 			boolean vu) {
@@ -67,12 +63,12 @@ public class Don implements Serializable{
 	//public void setUtilisateur(Collection<Utilisateur> utilisateur) {
 	//	this.utilisateur = utilisateur;
 	//}
-	//public Collection<PhotoDon> getListe_photos_don() {
-	//	return liste_photos_don;
-	//}
-	//public void setListe_photos_don(Collection<PhotoDon> liste_photos_don) {
-	//	this.liste_photos_don = liste_photos_don;
-	//}
+	public List<PhotoDon> getListe_photos_don() {
+		return liste_photos_don;
+	}
+	public void setListe_photos_don(List<PhotoDon> liste_photos_don) {
+		this.liste_photos_don = liste_photos_don;
+	}
 	public long getId_don() {
 		return this.id_don;
 	}

@@ -89,12 +89,12 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
-	public void ajouterDonEnNature(DonEnNature don_en_nature, long id_besoin) {
+	public void ajouterDonEnNature(DonEnNature don_en_nature) {
 		if (!don_en_nature.equals(null))
 			em.persist(don_en_nature);
-		Query req = em.createQuery("UPDATE besoin SET quantite_restante = quantite_initiale - "
-				+ don_en_nature.getQuantite() + ", etat = 'en cours' WHERE id_besoin =" + id_besoin);
-		req.executeUpdate();
+		//Query req = em.createQuery("UPDATE besoin SET quantite_restante = quantite_initiale - "
+		//		+ don_en_nature.getQuantite() + ", etat = 'en cours' WHERE id_besoin =" + id_besoin);
+	//	req.executeUpdate();
 	}
 
 	@Override
