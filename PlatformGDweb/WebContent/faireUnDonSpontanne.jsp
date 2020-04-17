@@ -19,16 +19,9 @@
 					action="${pageContext.request.contextPath}/don_en_nature">
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom produit
-							</label> 
-						<select id="new_fund_type"
-							name="nom_produit" class="form-control"><option
-								value="30">
-								<div class="cha9a9a-title text-center pad-5">
-									<c:forEach items="${besoin}" var="b">
-										<option value="${b.id_besoin}">${b.nom_besoin}</option>
-									</c:forEach>
-								</div>
-						</select>
+							</label>
+							<input type="text" id="nom_produit" name="vu"
+							class="form-control" />
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Date de réception</label>

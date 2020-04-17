@@ -52,6 +52,8 @@ public interface PlatformGDRemote {
 	public Etablissement findetablissement(long idetablisement);
 	public List<Utilisateur> getUtilisateur();
 	public List<Etablissement> getEtablissement();
+	public List<Etablissement> getAllEtablissement();
+	public List<Etablissement> getAllDonnateur();
 	
 	//Besoin
 	public void ajouterBesoin(Besoin besoin);

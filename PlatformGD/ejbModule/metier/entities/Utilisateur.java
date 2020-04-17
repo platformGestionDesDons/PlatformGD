@@ -16,7 +16,7 @@ public class Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idut;
-	private String Nom;
+	private String nom;
 	
 	//@ManyToMany(targetEntity = Don.class, mappedBy = "utilisateur")
 	//private Collection<Don> don;
@@ -25,12 +25,11 @@ public class Utilisateur implements Serializable{
 		super();
 	}
 	public Utilisateur(String nom) {
-		super();
-		Nom = nom;
+		this.nom = nom;
 	}
 	@Override
 	public String toString() {
-		return "Utilisateur [idut=" + idut + ",Nom=" + Nom + "]";
+		return "Utilisateur [idut=" + idut + ",Nom=" + nom + "]";
 	}
 	
 	//public Collection<Don> getDon() {
@@ -42,14 +41,14 @@ public class Utilisateur implements Serializable{
 	public long getIdut() {
 		return idut;
 	}
-	public void setIdut(String nom) {
-		this.Nom = nom;
+	public void setIdut(long idut) {
+		this.idut = idut;
 	}
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
 	public void setNom(String nom) {
-		Nom = nom;
+		this.nom = nom;
 	}
 	
 }

@@ -13,29 +13,29 @@ import javax.persistence.ManyToMany;
 public class Etablissement implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long IdEtablissement;
-	private String NomEtablissement;
+	private long idetablissement;
+	private String nometablissement;
 	//@ManyToMany
 	//private Collection<Don> donE;
 	
 	public Etablissement() {
 		super();
 	}
-	public Etablissement(String nomEtablissement) {
+	public Etablissement(String nometablissement) {
 		super();
-		NomEtablissement = nomEtablissement;
+		this.nometablissement = nometablissement;
 	}
 	public long getIdEtablissement() {
-		return IdEtablissement;
+		return idetablissement;
 	}
-	public void setIdEtablissement(long idEtablissement) {
-		IdEtablissement = idEtablissement;
+	public void setIdEtablissement(long idetablissement) {
+		this.idetablissement = idetablissement;
 	}
 	public String getNomEtablissement() {
-		return NomEtablissement;
+		return nometablissement;
 	}
-	public void setNomEtablissement(String nomEtablissement) {
-		NomEtablissement = nomEtablissement;
+	public void setNomEtablissement(String nometablissement) {
+		this.nometablissement = nometablissement;
 	}
 	//public Collection<Don> getDonE() {
 	//	return donE;

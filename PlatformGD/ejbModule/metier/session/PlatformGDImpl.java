@@ -219,7 +219,16 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		// TODO Auto-generated method stub
 		return em.createNamedQuery("Etablissement.findAll", Etablissement.class).getResultList();
 	}
-
+	@Override
+	public List<Etablissement> getAllEtablissement(){
+		Query req = em.createQuery("select e from Etablissement e");
+		return req.getResultList();	
+	}
+	@Override
+	public List<Etablissement> getAllDonnateur(){
+		Query req = em.createQuery("select u from Utilisateur u");
+		return req.getResultList();	
+	}
 	@Override
 	public void ajouterBesoin(Besoin besoin) {
 		if (!besoin.equals(null))

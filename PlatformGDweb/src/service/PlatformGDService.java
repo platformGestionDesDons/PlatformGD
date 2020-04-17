@@ -22,6 +22,12 @@ public class PlatformGDService {
 	
 	@EJB
 	private PlatformGDLocal metier;
+	public List<Etablissement> getAllDonnateur() {
+		return metier.getAllDonnateur();
+	}
+	public List<Etablissement> getAllEtablissement() {
+		return metier.getAllEtablissement();
+	}
 	public List<Don> getAllDonsReglement() {
 		return metier.getAllDonsReglement();
 	}

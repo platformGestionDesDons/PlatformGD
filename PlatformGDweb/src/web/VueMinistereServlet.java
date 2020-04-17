@@ -19,25 +19,28 @@ public class VueMinistereServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("etablissement", metier.getAllEtablissement());
+		req.setAttribute("donnateur", metier.getAllDonnateur());
 		req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");
-		if (action.equals("Voir tous les dons en nature")) {	
+		
+		if (action.equals("Voir tous les dons en nature")) {
 			req.setAttribute("don", metier.getAllDonsEnNature());
-			req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+			doGet(req, resp);
 		} else if (action.equals("Voir tous les reglements")){
 			req.setAttribute("don", metier.getAllDonsReglement());
-			req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+			doGet(req, resp);
 		} else if (action.equals("Etablissement")){
-			String nom_etablissement = req.getParameter("Etablissement");
-			req.setAttribute("don", metier.getDonByEtablissement(nom_etablissement));
-			req.getRequestDispatcher("/faireUnReglement.jsp").forward(req, resp);
+			String id_etablissement = req.getParameter("Etablissement");
+			req.setAttribute("don", metier.getDonByEtablissement(id_etablissement));
+			doGet(req, resp);
 		} else if (action.equals("Donnateur")) {
-			String mail_donnateur = req.getParameter("Donnateur");
-			req.setAttribute("don", metier.getDonByDonnateur(mail_donnateur));
-			req.getRequestDispatcher("/faireUnReglement.jsp").forward(req, resp);
+			String id_donnateur = req.getParameter("Donnateur");
+			req.setAttribute("don", metier.getDonByDonnateur(id_donnateur));
+			doGet(req, resp);
 		}
 	}
 }
