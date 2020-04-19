@@ -2,6 +2,7 @@ package metier.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,23 +13,21 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Etablissement implements Serializable{
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idetablissement;
+	private String idetablissement;
 	private String nometablissement;
-	//@ManyToMany
-	//private Collection<Don> donE;
 	
 	public Etablissement() {
 		super();
 	}
 	public Etablissement(String nometablissement) {
 		super();
+		this.idetablissement = UUID.randomUUID().toString();
 		this.nometablissement = nometablissement;
 	}
-	public long getIdEtablissement() {
+	public String getIdEtablissement() {
 		return idetablissement;
 	}
-	public void setIdEtablissement(long idetablissement) {
+	public void setIdEtablissement(String idetablissement) {
 		this.idetablissement = idetablissement;
 	}
 	public String getNomEtablissement() {
@@ -37,11 +36,5 @@ public class Etablissement implements Serializable{
 	public void setNomEtablissement(String nometablissement) {
 		this.nometablissement = nometablissement;
 	}
-	//public Collection<Don> getDonE() {
-	//	return donE;
-	//}
-	//public void setDonE(Collection<Don> donE) {
-	//	this.donE = donE;
-	//}
 	
 }

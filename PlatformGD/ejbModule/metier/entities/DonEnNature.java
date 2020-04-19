@@ -28,16 +28,16 @@ public class DonEnNature extends Don implements Serializable{
 		this.nom_produit = nom_produit;
 	}
 
-	public DonEnNature(String date_planifiee, boolean estAcceptee, boolean estSupprimee, String visibilite, boolean vu,
+	public DonEnNature(String date_planifiee, boolean estAcceptee, boolean estSupprimee, String visibilite,
 			double prix_totale2, int quantite2, String nom_produit2) {
-		super(date_planifiee, estAcceptee, estSupprimee, visibilite, vu);
+		super(date_planifiee, estAcceptee, estSupprimee, visibilite);
 		this.prix_totale = prix_totale2;
 		this.quantite = quantite2;
 		this.nom_produit = nom_produit2;
 	}
-	public DonEnNature(String date_planifiee, String visibilite, boolean vu,
+	public DonEnNature(String date_planifiee, String visibilite,
 			double prix_totale2, int quantite2, String nom_produit2) {
-		super(date_planifiee, visibilite, vu);
+		super(date_planifiee, visibilite);
 		this.prix_totale = prix_totale2;
 		this.quantite = quantite2;
 		this.nom_produit = nom_produit2;

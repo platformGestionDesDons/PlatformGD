@@ -20,8 +20,7 @@
 							<img src="media/cache/cha9a9a_pic/uploads/images/1.jpg"
 								alt="Makers Against Corona (Masques pour l&#039;équipe medicale)"
 								title="Makers Against Corona (Masques pour l&#039;équipe medicale)">
-							<div class="fund-organizer-fixed text-white text-left">Hôpital
-								Farhat-Hached de Sousse</div>
+							<div class="fund-organizer-fixed text-white text-left">${nomEtablissement}</div>
 						</div>
 					</div>
 				</div>
@@ -72,19 +71,19 @@
 									title="Makers Against Corona (Masques pour l&#039;équipe medicale)">
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.id_besoin}</h5>
+								<h5>${b.idBesoin}</h5>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.nom_besoin}</h5>
+								<h5>${b.priorite}</h5>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.quantite_initiale}</h5>
+								<h5>${b.quantiteInitiale}</h5>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.quantite_restante}</h5>
+								<h5>${b.quantiteRestante}</h5>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.etat}</h5>
+								<h5>${b.motif}</h5>
 							</div>
 						</div>
 						</c:forEach>

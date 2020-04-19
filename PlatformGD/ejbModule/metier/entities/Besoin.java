@@ -1,42 +1,70 @@
 package metier.entities;
 
+import java.io.Serializable;
+import java.util.Date;
+import java.util.UUID;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Besoin")
+@NamedQuery(name="Besoin.findAll", query="SELECT b FROM Besoin b")
+public class Besoin implements Serializable 
+{
 
-public class Besoin {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_besoin;
-	private String nom_besoin;
+	private String idBesoin;
+	private Date dateBesoin;
 	private String etat;
-	private int quantite_initiale;
-	private int quantite_restante;
-	public Besoin() {
-		
-	}
-	public Besoin(String nom_besoin, String etat, int quantite_initiale) {
+	private int quantiteInitiale;
+	private int quantiteRestante;
+	private String priorite;
+	private boolean annule;
+	private String motif;
+	
+	@OneToOne
+	private Produit produit;
+	
+	@OneToOne( cascade = CascadeType.ALL )
+	private PhotoBesoin photoBesoin;
+
+	
+	public Besoin() {}
+	
+	
+	
+	public Besoin( Date dateBesoin, String etat, int quantiteInitiale, int quantiteRestante,
+			String priorite, boolean annule, String motif) {
 		super();
-		this.nom_besoin = nom_besoin;
+		
+
+		this.idBesoin = UUID.randomUUID().toString();
+		this.dateBesoin = dateBesoin;
 		this.etat = etat;
-		this.quantite_initiale = quantite_initiale;
-		this.quantite_restante = 0;
-	}
-	public long getId_besoin() {
-		return id_besoin;
-	}
-	public void setId_besoin(long id_besoin) {
-		this.id_besoin = id_besoin;
+		this.quantiteInitiale = quantiteInitiale;
+		this.quantiteRestante = quantiteRestante;
+		this.priorite = priorite;
+		this.annule = annule;
+		this.motif = motif;
 	}
 	
-	public String getNom_besoin() {
-		return nom_besoin;
+	
+	public String getIdBesoin() {
+		return idBesoin;
 	}
-	public void setNom_besoin(String nom_besoin) {
-		this.nom_besoin = nom_besoin;
+	public void setIdBesoin(String idBesoin) {
+		this.idBesoin = idBesoin;
+	}
+	public Date getDateBesoin() {
+		return dateBesoin;
+	}
+	public void setDateBesoin(Date dateBesoin) {
+		this.dateBesoin = dateBesoin;
 	}
 	public String getEtat() {
 		return etat;
@@ -44,17 +72,58 @@ public class Besoin {
 	public void setEtat(String etat) {
 		this.etat = etat;
 	}
-	public int getQuantite_initiale() {
-		return quantite_initiale;
+	public int getQuantiteInitiale() {
+		return quantiteInitiale;
 	}
-	public void setQuantite_initiale(int quantite_initiale) {
-		this.quantite_initiale = quantite_initiale;
+	public void setQuantiteInitiale(int quantiteInitiale) {
+		this.quantiteInitiale = quantiteInitiale;
 	}
-	public int getQuantite_restante() {
-		return quantite_restante;
+	public int getQuantiteRestante() {
+		return quantiteRestante;
 	}
-	public void setQuantite_restante(int quantite_restante) {
-		this.quantite_restante = quantite_restante;
+	public void setQuantiteRestante(int quantiteRestante) {
+		this.quantiteRestante = quantiteRestante;
 	}
-	
+	public String getPriorite() {
+		return priorite;
+	}
+	public void setPriorite(String priorite) {
+		this.priorite = priorite;
+	}
+	public boolean isAnnule() {
+		return annule;
+	}
+	public void setAnnule(boolean annule) {
+		this.annule = annule;
+	}
+	public String getMotif() {
+		return motif;
+	}
+	public void setMotif(String motif) {
+		this.motif = motif;
+	}
+	public Produit getProduit() {
+		return produit;
+	}
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
+	public PhotoBesoin getPhotoBesoin() {
+		return photoBesoin;
+	}
+	public void setPhotoBesoin(PhotoBesoin photoBesoin) {
+		this.photoBesoin = photoBesoin;
+	}
+	@Override
+	public String toString() {
+		return "Besoin [idBesoin=" + idBesoin + ", dateBesoin=" + dateBesoin + ", etat=" + etat + ", quantiteInitiale="
+				+ quantiteInitiale + ", quantiteRestante=" + quantiteRestante + ", priorite=" + priorite + ", annule="
+				+ annule + ", motif=" + motif + ", produit=" + produit + ", photoBesoin=" + photoBesoin + "]";
+	}
+
+
+
+
 }
+
+

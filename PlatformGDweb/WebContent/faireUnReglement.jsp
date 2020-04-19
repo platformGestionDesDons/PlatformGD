@@ -23,18 +23,12 @@
 							class="required text-danger form-asterisk"
 							title="Ce champ est requis">*</span> 
 						<select id="new_fund_type"
-							name="visibilite" class="form-control"><option
-								value="30">
+							name="visibilite" class="form-control">
 								<div class="cha9a9a-title text-center pad-5">
-									<option value="1">OUI</option>
-									<option value="2">NON</option>
+									<option value="OUI">OUI</option>
+									<option value="NON">NON</option>
 								</div>
 						</select>
-					</div>
-					<div class="form-group">
-						<label class="control-label required" for="new_fund_name">Vu</label>
-						<input type="text" id="new_fund_name" name="vu"
-							class="form-control" />
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Date de reglement
@@ -47,8 +41,8 @@
 							name="mode_reglement" class="form-control"><option
 								value="30">
 								<div class="cha9a9a-title text-center pad-5">
-									<option value="1">Cheque</option>
-									<option value="2">Virement bancaire</option>
+									<option value="Cheque">Cheque</option>
+									<option value="Virement bancaire">Virement bancaire</option>
 								</div>
 						</select>
 					</div>
@@ -56,6 +50,19 @@
 						<label class="control-label required" for="new_fund_name">
 							Montant</label> <input type="text" id="new_fund_name" name="montant"
 							class="form-control" />
+					</div>
+					<div class="form-group">
+						<label class="control-label required" for="new_fund_name">Nom
+							Bénéficiaire</label>
+							<select id="new_fund_type"
+							name="nom_produit" class="form-control"><option
+								value="30">
+								<div class="cha9a9a-title text-center pad-5">
+									<c:forEach items="${beneficiaire}" var="b">
+										<option value="${b.idEtablissement}">${b.nomEtablissement}</option>
+									</c:forEach>
+								</div>
+						</select>
 					</div>
 
 					<button class="btn btn-default btn-block" type="submit"

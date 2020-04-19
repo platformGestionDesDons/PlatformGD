@@ -30,9 +30,9 @@ public class Reglement extends Don{
 		this.modeReglement = modeReglement;
 	}
 
-	public Reglement(String date_planifiee, boolean estAcceptee, boolean estSupprimee, String visibilite, boolean vu,
+	public Reglement(String date_planifiee, boolean estAcceptee, boolean estSupprimee, String visibilite,
 			double montant2, String date_reglement, String mode_reglement) {
-		super(date_planifiee, estAcceptee, estSupprimee, visibilite, vu);
+		super(date_planifiee, estAcceptee, estSupprimee, visibilite);
 		this.montant = montant2;
 		this.dateReglement = date_reglement;
 		this.modeReglement = mode_reglement;

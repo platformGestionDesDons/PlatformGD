@@ -2,6 +2,7 @@ package metier.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,17 +15,16 @@ public class Utilisateur implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idut;
+	private String idut;
 	private String nom;
 	
-	//@ManyToMany(targetEntity = Don.class, mappedBy = "utilisateur")
-	//private Collection<Don> don;
 	
 	public Utilisateur() {
 		super();
+		this.idut = UUID.randomUUID().toString();
 	}
 	public Utilisateur(String nom) {
+		this.idut = UUID.randomUUID().toString();
 		this.nom = nom;
 	}
 	@Override
@@ -32,16 +32,10 @@ public class Utilisateur implements Serializable{
 		return "Utilisateur [idut=" + idut + ",Nom=" + nom + "]";
 	}
 	
-	//public Collection<Don> getDon() {
-	//	return don;
-	//}
-	//public void setDon(Collection<Don> don) {
-	//	this.don = don;
-	//}
-	public long getIdut() {
+	public String getIdut() {
 		return idut;
 	}
-	public void setIdut(long idut) {
+	public void setIdut(String idut) {
 		this.idut = idut;
 	}
 	public String getNom() {

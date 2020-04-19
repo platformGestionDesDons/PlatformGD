@@ -19,8 +19,6 @@ public class VueMinistereServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("etablissement", metier.getAllEtablissement());
-		req.setAttribute("donnateur", metier.getAllDonnateur());
 		req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
 	}
 	@Override
@@ -28,19 +26,11 @@ public class VueMinistereServlet extends HttpServlet{
 		String action = req.getParameter("action");
 		
 		if (action.equals("Voir tous les dons en nature")) {
-			req.setAttribute("don", metier.getAllDonsEnNature());
+			req.setAttribute("don_en_nature", metier.getAllDonsEnNature());
 			doGet(req, resp);
 		} else if (action.equals("Voir tous les reglements")){
-			req.setAttribute("don", metier.getAllDonsReglement());
+			req.setAttribute("reglement", metier.getAllDonsReglement());
 			doGet(req, resp);
-		} else if (action.equals("Etablissement")){
-			String id_etablissement = req.getParameter("Etablissement");
-			req.setAttribute("don", metier.getDonByEtablissement(id_etablissement));
-			doGet(req, resp);
-		} else if (action.equals("Donnateur")) {
-			String id_donnateur = req.getParameter("Donnateur");
-			req.setAttribute("don", metier.getDonByDonnateur(id_donnateur));
-			doGet(req, resp);
-		}
+		} 
 	}
 }

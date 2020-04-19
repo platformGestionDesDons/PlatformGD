@@ -14,6 +14,12 @@
 		<class>metier.entities.Utilisateur</class>
 		<class>metier.entities.Etablissement</class>
 		<class>metier.entities.Besoin</class>
+		<class>metier.entities.Categorie</class>
+		<class>metier.entities.Fournisseur</class>
+		<class>metier.entities.Photo</class>
+		<class>metier.entities.PhotoBesoin</class>
+		<class>metier.entities.Produit</class>
+		<class>metier.entities.UniteDeMesure</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"

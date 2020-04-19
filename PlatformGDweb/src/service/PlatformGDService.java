@@ -22,13 +22,22 @@ public class PlatformGDService {
 	
 	@EJB
 	private PlatformGDLocal metier;
+	public DonEnNature getDonEnNatureById(String id_don) {
+		return metier.getDonEnNatureById(id_don);
+	}
+	public Reglement getDonEnReglementById(String id_don) {
+		return metier.getDonEnReglementById(id_don);
+	}
+	public String getNomEtablissementById(String id_etablissement) {
+		return metier.getNomEtablissementById(id_etablissement);
+	}
 	public List<Etablissement> getAllDonnateur() {
 		return metier.getAllDonnateur();
 	}
 	public List<Etablissement> getAllEtablissement() {
 		return metier.getAllEtablissement();
 	}
-	public List<Don> getAllDonsReglement() {
+	public List<Reglement> getAllDonsReglement() {
 		return metier.getAllDonsReglement();
 	}
 	public List<Don> getDonEnNatureNotAcceptedByMinistere() {
@@ -43,12 +52,6 @@ public class PlatformGDService {
 	public List<Don> getDonReglementDeletedByMinistere() {
 		return metier.getDonReglementDeletedByMinistere();
 	}
-	public void ajouterBesoin(Besoin besoin) {
-		metier.ajouterBesoin(besoin);
-	}
-	public void updateBesoin(Besoin besoin) {
-		metier.updateBesoin(besoin);
-	}
 	public List<Besoin> getAllBesoin() {
 		return metier.getAllBesoin();
 	}
@@ -58,7 +61,7 @@ public class PlatformGDService {
 	public void updateReglement(Reglement reglement) {
 		metier.updateReglement(reglement);
 	}
-	public void deletePhotoDon(long id_photo) {
+	public void deletePhotoDon(String id_photo) {
 		metier.deletePhotoDon(id_photo);
 	}
 	public void updatePhotoDon(PhotoDon photo_don) {
@@ -75,12 +78,8 @@ public class PlatformGDService {
 		metier.Faire_Un_Don(don, photo, donnateur, beneficiaire);
 	}
 	@WebMethod
-	public List<Don> getAllDonsEnNature() {
+	public List<DonEnNature> getAllDonsEnNature() {
 		return metier.getAllDonsEnNature();
-	}
-	@WebMethod
-	public Don getDonById(String id_don) {
-		return metier.getDonById(id_don);
 	}
 	@WebMethod
 	public List<Don> getDonByEtablissement(String nom_etabliessement) {
@@ -101,55 +100,5 @@ public class PlatformGDService {
 	@WebMethod
 	public void ajouterPhotoDon(String url_photo, String id_don) {
 		metier.ajouterPhotoDon(url_photo, id_don);
-	}
-	@WebMethod
-	public void accepterDon(long id_don) {
-		metier.accepterDon(id_don);
-	}
-	@WebMethod
-	public void deleteDon(long id_don) {
-		metier.deleteDon(id_don);
-	}
-	@WebMethod
-	public void ajouteUtilisateur(String nom) {
-		Utilisateur utilisateur = new Utilisateur(nom);
-		metier.ajouteUtilisateur(utilisateur);
-	}
-	@WebMethod
-	public void ajouteEtablissement(String nomEtablissement) {
-		Etablissement etablissement = new Etablissement(nomEtablissement);
-		metier.ajouteEtablissement(etablissement);
-	}
-	@WebMethod
-	public void updateUtilisateur(Utilisateur utilisateur) {
-		metier.updateUtilisateur(utilisateur);
-	}
-	@WebMethod
-	public void updateEtablissement(Etablissement etablissement) {
-		metier.updateEtablissement(etablissement);
-	}
-	@WebMethod
-	public void deleteUtilisateur(long idut) {
-		metier.deleteUtilisateur(idut);
-	}
-	@WebMethod
-	public void deleteEtablissement(long idEtablissement) {
-		metier.deleteEtablissement(idEtablissement);
-	}
-	@WebMethod
-	public Utilisateur findUtilisateur(long idut) {
-		return metier.findUtilisateur(idut);
-	}
-	@WebMethod
-	public Etablissement findetablissement(long idetablisement) {
-		return metier.findetablissement(idetablisement);
-	}
-	@WebMethod
-	public List<Utilisateur> getUtilisateur() {
-		return metier.getUtilisateur();
-	}
-	@WebMethod
-	public List<Etablissement> getEtablissement() {
-		return metier.getEtablissement();
 	}
 }

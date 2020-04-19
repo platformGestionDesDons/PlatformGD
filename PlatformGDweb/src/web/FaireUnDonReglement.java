@@ -33,12 +33,11 @@ public class FaireUnDonReglement extends HttpServlet{
 			boolean estAcceptee = Boolean.parseBoolean(req.getParameter("est_acceptee"));
 			boolean estSupprimee = Boolean.parseBoolean(req.getParameter("est_supprimee"));
 			String visibilite = req.getParameter("visibilite");
-			boolean vu = Boolean.parseBoolean(req.getParameter("vu"));
 			String date_reglement = req.getParameter("date_reglement");
 			String mode_reglement = req.getParameter("mode_reglement");
 			double montant = Double.parseDouble((req.getParameter("montant")));
 
-			Reglement reglement = new Reglement(date_planifiee, estAcceptee, estSupprimee, visibilite, vu, montant, 
+			Reglement reglement = new Reglement(date_planifiee, estAcceptee, estSupprimee, visibilite, montant, 
 					date_reglement, mode_reglement);
 
 			metier.ajouterDonReglement(reglement);
