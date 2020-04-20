@@ -22,7 +22,7 @@ import metier.entities.Besoin;
 import metier.entities.Photo;
 import metier.entities.PhotoBesoin;
 import metier.entities.Produit;
-import metier.session.GestBesoinLocal;
+import metier.session.PlatformGDLocal;
 
 
 @WebServlet("/besoins")
@@ -33,7 +33,7 @@ public class ServletBesoins extends HttpServlet {
 	private static final String UPLOAD_DIRECTORY = "uploads\\images\\besoins";
 
 	@EJB
-	private GestBesoinLocal dao;
+	private PlatformGDLocal dao;
 	
 	public ServletBesoins() {
 		super();

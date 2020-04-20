@@ -13,7 +13,7 @@ import metier.entities.Categorie;
 import metier.entities.Fournisseur;
 import metier.entities.Produit;
 import metier.entities.UniteDeMesure;
-import metier.session.GestBesoinLocal;
+import metier.session.PlatformGDLocal;
 
 
 
@@ -22,7 +22,7 @@ public class ServletProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private GestBesoinLocal dao;
+	private PlatformGDLocal dao;
 	
 	public ServletProduit() {
 		super();

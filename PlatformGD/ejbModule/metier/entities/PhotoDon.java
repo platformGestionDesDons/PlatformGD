@@ -23,33 +23,22 @@ public class PhotoDon {
 	@OneToMany(fetch = FetchType.EAGER)
 	private List<Photo> photos;
 	
-	@ManyToOne
-	private Don don;
-
 	public PhotoDon() {
-		
-	}
-	public PhotoDon(String url) {
 		super();
 		this.idPD = UUID.randomUUID().toString();
 	}
-	public String getIdPhoto() {
+
+	public String getIdPD() {
 		return idPD;
 	}
-
-
-	public void setIdPhoto(String idPhoto) {
-		this.idPD = idPhoto;
+	public void setIdPD(String idPD) {
+		this.idPD = idPD;
 	}
-
-
-	public Don getDon() {
-		return don;
+	public List<Photo> getPhotos() {
+		return photos;
 	}
-
-
-	public void setDon(Don don) {
-		this.don = don;
+	public void setPhotos(List<Photo> photos) {
+		this.photos = photos;
 	}
 	
 	

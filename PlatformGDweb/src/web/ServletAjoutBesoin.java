@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import metier.entities.Produit;
-import metier.session.GestBesoinLocal;
+import metier.session.PlatformGDLocal;
 
 
 @WebServlet("/ajoutBesoin")
@@ -19,7 +19,7 @@ public class ServletAjoutBesoin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private GestBesoinLocal dao;
+	private PlatformGDLocal dao;
 	
 
 	

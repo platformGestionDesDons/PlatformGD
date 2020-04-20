@@ -16,7 +16,7 @@ import metier.entities.Besoin;
 import metier.entities.Photo;
 import metier.entities.Produit;
 
-import metier.session.GestBesoinLocal;
+import metier.session.PlatformGDLocal;
 
 
 @WebServlet("/editBesoin")
@@ -24,7 +24,7 @@ public class ServletEditBesoin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private GestBesoinLocal dao;
+	private PlatformGDLocal dao;
 	
 
 	

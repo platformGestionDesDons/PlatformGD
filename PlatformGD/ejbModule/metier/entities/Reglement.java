@@ -23,16 +23,10 @@ public class Reglement extends Don{
 		super();
 	}
 
-	public Reglement(double montant, String dateReglement, String modeReglement) {
-		super();
-		this.montant = montant;
-		this.dateReglement = dateReglement;
-		this.modeReglement = modeReglement;
-	}
 
 	public Reglement(String date_planifiee, boolean estAcceptee, boolean estSupprimee, String visibilite,
-			double montant2, String date_reglement, String mode_reglement) {
-		super(date_planifiee, estAcceptee, estSupprimee, visibilite);
+			double montant2, String date_reglement, String mode_reglement, boolean vu) {
+		super(date_planifiee, estAcceptee, estSupprimee, visibilite, vu);
 		this.montant = montant2;
 		this.dateReglement = date_reglement;
 		this.modeReglement = mode_reglement;

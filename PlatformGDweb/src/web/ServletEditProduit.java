@@ -15,15 +15,14 @@ import metier.entities.Besoin;
 import metier.entities.Categorie;
 import metier.entities.Produit;
 import metier.entities.UniteDeMesure;
-import metier.session.GestBesoinLocal;
-import metier.session.GestBesoinRemote;
+import metier.session.PlatformGDLocal;
 
 @WebServlet("/editProduit")
 public class ServletEditProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private GestBesoinLocal dao;
+	private PlatformGDLocal dao;
 	
 
 	

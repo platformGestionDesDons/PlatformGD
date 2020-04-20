@@ -27,6 +27,7 @@ public class AccepterDonServlet  extends HttpServlet{
         if(!code_accept_don_nature.equals(null)) {
         	DonEnNature don = metier.getDonEnNatureById(code_accept_don_nature);
         	don.setEstAccepte(true);
+        	
         	metier.updateDonEnNature(don);
         	req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
         } else if (!code_accept_don_reglement.equals(null)) {

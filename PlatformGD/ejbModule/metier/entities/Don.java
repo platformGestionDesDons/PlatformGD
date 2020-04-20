@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -35,22 +36,23 @@ public class Don implements Serializable{
 	private String visibilite;
 	private boolean vu;
 	
-	@OneToOne( cascade = CascadeType.ALL )
+	@ManyToOne
 	private Utilisateur donnateur;
 	@OneToOne( cascade = CascadeType.ALL )
 	private PhotoDon photoDon;
-	@OneToOne( cascade = CascadeType.ALL )
+	@ManyToOne
 	private Etablissement etablissement;
 	
 	
 	public Don() {
 	}
-	public Don(String datePlanifiee, boolean estAccepte, boolean estSupprime, String visibilite) {
+	public Don(String datePlanifiee, boolean estAccepte, boolean estSupprime, String visibilite, boolean vu) {
 		this.id_don = UUID.randomUUID().toString();
 		DatePlanifiee = datePlanifiee;
 		this.estAccepte = estAccepte;
 		this.estSupprime = estSupprime;
 		this.visibilite = visibilite;
+		this.vu = vu;
 	}
 	
 	public Don(String datePlanifiee, String visibilite) {

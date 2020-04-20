@@ -18,8 +18,8 @@
 							besoin </label> <select id="new_fund_type" name="nom_produit"
 							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
-									<c:forEach items="${besoin}" var="b">
-										<option value="${b.nom_besoin}">${b.nom_besoin}</option>
+									<c:forEach items="${besoin_etab}" var="b">
+										<option value="${b.getProduit().getLibelle()}">${b.getProduit().getLibelle()}</option>
 									</c:forEach>
 								</div></select>
 					</div>
@@ -66,10 +66,20 @@
 								</div></select>
 					</div>
 					<div class="form-group">
-						<form method="POST" action="${pageContext.request.contextPath}/don_en_nature" enctype="multipart/form-data">
-							File: <input type="file" name="file" id="file" /> <input
-								type="submit" value="Upload" name="upload" id="upload" />
-						</form>
+						<label class="control-label required" for="new_fund_name">Nom
+							Fournisseur</label> <select id="new_fund_type" name="nom_produit"
+							class="form-control"><option value="30">
+								<div class="cha9a9a-title text-center pad-5">
+									<c:forEach items="${fournisseur}" var="b">
+										<option value="${b.getIdF()}">${b.getLibelle()}</option>
+									</c:forEach>
+								</div></select>
+					</div>
+					<div class="form-group">
+						<label class="control-label required" for="photos">Ajouter
+							des photos</label>
+						<!-- 		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>	 -->
+						<input type="file" name="file" multiple />
 					</div>
 					<button class="btn btn-default btn-block" type="submit"
 						name="action" value="Faire un don en nature">

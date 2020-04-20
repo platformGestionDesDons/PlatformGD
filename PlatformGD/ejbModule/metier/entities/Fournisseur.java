@@ -1,6 +1,7 @@
 package metier.entities;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Fournisseur
 	
 	@ManyToMany
 	@JoinTable(name="produit_fournisseur")
-	private Collection<Produit> produits;
+	private List<Produit> produits;
 	
 	public Fournisseur() {
 		super();
@@ -73,10 +74,10 @@ public class Fournisseur
 	public void setNumTelF(long numTelF) {
 		this.numTelF = numTelF;
 	}
-	public Collection<Produit> getProduits() {
+	public List<Produit> getProduits() {
 		return produits;
 	}
-	public void setProduits(Collection<Produit> produits) {
+	public void setProduits(List<Produit> produits) {
 		this.produits = produits;
 	}
 	public String getGouvernorat() {

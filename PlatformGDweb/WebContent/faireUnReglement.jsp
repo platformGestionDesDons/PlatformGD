@@ -1,9 +1,9 @@
 <%@ include file="__header.jsp"%>
- <div class="page-header">
-        <div class="container">
-            <h3 class="title text-center">Créer votre Don</h3>
-        </div>
-    </div>
+<div class="page-header">
+	<div class="container">
+		<h3 class="title text-center">Créer votre Don</h3>
+	</div>
+</div>
 <section class="page-section light-bg">
 
 	<div class="container">
@@ -21,30 +21,27 @@
 						<label class="control-label required" for="new_fund_name">Voulez
 							vous afficher votre nom avec les listes des donnateurs ?</label> <span
 							class="required text-danger form-asterisk"
-							title="Ce champ est requis">*</span> 
-						<select id="new_fund_type"
+							title="Ce champ est requis">*</span> <select id="new_fund_type"
 							name="visibilite" class="form-control">
-								<div class="cha9a9a-title text-center pad-5">
-									<option value="OUI">OUI</option>
-									<option value="NON">NON</option>
-								</div>
+							<div class="cha9a9a-title text-center pad-5">
+								<option value="OUI">OUI</option>
+								<option value="NON">NON</option>
+							</div>
 						</select>
 					</div>
 					<div class="form-group">
-						<label class="control-label required" for="new_fund_name">Date de reglement
-							</label> <input type="text" id="new_fund_name" name="date_reglement"
-							class="form-control" />
+						<label class="control-label required" for="new_fund_name">Date
+							de reglement </label> <input type="text" id="new_fund_name"
+							name="date_reglement" class="form-control" />
 					</div>
 					<div class="form-group">
-						<label class="control-label required" for="new_fund_name">Mode de reglement</label>
-						<select id="new_fund_type"
-							name="mode_reglement" class="form-control"><option
-								value="30">
+						<label class="control-label required" for="new_fund_name">Mode
+							de reglement</label> <select id="new_fund_type" name="mode_reglement"
+							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
 									<option value="Cheque">Cheque</option>
 									<option value="Virement bancaire">Virement bancaire</option>
-								</div>
-						</select>
+								</div></select>
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">
@@ -53,18 +50,21 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
-							Bénéficiaire</label>
-							<select id="new_fund_type"
-							name="nom_produit" class="form-control"><option
-								value="30">
+							Bénéficiaire</label> <select id="new_fund_type" name="nom_produit"
+							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
 									<c:forEach items="${beneficiaire}" var="b">
 										<option value="${b.idEtablissement}">${b.nomEtablissement}</option>
 									</c:forEach>
-								</div>
-						</select>
-					</div>
+								</div></select>
 
+					</div>
+					<div class="form-group">
+						<label class="control-label required" for="photos">Ajouter
+							des photos</label>
+						<!-- 		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>	 -->
+						<input type="file" name="file" multiple />
+					</div>
 					<button class="btn btn-default btn-block" type="submit"
 						name="action" value="Faire un don reglement">Faire un don</button>
 

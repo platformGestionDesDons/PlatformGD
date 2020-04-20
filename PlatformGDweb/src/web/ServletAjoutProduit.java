@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import metier.entities.Categorie;
 import metier.entities.UniteDeMesure;
-import metier.session.GestBesoinLocal;
+import metier.session.PlatformGDLocal;
 
 
 @WebServlet("/ajoutProduit")
@@ -21,7 +21,7 @@ public class ServletAjoutProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private GestBesoinLocal dao;
+	private PlatformGDLocal dao;
 	
 
 	

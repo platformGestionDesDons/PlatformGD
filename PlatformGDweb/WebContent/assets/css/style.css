@@ -269,7 +269,7 @@ a {
 }
 
 a:visited {
-    color: #171717;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -407,7 +407,12 @@ section,
     margin: 0 auto;
     max-width: 1200px;
 }
-
+.row-modified{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-flow: row wrap;
+}
 .page-section {
     /*padding: 75px 0;*/
     padding: 35px 0;
@@ -1425,16 +1430,25 @@ i.fa-1x {
     min-height: unset;
 
 }
+.light-bg-new{
+    background-image: url('https://news.gnet.tn/wp-content/uploads/2020/01/coronavirus.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
 
+}
 /* Overlay */
 .overlay {
-    background: #000;
+    background-image: url('https://news.gnet.tn/wp-content/uploads/2020/01/coronavirus.jpg');
+    /*background-image:url('https://lh3.googleusercontent.com/proxy/DeciTg_P6Yq200GenSkzxlfri_lv6KpaVwumTwXr0hb18r7-b_hWgQ3khxvPF5ciDoBZSHtfI2SqNAoXBRVv3cEI7kt7Z9MhVmwkHrn161CcozV5QAh9lO_eNdcg-BDk');*/
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    opacity: 0.4;
+    opacity: 0.8;
     width: 100%;
 }
 
@@ -2034,11 +2048,12 @@ p.tp-caption.button-block a {
 }
 
 .tp-caption a {
-    color: #000;
+    color: #fff;
 }
 
 .tp-caption a:hover {
     color: #fff;
+    
 }
 
 .rs-slider ul {
@@ -4509,7 +4524,7 @@ ul.tags li {
 }
 
 .widget a:hover {
-    color: #000;
+    color: #000000;
     -webkit-transition: color .2s linear;
     transition: color .2s linear;
 }
@@ -8350,7 +8365,8 @@ ul.tags li {
 }
 
 .top-pad-20 {
-    padding-top: 20px;
+    padding-top: 50px;
+    margin-top: 50px;
 }
 
 .top-pad-30 {

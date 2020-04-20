@@ -1,6 +1,7 @@
 package metier.entities;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -37,7 +38,7 @@ public class Produit
 
 	@ManyToMany(mappedBy = "produits", cascade = CascadeType.ALL )
 	
-	private Collection<Fournisseur> fournisseurs;
+	private List<Fournisseur> fournisseurs;
 
 
 	
@@ -106,12 +107,12 @@ public class Produit
 	}
 
 
-	public Collection<Fournisseur> getFournisseurs() {
+	public List<Fournisseur> getFournisseurs() {
 		return fournisseurs;
 	}
 
 
-	public void setFournisseurs(Collection<Fournisseur> fournisseurs) {
+	public void setFournisseurs(List<Fournisseur> fournisseurs) {
 		this.fournisseurs = fournisseurs;
 	}
 

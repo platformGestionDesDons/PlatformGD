@@ -44,48 +44,61 @@
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">code besoin</span></strong>
+								<strong><span class="text-color">Besoin</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Nom besoin</span></strong>
+								<strong><span class="text-color">Date besoin</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">quantite initiale</span></strong>
+								<strong><span class="text-color">Quantite
+										Initiale</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Quantite restante</span></strong>
+								<strong><span class="text-color">Quantite
+										Restante</span></strong>
 							</div>
-							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
-								<strong><span class="text-color">Etat</span></strong>
+							<div
+								class="col-xs-1 col-sm-1 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Motif</span></strong>
+							</div>
+							<div
+								class="col-xs-1 col-sm-1 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Priorité</span></strong>
 							</div>
 						</div>
 						<hr class="margin-20">
-						<c:forEach items="${besoin}" var="b">
-						<div class="row">
-							<div class="col-xs-2 col-sm-2 text-center">
-								<img src="uploads/images/bavette.jpg"
-									alt="Makers Against Corona (Masques pour l&#039;équipe medicale)"
-									title="Makers Against Corona (Masques pour l&#039;équipe medicale)">
+						<c:forEach items="${besoin_etab}" var="b">
+							<div class="row">
+								<div class="col-xs-2 col-sm-2 text-center">
+									<img src="uploads/images/bavette.jpg"
+										alt="Makers Against Corona (Masques pour l&#039;équipe medicale)"
+										title="Makers Against Corona (Masques pour l&#039;équipe medicale)">
+								</div>
+								<div class="col-xs-2 col-sm-2 text-center">
+									<h5>
+										<a href="produit?idProduit=${b.getProduit().getIdProduit()}">${b.getProduit().getLibelle()}</a>
+									</h5>
+								</div>
+								<div class="col-xs-2 col-sm-2 text-center">
+									<h5>${b.getDateBesoin()}</h5>
+								</div>
+								<div class="col-xs-2 col-sm-2 text-center">
+									<h5>${b.getQuantiteInitiale()}</h5>
+								</div>
+								<div class="col-xs-2 col-sm-2 text-center">
+									<h5>${b.getQuantiteRestante()}</h5>
+								</div>
+								<div class="col-xs-1 col-sm-1 text-center">
+									<h5>${b.getMotif()}</h5>
+								</div>
+								<div class="col-xs-1 col-sm-1 text-center">
+									<h5>${b.getPriorite()}</h5>
+								</div>
 							</div>
-							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.idBesoin}</h5>
-							</div>
-							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.priorite}</h5>
-							</div>
-							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.quantiteInitiale}</h5>
-							</div>
-							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.quantiteRestante}</h5>
-							</div>
-							<div class="col-xs-2 col-sm-2 text-center">
-								<h5>${b.motif}</h5>
-							</div>
-						</div>
+							<hr class="margin-20">
 						</c:forEach>
 						<hr class="margin-20">
 						<div class="row">
@@ -122,48 +135,73 @@
 							</div>
 						</div>
 						<hr class="margin-20">
+						
 						<div class="row">
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>Donnateur 1</h5>
-							</div>
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>Bavettes</h5>
-							</div>
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>500 Unités</h5>
-							</div>
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>01-04-2020</h5>
+							<div class="col-md-12 text-center top-pad-20">
+								<div>
+									<a href="#"
+										class="btn btn-box btn-default fs20 pad-20 animated fadeInDown visible"
+										style="min-width: 240px;" data-animation="fadeInDown">Voir
+										plus</a>
+								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+				<div class="form-box-cha9a9a top-margin-20"
+					style="padding: 10px !important;">
+					<div class="container">
+						<h1>Listes des Fournisseurs</h1>
 						<div class="row">
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>Donnateur 2</h5>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Libelle
+										Fournisseur</span></strong>
 							</div>
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>Gel désinfectant</h5>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Adresse</span></strong>
 							</div>
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>100L</h5>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Code Postal</span></strong>
 							</div>
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>02-04-2020</h5>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">E mail</span></strong>
+							</div>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Gouvernorat</span></strong>
+							</div>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Numéro de Tel</span></strong>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>Anonyme</h5>
+						<hr class="margin-20">
+						<c:forEach items="${fournisseur}" var="b">
+							<div class="row">
+								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
+									<h5>${b.getLibelle()}</h5>
+								</div>
+								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
+									<h5>${b.getAdresseF()}</h5>
+								</div>
+								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
+									<h5>${b.getCodePostal()}</h5>
+								</div>
+								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
+									<h5>${b.getEmailF()}</h5>
+								</div>
+								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
+									<h5>${b.getGouvernorat()}</h5>
+								</div>
+								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
+									<h5>${b.getNumTelF()}</h5>
+								</div>
 							</div>
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>Javel</h5>
-							</div>
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>100L</h5>
-							</div>
-							<div class="col-xs-3 col-sm-3 text-center">
-								<h5>02-04-2020</h5>
-							</div>
-						</div>
+						</c:forEach> 
 						<hr class="margin-20">
 						<div class="row">
 							<div class="col-md-12 text-center top-pad-20">
