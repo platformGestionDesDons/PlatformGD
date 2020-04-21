@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import metier.entities.Besoin;
 import metier.entities.DonEnNature;
 import metier.entities.Reglement;
 import metier.session.PlatformGDLocal;
@@ -27,7 +28,11 @@ public class AccepterDonServlet  extends HttpServlet{
         if(!code_accept_don_nature.equals(null)) {
         	DonEnNature don = metier.getDonEnNatureById(code_accept_don_nature);
         	don.setEstAccepte(true);
-        	
+        	String id_besoin = don.getBesoin().getIdBesoin();
+        	Besoin besoin = metier.getBesoinById(id_besoin);
+        	besoin.setEtat("en cours");
+        	besoin.setQuantiteRestante(besoin.getQuantiteInitiale() - don.getQuantite());
+        	metier.updateBesoin(besoin);
         	metier.updateDonEnNature(don);
         	req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
         } else if (!code_accept_don_reglement.equals(null)) {

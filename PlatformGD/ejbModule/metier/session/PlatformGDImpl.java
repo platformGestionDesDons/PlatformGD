@@ -425,21 +425,31 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 //	}
 	
 	
-	
 	@Override
+	public void ajouteUtilisateur(Utilisateur utilisateur)
+	{
+		if(!utilisateur.equals(null))
+			em.persist(utilisateur);
+	}
+	/*@Override
 	public String ajouteUtilisateur(Utilisateur utilisateur) {
 
 		em.persist(utilisateur);
 		em.flush();
 		return utilisateur.getIdut();
-	}
-
+	}*/
 	@Override
+	public void ajouteadresse(Adresse adresse)
+	{
+		if(!adresse.equals(null))
+			em.persist(adresse);
+	}
+	/*@Override
 	public String ajouteadresse(Adresse adresse) {
 		em.persist(adresse);
 		em.flush();
 		return adresse.getIdAdresse();
-	}
+	}*/
 
 	@Override
 	public String ajoutereclamation(Reclamation reclamation) {
@@ -447,13 +457,18 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		em.flush();
 		return reclamation.getCodeReclamation();
 	}
-
 	@Override
+	public void ajoutetelephone(Telephone telephone)
+	{
+		if(!telephone.equals(null))
+			em.persist(telephone);
+	}
+	/*@Override
 	public String ajoutetelephone(Telephone telephone) {
 		em.persist(telephone);
 		em.flush();
 		return telephone.getIdTel();
-	}
+	}*/
 
 	@Override
 	public void deleteUtilisateur(Utilisateur utilisateur) {
@@ -558,15 +573,20 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 				.setParameter(1, l2).setParameter(2, l3).executeUpdate();
 	
 	}
-
 	@Override
+	public void ajouteetablissement(Etablisement etablisement)
+	{
+		if(!etablisement.equals(null))
+			em.persist(etablisement);
+	}
+	/*@Override
 	public String ajouteetablissement(Etablisement etablisement) {
 		em.persist(etablisement);
 		em.flush();
 		return etablisement.getIdEtablissement();
-	}
-
-	@Override
+	}*/
+	
+	/*@Override
 	public void ajouteadresseEtablissement(String l1, String l2, String l3, String l4, String l5) {
 		em.createNativeQuery("INSERT INTO t_etablissement_utilisateur(IdEtablissement, idut) VALUES (?,?)")
 				.setParameter(1, l5).setParameter(2, l1).executeUpdate();
@@ -586,7 +606,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 //		req3.executeUpdate();
 		
 		
-	}
+	}*/
 
 	public Utilisateur authentification_Utilisateur(String email) {
 		try {

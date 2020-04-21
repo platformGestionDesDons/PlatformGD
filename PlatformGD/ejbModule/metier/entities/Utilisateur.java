@@ -48,15 +48,15 @@ public class Utilisateur implements Serializable {
 	private Collection<Reclamation> reclamations;
 
 	@ManyToOne
-	@JoinTable(name = "T_UTILISATEU_ADRESSE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "idAdresse"))
+	//@JoinTable(name = "T_UTILISATEU_ADRESSE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "idAdresse"))
 	private Adresse adresse;
 
 	@OneToMany
-	@JoinTable(name = "T_UTILISATEUR_TELEPHONE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
+	//@JoinTable(name = "T_UTILISATEUR_TELEPHONE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
 	private Collection<Telephone> telephone;
 
 	@OneToMany
-	@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
+	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
 	private Collection<Etablisement> etablisements;
 	
 	@OneToMany(mappedBy="utilisateur", fetch = FetchType.EAGER)

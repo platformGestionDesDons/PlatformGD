@@ -48,7 +48,21 @@ public class DaoManagement {
 			return false;
 		}
 	}
-	public String ajouteUtilisateur(Utilisateur utilisateur) {
+	public void ajouteUtilisateur(Utilisateur utilisateur) {
+		MessageDigest digest = null;
+		try {
+			digest = MessageDigest.getInstance("SHA-256");
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		byte[] hash = digest.digest(utilisateur.getMdp().getBytes(StandardCharsets.UTF_8));
+		String hashedPassword = Base64.getEncoder().encodeToString(hash);
+		utilisateur.setMdp(hashedPassword);
+		gestionCommandeBean.ajouteUtilisateur(utilisateur);
+	}
+	/*public String ajouteUtilisateur(Utilisateur utilisateur) {
 		MessageDigest digest = null;
 		try {
 			digest = MessageDigest.getInstance("SHA-256");
@@ -61,5 +75,5 @@ public class DaoManagement {
 		String hashedPassword = Base64.getEncoder().encodeToString(hash);
 		utilisateur.setMdp(hashedPassword);
 		return gestionCommandeBean.ajouteUtilisateur(utilisateur);
-	}
+	}*/
 }

@@ -63,6 +63,8 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 			
 			Besoin besoin = metier.getBesoinById(id_besoin);
 			Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
+			//Utilisateur donnateur = metier.findUtilisateurById(idut);
+			//don_en_nature.setUtilisateur(donnateur);
 			don_en_nature.setBesoin(besoin);
 			don_en_nature.setEtablissement(beneficiaire);
 			

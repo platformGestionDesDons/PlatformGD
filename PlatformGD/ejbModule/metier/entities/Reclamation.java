@@ -52,6 +52,7 @@ public class Reclamation implements Serializable {
 	}
 	private String reclamation;
 	private boolean estTraitee;
-	@ManyToOne @JoinColumn(name="idut", nullable=false)
+	@ManyToOne 
+	//@JoinColumn(name="idut", nullable=false)
 	private Utilisateur utilisateur;
 }

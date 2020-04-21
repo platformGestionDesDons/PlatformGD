@@ -37,16 +37,12 @@ public class Telephone implements Serializable {
 	
 	
 	@OneToMany  
-    @JoinTable( name = "T_UTILISATEUR_TELEPHONE",
-                joinColumns = @JoinColumn( name = "IdTel" ),
-                inverseJoinColumns = @JoinColumn( name = "idut" ) )
+    //@JoinTable( name = "T_UTILISATEUR_TELEPHONE",joinColumns = @JoinColumn( name = "IdTel" ),inverseJoinColumns = @JoinColumn( name = "idut" ) )
  
 	private Collection<Utilisateur> utilisateurs;
 	
 	@ManyToOne  
-    @JoinTable( name = "T_TELEPHONE_ETABLISSEMENT",
-                joinColumns = @JoinColumn( name = "IdTel" ),
-                inverseJoinColumns = @JoinColumn( name = "IdEtablissement" ) ) 
+    //@JoinTable( name = "T_TELEPHONE_ETABLISSEMENT",joinColumns = @JoinColumn( name = "IdTel" ),inverseJoinColumns = @JoinColumn( name = "IdEtablissement" ) ) 
 	private Telephone telephone;
 	
 	public String getIdTel() {

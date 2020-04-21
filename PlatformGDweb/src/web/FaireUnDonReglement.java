@@ -56,6 +56,9 @@ public class FaireUnDonReglement extends HttpServlet{
 			Etablisement beneficiaire = metier.findetablissement(id_beneficiaire);
 			reglement.setEtablissement(beneficiaire);
 			
+//			Utilisateur donnateur = metier.findUtilisateurById(idut);
+//			reglement.setUtilisateur(donnateur);
+			
 			PhotoDon photoDon = new PhotoDon();
 			 
 			 List<Photo> photos = new ArrayList<Photo>();

@@ -1,6 +1,10 @@
 package web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.ejb.EJB;
@@ -66,17 +70,24 @@ public class InscriptionEtablissement extends HttpServlet {
 			utilisateur.setEtatDecompte(true);
 
 			DaoManagement daoManagement = new DaoManagement();
-
+			
+//////////////////////////////////////////////////////////////////////////
+			List<Telephone> collection_tel = new ArrayList<Telephone>();
+			
 			String Tel = request.getParameter("input6");
 			Telephone telephone = new Telephone();
-
 			telephone.setNumero(Tel);
+			collection_tel.add(telephone);
+			//String id_tel = telephone.getIdTel();
 
 			String FAX = request.getParameter("input10");
 			Telephone fax = new Telephone();
-
-			telephone.setNumero("Fax:" + FAX);
-
+			fax.setNumero("Fax:" + FAX);
+			collection_tel.add(fax);
+			//String id_tel_fax = fax.getIdTel();
+////////////////////////////////////////////////////////////////////////
+			List<Adresse> collection_adresse = new ArrayList<Adresse>();
+			
 			String c1 = request.getParameter("input7");
 			String c2 = request.getParameter("input8");
 			String c3 = request.getParameter("input9");
@@ -85,7 +96,9 @@ public class InscriptionEtablissement extends HttpServlet {
 			adresse.setGouvernorat(c1);
 			adresse.setCodePostale(Integer.parseInt(c3));
 			adresse.setAdresse(c2);
-
+			
+			collection_adresse.add(adresse);
+//////////////////////////////////////////////////////////////////////
 			String NomEtab = request.getParameter("input11");
 			String type = request.getParameter("input12");
 			String labellee = request.getParameter("input13");
@@ -107,12 +120,21 @@ public class InscriptionEtablissement extends HttpServlet {
 //					&& Pattern.matches("[a-zA-Z 0-9]", password)
 //					&& email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
 				if (metier.veriff(email) == false) {
-					String l1 = daoManagement.ajouteUtilisateur(utilisateur);
-					String l2 = metier.ajoutetelephone(telephone);
-					String l3 = metier.ajoutetelephone(fax);
-					String l4 = metier.ajouteadresse(adresse);
-					String l5 = metier.ajouteetablissement(etablisement);
-					metier.ajouteadresseEtablissement(l1, l2, l3, l4, l5);
+					metier.ajouteadresse(adresse);
+					metier.ajoutetelephone(telephone);
+					metier.ajoutetelephone(fax);
+					daoManagement.ajouteUtilisateur(utilisateur);
+					etablisement.setAdresses(collection_adresse);
+					etablisement.setTelephones(collection_tel);
+					etablisement.setUtilisateur(utilisateur);
+					
+					metier.ajouteetablissement(etablisement);
+//					String l1 = daoManagement.ajouteUtilisateur(utilisateur);
+//					String l2 = metier.ajoutetelephone(telephone);
+//					String l3 = metier.ajoutetelephone(fax);
+//					String l4 = metier.ajouteadresse(adresse);
+//					String l5 = metier.ajouteetablissement(etablisement);
+//					metier.ajouteadresseEtablissement(l1, l2, l3, l4, l5);
 				} else {
 					request.setAttribute("erreur", "adresse email existe");
 //				}

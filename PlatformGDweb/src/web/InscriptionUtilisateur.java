@@ -1,6 +1,8 @@
 package web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.ejb.EJB;
@@ -67,10 +69,13 @@ public class InscriptionUtilisateur extends HttpServlet {
 			DaoManagement daoManagement = new DaoManagement();
 
 			System.out.print("************************************************************************");
-
+			
+			List<Telephone> liste_telephone = new ArrayList<Telephone>();
+			
 			String Tel = request.getParameter("input61");
 			Telephone telephone = new Telephone();
 			telephone.setNumero(Tel);
+			liste_telephone.add(telephone);
 			System.out.println("********************************************************************");
 
 			String c1 = request.getParameter("input71");
@@ -90,10 +95,15 @@ public class InscriptionUtilisateur extends HttpServlet {
 //					&& Pattern.matches("[a-zA-Z 0-9]", password)
 //					&& email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
 				if (metier.veriff(email) == false) {
-					String l3 = daoManagement.ajouteUtilisateur(utilisateur);
-					String l1 = metier.ajoutetelephone(telephone);
-					String l2 = metier.ajouteadresse(adresse);
-					metier.ajout_ut_tel(l1, l2, l3);
+					metier.ajouteadresse(adresse);
+					metier.ajoutetelephone(telephone);
+					utilisateur.setAdresse(adresse);
+					utilisateur.setTelephone(liste_telephone);
+//					String l3 = daoManagement.ajouteUtilisateur(utilisateur);
+//					String l1 = metier.ajoutetelephone(telephone);
+//					String l2 = metier.ajouteadresse(adresse);
+					//metier.ajout_ut_tel(l1, l2, l3);
+					daoManagement.ajouteUtilisateur(utilisateur);
 				} else {
 					request.setAttribute("erreur", "adresse email existe");
 				

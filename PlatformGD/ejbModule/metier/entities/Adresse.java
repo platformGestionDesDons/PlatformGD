@@ -32,11 +32,11 @@ public class Adresse implements Serializable {
 	private int codePostale;
 
 	@OneToMany
-	@JoinTable(name = "T_UTILISATEU_ADRESSE", joinColumns = @JoinColumn(name = "idAdresse"), inverseJoinColumns = @JoinColumn(name = "idut"))
+	//@JoinTable(name = "T_UTILISATEU_ADRESSE", joinColumns = @JoinColumn(name = "idAdresse"), inverseJoinColumns = @JoinColumn(name = "idut"))
 	private Collection<Utilisateur> utilisateurs;
 
 	@ManyToOne
-	@JoinTable(name = "T_ETABLISSEMENT_ADRESSE", joinColumns = @JoinColumn(name = "idAdresse"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
+	//@JoinTable(name = "T_ETABLISSEMENT_ADRESSE", joinColumns = @JoinColumn(name = "idAdresse"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
 	private Etablisement etablisement;
 
 	public String getIdAdresse() {

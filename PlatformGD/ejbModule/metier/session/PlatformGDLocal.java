@@ -91,13 +91,17 @@ public interface PlatformGDLocal {
 	
 	
 	// l'ajout
-
-		public String ajouteUtilisateur(Utilisateur utilisateur);
-		public String ajouteadresse(Adresse adresse);
-		public void ajouteadresseEtablissement(String l1 ,String l2 ,String l3 ,String l4, String l5 );
-		public String ajouteetablissement(Etablisement etablisement);
+		public void ajouteUtilisateur(Utilisateur utilisateur);
+		//public String ajouteUtilisateur(Utilisateur utilisateur);
+		//public String ajouteadresse(Adresse adresse);
+		public void ajouteadresse(Adresse adresse);
+		//public void ajouteadresseEtablissement(List<Adresse> liste_adresses);
+		//public void ajouteadresseEtablissement(String l1 ,String l2 ,String l3 ,String l4, String l5 );
+		public void ajouteetablissement(Etablisement etablisement);
+		//public String ajouteetablissement(Etablisement etablisement);
 		public String ajoutereclamation(Reclamation reclamation);
-		public String ajoutetelephone(Telephone telephone);
+		public void ajoutetelephone(Telephone telephone);
+		//public String ajoutetelephone(Telephone telephone);
 		public void ajout_ut_tel(String l1, String l2, String l3);
 		public Utilisateur authentification_Utilisateur(String email );
 		public Etablisement verification_du_compte(Utilisateur utilisateur);

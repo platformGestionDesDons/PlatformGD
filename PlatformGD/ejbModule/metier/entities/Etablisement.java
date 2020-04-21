@@ -79,15 +79,15 @@ public class Etablisement implements Serializable {
 	
 
 	@OneToMany
-	@JoinTable(name = "T_ETABLISSEMENT_ADRESSE", joinColumns = @JoinColumn(name = "IdEtablissement"), inverseJoinColumns = @JoinColumn(name = "idAdresse"))
+	//@JoinTable(name = "T_ETABLISSEMENT_ADRESSE", joinColumns = @JoinColumn(name = "IdEtablissement"), inverseJoinColumns = @JoinColumn(name = "idAdresse"))
 	private Collection<Adresse> adresses;
 
 	@OneToMany
-	@JoinTable(name = "T_TELEPHONE_ETABLISSEMENT", joinColumns = @JoinColumn(name = "IdEtablissement"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
+	//@JoinTable(name = "T_TELEPHONE_ETABLISSEMENT", joinColumns = @JoinColumn(name = "IdEtablissement"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
 	private Collection<Telephone> telephones;
 
 	@ManyToOne
-	@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
+	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
 	private Utilisateur utilisateur;
 
 	public String getNomEtablissement() {
