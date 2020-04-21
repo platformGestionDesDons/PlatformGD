@@ -43,7 +43,7 @@ public class ServletProduits extends HttpServlet {
 		double prixMin =Double.parseDouble(request.getParameter("prixMin"));
 		double prixMax= Double.parseDouble(request.getParameter("prixMax"));
 		String idUnite=request.getParameter("udm");
-		int idC = Integer.parseInt(request.getParameter("categorie"));
+		String idC = request.getParameter("categorie");
 		
 		Produit p = new Produit( libelle, description,  prixMax, prixMin );
 				

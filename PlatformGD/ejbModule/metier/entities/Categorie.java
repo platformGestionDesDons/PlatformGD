@@ -1,11 +1,10 @@
 package metier.entities;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -17,8 +16,8 @@ import javax.persistence.Table;
 
 public class Categorie 
 {
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int idC;
+	@Id 
+	private String idC;
 	private String libelle;
 	
 	@OneToMany(mappedBy="categorie", fetch = FetchType.EAGER)
@@ -30,12 +29,13 @@ public class Categorie
 	}
 	public Categorie(String libelle) {
 		super();
+		this.idC = UUID.randomUUID().toString();
 		this.libelle = libelle;
 	}
-	public int getIdC() {
+	public String getIdC() {
 		return idC;
 	}
-	public void setIdC(int idC) {
+	public void setIdC(String idC) {
 		this.idC = idC;
 	}
 	public String getLibelle() {
@@ -53,3 +53,4 @@ public class Categorie
 	
 	
 }
+

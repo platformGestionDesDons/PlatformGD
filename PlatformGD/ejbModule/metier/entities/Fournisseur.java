@@ -1,6 +1,5 @@
 package metier.entities;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 import javax.persistence.Entity;

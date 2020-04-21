@@ -345,7 +345,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 
 	@Override
-	public List<Produit> getProduitByCategorie(int idc) {
+	public List<Produit> getProduitByCategorie(String idc) {
 		
 		TypedQuery<Produit> q = (TypedQuery<Produit>) 
 				em.createNamedQuery("Produit.findAll",Produit.class);
@@ -392,7 +392,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 
 	@Override
-	public Categorie getCategorieById(int idC) 
+	public Categorie getCategorieById(String idC) 
 	{
 		Categorie categorie = em.find(Categorie.class, idC);
 		return categorie;

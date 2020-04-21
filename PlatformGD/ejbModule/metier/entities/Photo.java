@@ -3,7 +3,6 @@ package metier.entities;
 import javax.persistence.Entity;
 
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Photo 
@@ -11,8 +10,6 @@ public class Photo
 	@Id 
 	private String idP;
 
-//	@ManyToOne
-//	private PhotoBesoin photoBesoin;
 	
 	public String getIdP() {
 		return idP;

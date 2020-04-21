@@ -82,7 +82,7 @@ public class PlatformGDService {
 	public UniteDeMesure getUniteDeMesureById(String idU) {
 		return metier.getUniteDeMesureById(idU);
 	}
-	public Categorie getCategorieById(int idC) {
+	public Categorie getCategorieById(String idC) {
 		return metier.getCategorieById(idC);
 	}
 	public Besoin getBesoinById(String idB) {
@@ -106,7 +106,7 @@ public class PlatformGDService {
 	public List<Fournisseur> getAllFournisseur() {
 		return metier.getAllFournisseur();
 	}
-	public List<Produit> getProduitByCategorie(int idc) {
+	public List<Produit> getProduitByCategorie(String idc) {
 		return metier.getProduitByCategorie(idc);
 	}
 	public List<Produit> getProduitByFounisseur(String idF) {

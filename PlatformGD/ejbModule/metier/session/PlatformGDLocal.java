@@ -73,7 +73,7 @@ public interface PlatformGDLocal {
 	
 	public Produit getProduitById(String idP);
 	public UniteDeMesure getUniteDeMesureById(String idU);
-	public Categorie getCategorieById(int idC);
+	public Categorie getCategorieById(String idC);
 	public Besoin getBesoinById(String idB);
 	public Fournisseur getFournisseurById(String idF);
 	
@@ -84,7 +84,7 @@ public interface PlatformGDLocal {
 	public List<UniteDeMesure> getAllUniteDeMesure();
 	public List<Fournisseur> getAllFournisseur();
 	
-	public List<Produit> getProduitByCategorie(int idc);
+	public List<Produit> getProduitByCategorie(String idc);
 	public List<Produit> getProduitByFounisseur(String idF);
 	public List<Fournisseur> getFournisseurByProduit(String idP);
 	
