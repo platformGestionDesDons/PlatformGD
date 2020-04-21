@@ -24,9 +24,11 @@ import javax.servlet.http.Part;
 import metier.entities.Besoin;
 import metier.entities.Categorie;
 import metier.entities.DonEnNature;
+import metier.entities.Etablisement;
 import metier.entities.Photo;
 import metier.entities.PhotoBesoin;
 import metier.entities.PhotoDon;
+import metier.entities.Utilisateur;
 import metier.session.PlatformGDLocal;
 
 @WebServlet(urlPatterns = { "/don_en_nature" })
@@ -49,13 +51,20 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");
 		if (action.equals("Faire un don en nature")) {
+			String id_besoin = req.getParameter("b");
 			String date_planifiee = req.getParameter("date_planifiee");
 			String visibilite = req.getParameter("visibilite");
-			String nom_produit = req.getParameter("nom_produit");
+			String id_beneficiaie = req.getParameter("bene");
 			double prix_totale = Double.parseDouble(req.getParameter("prix_totale"));
 			int quantite = Integer.parseInt(req.getParameter("quantite"));
+			//String id_fournisseur = req.getParameter("c");
 			
-			DonEnNature don_en_nature = new DonEnNature(date_planifiee, false, false, visibilite, prix_totale, quantite, nom_produit, false);
+			DonEnNature don_en_nature = new DonEnNature(date_planifiee, false, false, visibilite, prix_totale, quantite, false);
+			
+			Besoin besoin = metier.getBesoinById(id_besoin);
+			Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
+			don_en_nature.setBesoin(besoin);
+			don_en_nature.setEtablissement(beneficiaire);
 			
 			PhotoDon photoDon = new PhotoDon();
 			 

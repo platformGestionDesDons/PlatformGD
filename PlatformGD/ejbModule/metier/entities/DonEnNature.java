@@ -14,7 +14,6 @@ public class DonEnNature extends Don implements Serializable{
 	
 	private double prix_totale;
 	private int quantite;
-	private String nom_produit;
 	
 	
 	public DonEnNature() {
@@ -23,11 +22,10 @@ public class DonEnNature extends Don implements Serializable{
 
 
 	public DonEnNature(String date_planifiee, boolean estAcceptee, boolean estSupprimee, String visibilite,
-			double prix_totale2, int quantite2, String nom_produit2, boolean vu) {
+			double prix_totale2, int quantite2, boolean vu) {
 		super(date_planifiee, estAcceptee, estSupprimee, visibilite,vu);
 		this.prix_totale = prix_totale2;
 		this.quantite = quantite2;
-		this.nom_produit = nom_produit2;
 	}
 	public double getPrix_totale() {
 		return prix_totale;
@@ -45,12 +43,5 @@ public class DonEnNature extends Don implements Serializable{
 		this.quantite = quantite;
 	}
 
-	public String getNom_produit() {
-		return nom_produit;
-	}
-
-	public void setNom_produit(String nom_produit) {
-		this.nom_produit = nom_produit;
-	}
 	
 }

@@ -19,7 +19,7 @@ public class HomPageServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("etablissement", metier.getAllEtablissement());
+		req.setAttribute("etablissement", metier.getetablissement());
 		req.getRequestDispatcher("hom_page.jsp").forward(req, resp);
 	}
 	@Override

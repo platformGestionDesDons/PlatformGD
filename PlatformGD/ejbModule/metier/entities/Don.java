@@ -36,12 +36,17 @@ public class Don implements Serializable{
 	private String visibilite;
 	private boolean vu;
 	
+	@OneToOne
+	private Besoin besoin;
+	
 	@ManyToOne
-	private Utilisateur donnateur;
+	private Utilisateur utilisateur;
+	
 	@OneToOne( cascade = CascadeType.ALL )
 	private PhotoDon photoDon;
+	
 	@ManyToOne
-	private Etablissement etablissement;
+	private Etablisement etablissement;
 	
 	
 	public Don() {
@@ -108,23 +113,29 @@ public class Don implements Serializable{
 	public void setVu(boolean vu) {
 		this.vu = vu;
 	}
-	public Utilisateur getDonnateur() {
-		return donnateur;
-	}
-	public void setDonnateur(Utilisateur donnateur) {
-		this.donnateur = donnateur;
-	}
 	public PhotoDon getPhotoDon() {
 		return photoDon;
 	}
 	public void setPhotoDon(PhotoDon photoDon) {
 		this.photoDon = photoDon;
 	}
-	public Etablissement getEtablissement() {
+	public Etablisement getEtablissement() {
 		return etablissement;
 	}
-	public void setEtablissement(Etablissement etablissement) {
+	public void setEtablissement(Etablisement etablissement) {
 		this.etablissement = etablissement;
+	}
+	public Besoin getBesoin() {
+		return besoin;
+	}
+	public void setBesoin(Besoin besoin) {
+		this.besoin = besoin;
+	}
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 	
 	

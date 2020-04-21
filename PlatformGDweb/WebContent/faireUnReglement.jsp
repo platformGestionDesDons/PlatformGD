@@ -1,4 +1,6 @@
 <%@ include file="__header.jsp"%>
+
+<%@ include file="menu_1.jsp"%>
 <div class="page-header">
 	<div class="container">
 		<h3 class="title text-center">Créer votre Don</h3>
@@ -14,7 +16,7 @@
 					action="${pageContext.request.contextPath}/don_reglement">
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Date
-							planifiee</label> <input type="text" id="new_fund_name"
+							de réception</label> <input type="text" id="new_fund_name"
 							name="date_planifiee" class="form-control" />
 					</div>
 					<div class="form-group">
@@ -53,8 +55,8 @@
 							Bénéficiaire</label> <select id="new_fund_type" name="nom_produit"
 							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
-									<c:forEach items="${beneficiaire}" var="b">
-										<option value="${b.idEtablissement}">${b.nomEtablissement}</option>
+									<c:forEach items="${beneficiaire}" var="bene">
+										<option value="${bene.getIdEtablissement()}">${bene.getNomEtablissement()}</option>
 									</c:forEach>
 								</div></select>
 

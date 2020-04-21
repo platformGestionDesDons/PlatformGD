@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="__header.jsp" %>
+<%@ include file="menu_1.jsp"%>
 <section class="page-section light-bg">
 <div class="container">	
 

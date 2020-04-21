@@ -6,28 +6,16 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import metier.entities.Besoin;
-import metier.entities.Categorie;
-import metier.entities.Don;
-import metier.entities.DonEnNature;
-import metier.entities.Etablissement;
-import metier.entities.Fournisseur;
-import metier.entities.Photo;
-import metier.entities.PhotoBesoin;
-import metier.entities.PhotoDon;
-import metier.entities.Produit;
-import metier.entities.Reglement;
-import metier.entities.UniteDeMesure;
-import metier.entities.Utilisateur;
+import metier.entities.*;
 import java.util.List;
 import metier.session.PlatformGDLocal;
 
 @Stateless
-@WebService
 public class PlatformGDService {
 	
 	@EJB
 	private PlatformGDLocal metier;
+	
 	public void ajoutBesoin(Besoin b) {
 		metier.ajoutBesoin(b);
 	}
@@ -136,12 +124,6 @@ public class PlatformGDService {
 	public String getNomEtablissementById(String id_etablissement) {
 		return metier.getNomEtablissementById(id_etablissement);
 	}
-	public List<Etablissement> getAllDonnateur() {
-		return metier.getAllDonnateur();
-	}
-	public List<Etablissement> getAllEtablissement() {
-		return metier.getAllEtablissement();
-	}
 	public List<Reglement> getAllDonsReglement() {
 		return metier.getAllDonsReglement();
 	}
@@ -179,7 +161,7 @@ public class PlatformGDService {
 		metier.ajouterDonReglement(reglement);
 	}
 	@WebMethod
-	public void Faire_Un_Don(Don don, PhotoDon photo, Utilisateur donnateur, Etablissement beneficiaire) {
+	public void Faire_Un_Don(Don don, PhotoDon photo, Utilisateur donnateur, Etablisement beneficiaire) {
 		metier.Faire_Un_Don(don, photo, donnateur, beneficiaire);
 	}
 	@WebMethod

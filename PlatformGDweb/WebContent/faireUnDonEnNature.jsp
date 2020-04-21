@@ -1,4 +1,6 @@
 <%@ include file="__header.jsp"%>
+
+<%@ include file="menu_1.jsp"%>
 <div class="page-header">
 	<div class="container">
 		<h3 class="title text-center">Créer votre Don</h3>
@@ -15,22 +17,26 @@
 					enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
-							besoin </label> <select id="new_fund_type" name="nom_produit"
+							besoin </label> <span
+							class="required text-danger form-asterisk"
+							title="Ce champ est requis">*</span><select id="new_fund_type" name="nom_produit"
 							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
 									<c:forEach items="${besoin_etab}" var="b">
-										<option value="${b.getProduit().getLibelle()}">${b.getProduit().getLibelle()}</option>
+										<option value="${b.getProduit().getIdProduit()}">${b.getProduit().getLibelle()}</option>
 									</c:forEach>
 								</div></select>
 					</div>
-					<div class="form-group">
+					<!--  <div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
 							produit ( indépendant du besoin )</label> <input type="text"
 							id="new_fund_name" name="" class="form-control" />
-					</div>
+					</div> -->
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Date
-							de réception</label> <input type="text" id="new_fund_name" name="vu"
+							de réception</label> <span
+							class="required text-danger form-asterisk"
+							title="Ce champ est requis">*</span><input type="text" id="new_fund_name" name="date_planifiee"
 							class="form-control" />
 					</div>
 					<div class="form-group">
@@ -47,34 +53,40 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Prix
-							totale</label> <input type="text" id="new_fund_name" name="prix_totale"
+							totale</label> <span
+							class="required text-danger form-asterisk"
+							title="Ce champ est requis">*</span><input type="text" id="new_fund_name" name="prix_totale"
 							class="form-control" />
 					</div>
 					<div class="form-group">
-						<label class="control-label required" for="new_fund_name">Quantite</label>
+						<label class="control-label required" for="new_fund_name">Quantite</label><span
+							class="required text-danger form-asterisk"
+							title="Ce champ est requis">*</span>
 						<input type="text" id="new_fund_name" name="quantite"
 							class="form-control" />
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
-							Bénéficiaire</label> <select id="new_fund_type" name="nom_produit"
+							Bénéficiaire</label> <span
+							class="required text-danger form-asterisk"
+							title="Ce champ est requis">*</span><select id="new_fund_type" name="nom_produit"
 							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
-									<c:forEach items="${beneficiaire}" var="b">
-										<option value="${b.idEtablissement}">${b.nomEtablissement}</option>
+									<c:forEach items="${beneficiaire}" var="bene">
+										<option value="${bene.getIdEtablissement()}">${bene.getNomEtablissement()}</option>
 									</c:forEach>
 								</div></select>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
 							Fournisseur</label> <select id="new_fund_type" name="nom_produit"
 							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
-									<c:forEach items="${fournisseur}" var="b">
-										<option value="${b.getIdF()}">${b.getLibelle()}</option>
+									<c:forEach items="${fournisseur}" var="c">
+										<option value="${c.getIdF()}">${c.getLibelle()}</option>
 									</c:forEach>
 								</div></select>
-					</div>
+					</div> -->
 					<div class="form-group">
 						<label class="control-label required" for="photos">Ajouter
 							des photos</label>

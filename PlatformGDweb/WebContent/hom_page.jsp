@@ -11,7 +11,7 @@
 	<form name="new_fund" method="post" class="form-group"
 		action="${pageContext.request.contextPath}/home_page">
 		<c:forEach items="${etablissement}" var="b">
-			<a href="faire_un_don?code=${b.idEtablissement}">${b.nomEtablissement}</a><br>
+			<a href="faire_un_don?code=${b.IdEtablissement}">${b.getNomEtablissement()}</a><br>
 		</c:forEach>
 	</form>
 </body>

@@ -4,24 +4,12 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import metier.entities.Besoin;
-import metier.entities.Categorie;
-import metier.entities.Don;
-import metier.entities.DonEnNature;
-import metier.entities.Etablissement;
-import metier.entities.Fournisseur;
-import metier.entities.Photo;
-import metier.entities.PhotoBesoin;
-import metier.entities.PhotoDon;
-import metier.entities.Produit;
-import metier.entities.Reglement;
-import metier.entities.UniteDeMesure;
-import metier.entities.Utilisateur;
+import metier.entities.*;
 
 @Local
 public interface PlatformGDLocal {
 
-	public void Faire_Un_Don(Don don, PhotoDon photo, Utilisateur donnateur, Etablissement beneficiaire);
+	public void Faire_Un_Don(Don don, PhotoDon photo, Utilisateur donnateur, Etablisement beneficiaire);
 
 	public List<DonEnNature> getAllDonsEnNature();
 	public List<Reglement> getAllDonsReglement();
@@ -49,9 +37,7 @@ public interface PlatformGDLocal {
 	public List<PhotoDon> getAllPhotoDonById(String id_don);
 
 
-	public List<Etablissement> getAllEtablissement();
 	public String getNomEtablissementById(String id_etablissement);
-	public List<Etablissement> getAllDonnateur();
 	
 
 	// create
@@ -101,5 +87,50 @@ public interface PlatformGDLocal {
 	public List<Produit> getProduitByCategorie(int idc);
 	public List<Produit> getProduitByFounisseur(String idF);
 	public List<Fournisseur> getFournisseurByProduit(String idP);
+	
+	
+	
+	// l'ajout
+
+		public String ajouteUtilisateur(Utilisateur utilisateur);
+		public String ajouteadresse(Adresse adresse);
+		public void ajouteadresseEtablissement(String l1 ,String l2 ,String l3 ,String l4, String l5 );
+		public String ajouteetablissement(Etablisement etablisement);
+		public String ajoutereclamation(Reclamation reclamation);
+		public String ajoutetelephone(Telephone telephone);
+		public void ajout_ut_tel(String l1, String l2, String l3);
+		public Utilisateur authentification_Utilisateur(String email );
+		public Etablisement verification_du_compte(Utilisateur utilisateur);
+		public boolean authentification(String mail, String hashedPassword);
+		public boolean veriff(String mail);
+
+		// delete
+		
+		public void deleteUtilisateur(Utilisateur utilisateur);
+		public void deleteadresse(Adresse adresse);
+		public void deleteetablissement(Etablisement etablisement);
+		public void deletereclamation(Reclamation reclamation);
+		public void deletetelephone(Telephone telephone);
+		
+		// affichage 
+		
+		public Utilisateur findUtilisateurById(String idut);
+		public Adresse findadresse(String idAdresse);
+		public Etablisement findetablissement(String idetablisement);
+		public Reclamation findreclamation(String codeReclamation);
+		public Telephone findtelephone(String idTel);
+		public Utilisateur getDonnateurByEtablissement(String id_Etablissemment);
+		
+		//Get
+		
+		public List<Utilisateur> getUtilisateur();
+		public List<Etablisement> getAllBeneficiaire();
+		public List<Etablisement> getetablissement();
+		public List<Reclamation> getreclamation();
+		
+		//update
+
+		public void updateReclamatiom(boolean codeReclamation, Reclamation reclamation);
+		public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur);
 
 }

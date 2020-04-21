@@ -1,5 +1,6 @@
 
 <%@ include file="__header.jsp"%>
+<%@ include file="menu_1.jsp"%>
 <c:if test="${photos.size() >0}">
 <section class="slider rs-slider-full" id="home">
     <div class="tp-banner-container">

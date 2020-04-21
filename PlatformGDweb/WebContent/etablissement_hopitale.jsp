@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="__header.jsp"%>
+<%@ include file="menu_1.jsp"%>
 <section class="page-section">
 	<div class="container">
 
@@ -20,7 +21,7 @@
 							<img src="media/cache/cha9a9a_pic/uploads/images/1.jpg"
 								alt="Makers Against Corona (Masques pour l&#039;équipe medicale)"
 								title="Makers Against Corona (Masques pour l&#039;équipe medicale)">
-							<div class="fund-organizer-fixed text-white text-left">${nomEtablissement}</div>
+							<div class="fund-organizer-fixed text-white text-left">${etablissement.getNomEtablissement()}</div>
 						</div>
 					</div>
 				</div>

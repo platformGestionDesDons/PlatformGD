@@ -8,27 +8,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import metier.entities.Besoin;
-import metier.entities.Categorie;
-import metier.entities.Don;
-import metier.entities.DonEnNature;
-import metier.entities.Etablissement;
-import metier.entities.Fournisseur;
-import metier.entities.Photo;
-import metier.entities.PhotoBesoin;
-import metier.entities.PhotoDon;
-import metier.entities.Produit;
-import metier.entities.Reglement;
-import metier.entities.UniteDeMesure;
-import metier.entities.Utilisateur;
+import metier.entities.*;
 
-@Stateless
+@Stateless(name = "BK")
 public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	@javax.persistence.PersistenceContext(unitName = "PlatformGD")
 	private EntityManager em;
 
 	@Override
-	public void Faire_Un_Don(Don don, PhotoDon photo, Utilisateur donnateur, Etablissement beneficiaire) {
+	public void Faire_Un_Don(Don don, PhotoDon photo, Utilisateur donnateur, Etablisement beneficiaire) {
 		// TODO Auto-generated method stub
 
 	}
@@ -153,24 +141,14 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	@Override
-	public List<Etablissement> getAllEtablissement(){
-		Query req = em.createQuery("select e from Etablissement e");
-		return req.getResultList();	
-	}
-	@Override
-	public List<Etablissement> getAllDonnateur(){
-		Query req = em.createQuery("select u from Utilisateur u");
-		return req.getResultList();	
-	}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public String getNomEtablissementById(String id_etablissement) {
-		Etablissement a = em.find(Etablissement.class, id_etablissement);
+		Etablisement a = em.find(Etablisement.class, id_etablissement);
 		if (a == null)
 			throw new RuntimeException("Don est introuvable");
-		return a.getNometablissement();
+		return a.getNomEtablissement();
 	}
 	@Override
 	public List<PhotoDon> getAllPhotoDon() {
@@ -445,4 +423,241 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 //		
 //		return besoins;
 //	}
+	
+	
+	
+	@Override
+	public String ajouteUtilisateur(Utilisateur utilisateur) {
+
+		em.persist(utilisateur);
+		em.flush();
+		return utilisateur.getIdut();
+	}
+
+	@Override
+	public String ajouteadresse(Adresse adresse) {
+		em.persist(adresse);
+		em.flush();
+		return adresse.getIdAdresse();
+	}
+
+	@Override
+	public String ajoutereclamation(Reclamation reclamation) {
+		em.persist(reclamation);
+		em.flush();
+		return reclamation.getCodeReclamation();
+	}
+
+	@Override
+	public String ajoutetelephone(Telephone telephone) {
+		em.persist(telephone);
+		em.flush();
+		return telephone.getIdTel();
+	}
+
+	@Override
+	public void deleteUtilisateur(Utilisateur utilisateur) {
+		utilisateur = em.merge(utilisateur);
+		em.remove(utilisateur);
+	}
+
+	@Override
+	public void deleteadresse(Adresse adresse) {
+		adresse = em.merge(adresse);
+		em.remove(adresse);
+	}
+
+	@Override
+	public void deleteetablissement(Etablisement etablisement) {
+		etablisement = em.merge(etablisement);
+		em.remove(etablisement);
+	}
+
+	@Override
+	public void deletereclamation(Reclamation reclamation) {
+		reclamation = em.merge(reclamation);
+		em.remove(reclamation);
+	}
+
+	@Override
+	public void deletetelephone(Telephone telephone) {
+		telephone = em.merge(telephone);
+		em.remove(telephone);
+	}
+
+	@Override
+	public Adresse findadresse(String idAdresse) {
+		Adresse a = em.find(Adresse.class, idAdresse);
+		return a;
+	}
+
+	@Override
+	public Etablisement findetablissement(String idetablisement) {
+		Etablisement a = em.find(Etablisement.class, idetablisement);
+		return a;
+	}
+
+	@Override
+	public Reclamation findreclamation(String codeReclamation) {
+		Reclamation a = em.find(Reclamation.class, codeReclamation);
+		return a;
+	}
+
+	@Override
+	public Telephone findtelephone(String idTel) {
+		Telephone a = em.find(Telephone.class, idTel);
+		return a;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Utilisateur> getUtilisateur() {
+
+		Query req = em.createNativeQuery("SELECT * FROM Utilisateur", Utilisateur.class);
+		return req.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Etablisement> getetablissement() {
+
+		Query req = em.createNativeQuery("SELECT * FROM Etablisement", Etablisement.class);
+		return req.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Reclamation> getreclamation() {
+
+		Query req = em.createNativeQuery("SELECT * FROM Reclamation", Reclamation.class);
+		return req.getResultList();
+	}
+
+	@Override
+	public void updateReclamatiom(boolean estTr, Reclamation reclamation) {
+
+		Query req = em.createQuery("UPDATE Reclamation SET estTraitee=" + estTr + "WHERE codeReclamation="
+				+ reclamation.getCodeReclamation());
+		req.executeUpdate();
+	}
+
+	@Override
+	public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur) {
+		Query req = em.createQuery(
+				"UPDATE Reclamation SET etatDecompte=" + etatDecompte + "WHERE idut=" + utilisateur.getIdut());
+		req.executeUpdate();
+
+	}
+
+	@Override
+	public void ajout_ut_tel(String l1, String l2, String l3) {
+
+		em.createNativeQuery("INSERT INTO t_utilisateur_telephone (idut, IdTel) VALUES (?,?)")
+				.setParameter(1, l3).setParameter(2, l1).executeUpdate();
+		em.createNativeQuery("INSERT INTO t_utilisateu_adresse( idAdresse, idut) VALUES (?,?)")
+				.setParameter(1, l2).setParameter(2, l3).executeUpdate();
+	
+	}
+
+	@Override
+	public String ajouteetablissement(Etablisement etablisement) {
+		em.persist(etablisement);
+		em.flush();
+		return etablisement.getIdEtablissement();
+	}
+
+	@Override
+	public void ajouteadresseEtablissement(String l1, String l2, String l3, String l4, String l5) {
+		em.createNativeQuery("INSERT INTO t_etablissement_utilisateur(IdEtablissement, idut) VALUES (?,?)")
+				.setParameter(1, l5).setParameter(2, l1).executeUpdate();
+		em.createNativeQuery("INSERT INTO t_telephone_etablissement(IdEtablissement, IdTel) VALUES (?,?)")
+				.setParameter(1, l5).setParameter(2, l2).executeUpdate();
+		em.createNativeQuery("INSERT INTO t_telephone_etablissement(IdEtablissement, IdTel) VALUES (?,?)")
+				.setParameter(1, l5).setParameter(2, l3).executeUpdate();
+		em.createNativeQuery("INSERT INTO t_etablissement_adresse(IdEtablissement, idAdresse) VALUES (?,?)")
+				.setParameter(1, l5).setParameter(2, l4).executeUpdate();
+//		Query req = em.createQuery("INSERT INTO t_etablissement_utilisateur(IdEtablissement, idut) VALUES ( '" + l5 + "' , '" + l1 + "' )");
+//		req.executeUpdate();
+//		Query req1 = em.createQuery("INSERT INTO t_telephone_etablissement(IdEtablissement, IdTel) VALUES ( '" + l5 + "' , '" + l2 + "' )");
+//		req1.executeUpdate();
+//		Query req2 = em.createQuery("INSERT INTO t_telephone_etablissement(IdEtablissement, IdTel) VALUES ( '" + l5 + "' , '" + l3 + "' )");
+//		req2.executeUpdate();
+//		Query req3 = em.createQuery("INSERT INTO t_etablissement_adresse(IdEtablissement, idAdresse) VALUES ( '" + l5 + "' , '" + l4 + "' )");
+//		req3.executeUpdate();
+		
+		
+	}
+
+	public Utilisateur authentification_Utilisateur(String email) {
+		try {
+			Query tq = em.createQuery("select u from Utilisateur u WHERE email=? ", Utilisateur.class);
+			tq.setParameter(1, email);
+			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
+			em.merge(utilisateur);
+			return utilisateur;
+		} catch (Exception noresult) {
+			return null;
+		}
+	}
+
+	@Override
+	public Etablisement verification_du_compte(Utilisateur utilisateur) {
+		Query query1 = em.createQuery("SELECT E.IdEtablissement FROM t_etablissement_utilisateur E WHERE E.idut  = '"
+						+ utilisateur.getIdut() + "'");
+		if (query1.getSingleResult().equals(null) == false) {
+			long l = (long) query1.getSingleResult();
+
+			Query query = em.createQuery("SELECT E FROM Etablisement E WHERE E.IdEtablissement = '" + l + "'");
+			return (Etablisement) query.getSingleResult();
+		}
+		return null;
+	}
+
+	@Override
+	public Utilisateur findUtilisateurById(String idut) {
+		Utilisateur a = em.find(Utilisateur.class, idut);
+		return a;
+	}
+
+	@Override
+	public Utilisateur getDonnateurByEtablissement(String id_Etablissemment) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Etablisement> getAllBeneficiaire() {
+		Query req = em.createNativeQuery(
+				"SELECT * FROM Etablisement where drs=0 and Intermediaire=0 and Intermediaire=0", Etablisement.class);
+		return req.getResultList();
+	}
+
+	@Override
+	public boolean authentification(String mail, String hashedPassword) {
+		try {
+			Query tq = em.createQuery("select u from Utilisateur u WHERE u.email =:x and u.mdp =:y ",Utilisateur.class);
+			System.out.println("5555");
+			tq.setParameter("x", mail);
+			tq.setParameter("y", hashedPassword);
+			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
+			em.merge(utilisateur);
+			return true;
+		} catch (Exception noresult) {
+			System.out.println(noresult);
+			return false;
+		}
+	}
+
+	@Override
+	public boolean veriff(String mail) {
+		try {
+			Query tq = em.createQuery("select u from Utilisateur u WHERE email=?", Utilisateur.class);
+			tq.setParameter(1, mail);
+			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
+			em.merge(utilisateur);
+			return true;
+		} catch (Exception noresult) {
+			return false;
+		}
+	}
 }

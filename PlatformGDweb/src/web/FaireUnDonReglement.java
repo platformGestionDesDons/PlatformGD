@@ -16,9 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import metier.entities.DonEnNature;
+import metier.entities.Etablisement;
 import metier.entities.Photo;
 import metier.entities.PhotoDon;
 import metier.entities.Reglement;
+import metier.entities.Utilisateur;
 import metier.session.PlatformGDLocal;
 
 
@@ -42,6 +44,7 @@ public class FaireUnDonReglement extends HttpServlet{
 		String action = req.getParameter("action");
 		if (action.equals("Faire un don reglement")) {
 			String date_planifiee = req.getParameter("date_planifiee");
+			String id_beneficiaire = req.getParameter("bene");
 			String visibilite = req.getParameter("visibilite");
 			String date_reglement = req.getParameter("date_reglement");
 			String mode_reglement = req.getParameter("mode_reglement");
@@ -50,7 +53,8 @@ public class FaireUnDonReglement extends HttpServlet{
 			Reglement reglement = new Reglement(date_planifiee, false, false, visibilite, montant, 
 					date_reglement, mode_reglement, false);
 			
-
+			Etablisement beneficiaire = metier.findetablissement(id_beneficiaire);
+			reglement.setEtablissement(beneficiaire);
 			
 			PhotoDon photoDon = new PhotoDon();
 			 
