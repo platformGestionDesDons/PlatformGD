@@ -12,7 +12,7 @@
 	rel='stylesheet' type='text/css' media="none"
 	onload="if(media!='all')media='all'">
 <!-- Font Awesome Icons -->
-<link href='assets/css/font-awesome.min.css' async rel='stylesheet'
+<link href='assets/css/font-awesome.min.css'  rel='stylesheet'
 	type='text/css' media="none" onload="if(media!='all')media='all'" />
 <!-- Bootstrap core CSS -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 	href="assets/css/cookieconsent.min.css" media="none"
 	onload="if(media!='all')media='all'" />
 <!-- Custom Style -->
-<link href="assets/css/style.css" async rel="stylesheet">
+<link href="assets/css/style.css"  rel="stylesheet">
 <link href="assets/css/scarlet.css" rel="stylesheet">
 <link href="assets/css/menu.css" rel="stylesheet">
 <link href="assets/css/bootstrap-social.css" rel="stylesheet"
@@ -69,6 +69,11 @@
 <link type="text/css" rel="stylesheet" href="assets/css/jssocials.css" />
 <link type="text/css" rel="stylesheet"
 	href="assets/css/jssocials-theme-classic.css" />
+<!-- Latest compiled and minified CSS -->
+
+
+<!-- css for multiselect -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 
 
 <style>
@@ -90,10 +95,21 @@
 }
 </style>
 
-<link href="../vjs.zencdn.net/7.1.0/video-js.css" async rel="stylesheet">
-<link href="assets/css/videojs.css" async rel="stylesheet">
+<link href="../vjs.zencdn.net/7.1.0/video-js.css"  rel="stylesheet">
+<link href="assets/css/videojs.css"  rel="stylesheet">
+
+
+
+
+
 
 <!-- Facebook Pixel Code -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    
 <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -113,3 +129,56 @@
 <title>Insert title here</title>
 </head>
 <body>
+<header class="fixed-header">
+    <!-- navbar -->
+    <div id="navigation" class="navbar navbar-default navbar-bg-light navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-header">
+                        <!-- Button For Responsive toggle -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse">
+                            <span class="sr-only">&nbsp;</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span></button>
+
+                        <a class="navbar-brand scroll" href="../../index.html#">
+                            <h6>LOGO</h6>
+                        </a></div>
+                    <!-- Navbar Collapse -->
+                    <div class="navbar-collapse collapse">
+                        <!-- nav -->
+                        <ul class="nav navbar-nav">     
+                            
+
+                                <li  class="current" >
+                                    <a href="besoins">Besoins</a>
+                                </li>
+
+                                <li >
+                                    <a href="produits"> Produits</a>
+                                </li>
+                                 <li >
+                                    <a href="fournisseurs"> Fournisseurs</a>
+                                </li>
+                                                                 <li >
+                                    <a href="categories"> Categories</a>
+                                </li>
+                            
+                         <a href="./fund/new.html" class="btn btn-default btn-menu"><i class="fa icon-plus2"></i> Faire un DON</a>
+                            
+                                                    </ul>
+                        <!-- Right nav -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.col-md-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- navbar -->
+</header>

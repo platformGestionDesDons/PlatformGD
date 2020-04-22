@@ -87,7 +87,7 @@ public interface PlatformGDLocal {
 	public List<Produit> getProduitByCategorie(String idc);
 	public List<Produit> getProduitByFounisseur(String idF);
 	public List<Fournisseur> getFournisseurByProduit(String idP);
-	
+	public List<Besoin> getBesoinsByEtablissement(String idE);
 	
 	
 	// l'ajout
@@ -129,7 +129,7 @@ public interface PlatformGDLocal {
 		
 		public List<Utilisateur> getUtilisateur();
 		public List<Etablisement> getAllBeneficiaire();
-		public List<Etablisement> getetablissement();
+		public List<Etablisement> getAllEtablissement();
 		public List<Reclamation> getreclamation();
 		
 		//update

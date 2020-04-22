@@ -1,7 +1,7 @@
 
 <%@ include file="__header.jsp"%>
 
-<%@ include file="menu_1.jsp"%>
+<%-- <%@ include file="menu_1.jsp"%> --%>
 <section class="page-section light-bg">
 	<div class="container">
 	<div class="row">

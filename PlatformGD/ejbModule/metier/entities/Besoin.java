@@ -7,6 +7,7 @@ import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -33,6 +34,8 @@ public class Besoin implements Serializable
 	@OneToOne( cascade = CascadeType.ALL )
 	private PhotoBesoin photoBesoin;
 
+	@ManyToOne
+	private Etablisement etablisement;
 	
 	public Besoin() {}
 	
@@ -114,6 +117,22 @@ public class Besoin implements Serializable
 	public void setPhotoBesoin(PhotoBesoin photoBesoin) {
 		this.photoBesoin = photoBesoin;
 	}
+	
+	
+	
+	
+	public Etablisement getEtablisement() {
+		return etablisement;
+	}
+
+
+
+	public void setEtablisement(Etablisement etablisement) {
+		this.etablisement = etablisement;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Besoin [idBesoin=" + idBesoin + ", dateBesoin=" + dateBesoin + ", etat=" + etat + ", quantiteInitiale="

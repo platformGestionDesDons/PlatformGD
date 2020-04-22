@@ -87,7 +87,7 @@ public class InscriptionUtilisateur extends HttpServlet {
 			adresse.setCodePostale(Integer.parseInt(c3));
 			adresse.setAdresse(c2);
 
-			System.out.print("**********************************************************************");
+			System.out.println("**********************************************************************");
 //			if (Pattern.matches("[7]{1}[0-9]{7}", Tel) && Pattern.matches("[a-zA-Z] ", role)
 //					&& Pattern.matches("[0-9] ", c3) && Pattern.matches("[a-zA-Z] ", c2)
 //

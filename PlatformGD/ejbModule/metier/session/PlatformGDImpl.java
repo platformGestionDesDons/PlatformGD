@@ -532,13 +532,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		return req.getResultList();
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Etablisement> getetablissement() {
 
-		Query req = em.createNativeQuery("SELECT * FROM Etablisement", Etablisement.class);
-		return req.getResultList();
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -679,5 +673,23 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		} catch (Exception noresult) {
 			return false;
 		}
+	}
+	@Override
+	public List<Besoin> getBesoinsByEtablissement(String idE) {
+		
+		TypedQuery<Besoin> q = (TypedQuery<Besoin>) 
+				em.createNamedQuery("Besoin.findAll",Besoin.class);
+		
+		List<Besoin> besoins = (List<Besoin>) q.getResultList().
+				stream().filter(b->b.getEtablisement().getIdEtablissement()==idE).collect(Collectors.toList());
+		
+		return besoins;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Etablisement> getAllEtablissement() {
+
+		Query req = em.createNativeQuery("SELECT * FROM Etablisement", Etablisement.class);
+		return req.getResultList();
 	}
 }

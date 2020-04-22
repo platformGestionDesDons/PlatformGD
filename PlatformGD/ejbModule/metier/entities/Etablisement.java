@@ -1,27 +1,20 @@
 package metier.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Etablisement implements Serializable {
 	@Id
-	//UUID uuid = UUID.randomUUID();
-	//private String IdEtablissement=uuid.toString();
 	private String IdEtablissement=UUID.randomUUID().toString();
 	private String NomEtablissement;
 	private Boolean Intermediaire;
@@ -90,6 +83,9 @@ public class Etablisement implements Serializable {
 	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
 	private Utilisateur utilisateur;
 
+	@OneToMany
+	private List<Besoin> besoins;
+	
 	public String getNomEtablissement() {
 		return NomEtablissement;
 	}
@@ -155,6 +151,14 @@ public class Etablisement implements Serializable {
 
 	public void setDons(List<Don> dons) {
 		this.dons = dons;
+	}
+
+	public List<Besoin> getBesoins() {
+		return besoins;
+	}
+
+	public void setBesoins(List<Besoin> besoins) {
+		this.besoins = besoins;
 	}
 	
 }
