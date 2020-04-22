@@ -16,6 +16,9 @@ public class PlatformGDService {
 	@EJB
 	private PlatformGDLocal metier;
 	
+	public Etablisement findetablissement(String idetablisement) {
+		return metier.findetablissement(idetablisement);
+	}
 	public void ajoutBesoin(Besoin b) {
 		metier.ajoutBesoin(b);
 	}
