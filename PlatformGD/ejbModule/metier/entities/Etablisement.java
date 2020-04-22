@@ -83,7 +83,7 @@ public class Etablisement implements Serializable {
 	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
 	private Utilisateur utilisateur;
 
-	@OneToMany(mappedBy = "etablisement")
+	@OneToMany
 	private List<Besoin> besoins;
 	
 	public String getNomEtablissement() {

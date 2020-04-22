@@ -414,17 +414,8 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 
 
-//	@Override
-//	public List<Besoins> getBesoinByEtablissement(String idE) {
-//		
-//		TypedQuery<Besoin> q = (TypedQuery<Besoin>) 
-//				entityManager.createNamedQuery("Besoin.findAll",Besoin.class);
-//		
-//		List<Besoin> besoins = (List<Besoin>) q.getResultList().
-//				stream().filter(b->b.getEtablissement().getIdE()==idE).collect(Collectors.toList());
-//		
-//		return besoins;
-//	}
+
+	
 	
 	
 	@Override
@@ -679,15 +670,18 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	@Override
 	public List<Besoin> getBesoinsByEtablissement(String idE) {
 		
-		TypedQuery<Besoin> q = (TypedQuery<Besoin>) 
-				em.createNamedQuery("Besoin.findAll",Besoin.class);
+//		TypedQuery<Besoin> q = (TypedQuery<Besoin>) 
+//				em.createNamedQuery("Besoin.findAll",Besoin.class);
+//		
+//		List<Besoin> besoins = (List<Besoin>) q.getResultList().
+//				stream().filter(b->b.getEtablisement().getIdEtablissement()==idE).collect(Collectors.toList());
+//		
+//		return besoins;
 		
-		List<Besoin> besoins = (List<Besoin>) q.getResultList().
-				stream().filter(b->b.getEtablisement().getIdEtablissement()==idE).collect(Collectors.toList());
-		
-		return besoins;
+    	Query req= em.createQuery("select b from Besoin b where b.etablissement.IdEtablissement==:x");
+    	req.setParameter("x", idE);
+    	return req.getResultList();
 	}
-	
 	
 	
 	@SuppressWarnings("unchecked")
@@ -703,4 +697,6 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		PhotoBesoin photoBesoin =em.find(PhotoBesoin.class, idPb);
 		return photoBesoin;
 	}
+
+
 }

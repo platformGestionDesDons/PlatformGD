@@ -34,8 +34,7 @@ public class Besoin implements Serializable
 	@OneToOne( cascade = CascadeType.ALL )
 	private PhotoBesoin photoBesoin;
 
-	@ManyToOne
-	private Etablisement etablisement;
+
 	
 	public Besoin() {}
 	
@@ -116,19 +115,6 @@ public class Besoin implements Serializable
 	}
 	public void setPhotoBesoin(PhotoBesoin photoBesoin) {
 		this.photoBesoin = photoBesoin;
-	}
-	
-	
-	
-	
-	public Etablisement getEtablisement() {
-		return etablisement;
-	}
-
-
-
-	public void setEtablisement(Etablisement etablisement) {
-		this.etablisement = etablisement;
 	}
 
 

@@ -31,9 +31,4 @@ public class Photo
 //	public void setPhotoBesoin(PhotoBesoin photoBesoin) {
 //		this.photoBesoin = photoBesoin;
 //	}
-
-	
-	
-	
-	
 }
