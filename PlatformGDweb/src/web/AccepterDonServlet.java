@@ -15,38 +15,47 @@ import metier.entities.Reglement;
 import metier.session.PlatformGDLocal;
 
 @WebServlet(urlPatterns = { "/accepter_don" })
-public class AccepterDonServlet  extends HttpServlet{
-	
+public class AccepterDonServlet extends HttpServlet {
+
 	@EJB
 	private PlatformGDLocal metier;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String code_accept_don_nature = (String) req.getParameter("code_don_en_nature");
-        String code_accept_don_reglement = (String) req.getParameter("code_reglement");
-       
-        if(!code_accept_don_nature.equals(null)) {
-        	DonEnNature don = metier.getDonEnNatureById(code_accept_don_nature);
-        	don.setEstAccepte(true);
-        	String id_besoin = don.getBesoin().getIdBesoin();
-        	Besoin besoin = metier.getBesoinById(id_besoin);
-        	besoin.setEtat("en cours");
-        	besoin.setQuantiteRestante(besoin.getQuantiteInitiale() - don.getQuantite());
-        	metier.updateBesoin(besoin);
-        	metier.updateDonEnNature(don);
-        	req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
-        } else if (!code_accept_don_reglement.equals(null)) {
-        	Reglement reglement = metier.getDonEnReglementById(code_accept_don_reglement);
-        	reglement.setEstAccepte(true);
-        	metier.updateReglement(reglement);
-        	req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
-        	//long id1 = Long.parseLong(code_accept_don_reglement);
-        	//metier.accepterDonReglement(id1);
-        	//req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
-        }
+		String code_accept_don_nature = (String) req.getParameter("code_don_en_nature");
+		String code_accept_don_reglement = (String) req.getParameter("code_reglement");
+
+		if (!code_accept_don_nature.equals(null)) {
+			DonEnNature don = metier.getDonEnNatureById(code_accept_don_nature);
+
+			if (don.isEstAccepte()) {
+				req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+			} else {
+				don.setEstAccepte(true);
+				String id_besoin = don.getBesoin().getIdBesoin();
+				Besoin besoin = metier.getBesoinById(id_besoin);
+				String id = besoin.getIdBesoin();
+				System.out.println(id);
+				besoin.setEtat("en cours");
+				besoin.setQuantiteRestante(besoin.getQuantiteInitiale() - don.getQuantite());
+				metier.updateBesoin(besoin);
+				metier.updateDonEnNature(don);
+				req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+			}
+		} else if (!code_accept_don_reglement.equals(null)) {
+			Reglement reglement = metier.getDonEnReglementById(code_accept_don_reglement);
+			if(reglement.isEstAccepte()) {
+				req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+			} else {
+				reglement.setEstAccepte(true);
+				metier.updateReglement(reglement);
+				req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+			}
+		}
 	}
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 	}
 }

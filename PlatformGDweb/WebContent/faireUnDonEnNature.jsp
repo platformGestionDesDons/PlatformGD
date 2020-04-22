@@ -23,7 +23,7 @@
 							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
 									<c:forEach items="${besoin_etab}" var="b">
-										<option value="${b.getProduit().getIdProduit()}">${b.getProduit().getLibelle()}</option>
+										<option value="${b.getIdBesoin()}">${b.getProduit().getLibelle()}</option>
 									</c:forEach>
 								</div></select>
 					</div>
@@ -69,7 +69,7 @@
 						<label class="control-label required" for="new_fund_name">Nom
 							Bénéficiaire</label> <span
 							class="required text-danger form-asterisk"
-							title="Ce champ est requis">*</span><select id="new_fund_type" name="nom_produit"
+							title="Ce champ est requis">*</span><select id="new_fund_type" name="nom_etab"
 							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
 									<c:forEach items="${beneficiaire}" var="bene">

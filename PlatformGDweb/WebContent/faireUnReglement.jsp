@@ -13,7 +13,8 @@
 			<div class="col-md-6 col-md-offset-3 form-box-cha9a9a">
 
 				<form name="new_fund" method="post" class="form-group"
-					action="${pageContext.request.contextPath}/don_reglement">
+					action="${pageContext.request.contextPath}/don_reglement"
+					enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Date
 							de réception</label> <input type="text" id="new_fund_name"
@@ -52,7 +53,7 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
-							Bénéficiaire</label> <select id="new_fund_type" name="nom_produit"
+							Bénéficiaire</label> <select id="new_fund_type" name="nom_bene"
 							class="form-control"><option value="30">
 								<div class="cha9a9a-title text-center pad-5">
 									<c:forEach items="${beneficiaire}" var="bene">

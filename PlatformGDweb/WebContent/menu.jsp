@@ -19,14 +19,14 @@
 						</button>
 
 						<a class="navbar-brand scroll" href="../../index.html#"> <img
-							src="../../Capture.PNG" style="width: 70px; height: 60px;">
+							src="images/Logo/Capture.PNG" style="width: 70px; height: 60px;">
 						</a>
 					</div>
 					<!-- Navbar Collapse -->
 					<div class="navbar-collapse collapse">
 						<!-- nav -->
 						<ul class="nav navbar-nav">
-							<li><a href="Home">Accueil</a></li>
+							<li><a href="index.jsp">Accueil</a></li>
 							<li><a href="InscriptionUtilisateur"> Inscrire un donateur</a></li>
 
 							<li class="current"><a href="InscriptionEtablissement"> Inscrire mon

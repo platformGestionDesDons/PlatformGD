@@ -44,16 +44,15 @@ public class FaireUnDonReglement extends HttpServlet{
 		String action = req.getParameter("action");
 		if (action.equals("Faire un don reglement")) {
 			String date_planifiee = req.getParameter("date_planifiee");
-			String id_beneficiaire = req.getParameter("bene");
+			//String id_beneficiaire = req.getParameter("bene");
 			String visibilite = req.getParameter("visibilite");
 			String date_reglement = req.getParameter("date_reglement");
 			String mode_reglement = req.getParameter("mode_reglement");
 			double montant = Double.parseDouble((req.getParameter("montant")));
-
+			String id_beneficiaie = req.getParameter("nom_bene");
 			Reglement reglement = new Reglement(date_planifiee, false, false, visibilite, montant, 
 					date_reglement, mode_reglement, false);
-			
-			Etablisement beneficiaire = metier.findetablissement(id_beneficiaire);
+			Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
 			reglement.setEtablissement(beneficiaire);
 			
 //			Utilisateur donnateur = metier.findUtilisateurById(idut);

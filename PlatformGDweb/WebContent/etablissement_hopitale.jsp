@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="__header.jsp"%>
-<%@ include file="menu_1.jsp"%>
+<%@ include file="menu_donnateur.jsp"%>
 <section class="page-section">
 	<div class="container">
 
@@ -93,7 +93,7 @@
 									<h5>${b.getQuantiteRestante()}</h5>
 								</div>
 								<div class="col-xs-1 col-sm-1 text-center">
-									<h5>${b.getMotif()}</h5>
+									<h5>${b.getEtat()}</h5>
 								</div>
 								<div class="col-xs-1 col-sm-1 text-center">
 									<h5>${b.getPriorite()}</h5>

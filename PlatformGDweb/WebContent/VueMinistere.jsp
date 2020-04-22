@@ -81,7 +81,7 @@
 													</div>
 													<div class="row">
 														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.nom_produit}</h5>
+															<h5>${d.getBesoin().getProduit().getLibelle()}</h5>
 														</div>
 														<div class="col-xs-3 col-sm-3 text-center">
 															<h5>Etablissement</h5>
@@ -90,10 +90,10 @@
 															<h5>Donnateur</h5>
 														</div>
 														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>${d.prix_totale}</h5>
+															<h5>${d.getPrix_totale()}</h5>
 														</div>
 														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>${d.quantite}</h5>
+															<h5>${d.getQuantite()}</h5>
 														</div>
 													</div>
 													<hr class="margin-20">
@@ -119,16 +119,16 @@
 													</div>
 													<div class="row">
 														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.estAccepte}</h5>
+															<h5>${d.isEstAccepte()}</h5>
 														</div>
 														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.estSupprime}</h5>
+															<h5>${d.isEstSupprime()}</h5>
 														</div>
 														<div class="col-xs-3 col-sm-3 text-center">
-																 <a href="accepter_don?code_don_en_nature=${d.id_don}">Accepter</a>															 
+																 <a href="accepter_don?code_don_en_nature=${d.getId_don()}">Accepter</a>															 
 														</div>
 														<div class="col-xs-3 col-sm-3 text-center">
-															<a href="supprimer_don?code_don_en_nature=${d.id_don}">Supprimer</a>
+															<a href="supprimer_don?code_don_en_nature=${d.getId_don()}">Supprimer</a>
 														</div>
 													</div>
 												</div>
@@ -192,7 +192,7 @@
 													</div>
 													<div class="row">
 														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.montant}</h5>
+															<h5>${d.getMontant()}</h5>
 														</div>
 														<div class="col-xs-3 col-sm-3 text-center">
 															<h5>Etablissement</h5>
@@ -201,10 +201,10 @@
 															<h5>Donnateur</h5>
 														</div>
 														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>${d.modeReglement}</h5>
+															<h5>${d.getModeReglement()}</h5>
 														</div>
 														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>${d.dateReglement}</h5>
+															<h5>${d.getDateReglement()}</h5>
 														</div>
 													</div>
 													<hr class="margin-20">
@@ -230,16 +230,16 @@
 													</div>
 													<div class="row">
 														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.estAccepte}</h5>
+															<h5>${d.isEstAccepte()}</h5>
 														</div>
 														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.estSupprime}</h5>
+															<h5>${d.isEstSupprime()}</h5>
 														</div>
 														<div class="col-xs-3 col-sm-3 text-center">
-																 <a href="accepter_don?code_reglement=${d.id_don}">Accepter</a>
+																 <a href="accepter_don?code_reglement=${d.getId_don()}">Accepter</a>
 														</div>
 														<div class="col-xs-3 col-sm-3 text-center">
-															<a href="supprimer_don?code_reglement=${d.id_don}">Supprimer</a>
+															<a href="supprimer_don?code_reglement=${d.getId_don()}">Supprimer</a>
 														</div>
 													</div>
 												</div>

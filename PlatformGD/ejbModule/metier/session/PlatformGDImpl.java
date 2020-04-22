@@ -20,7 +20,9 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		// TODO Auto-generated method stub
 
 	}
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////
+	
+	//////////////////////////////////////////////////////////////////////////
 //////////Get Dons
 	@Override
 	public List<DonEnNature> getAllDonsEnNature() {
@@ -511,7 +513,6 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		Etablisement a = em.find(Etablisement.class, idetablisement);
 		return a;
 	}
-
 	@Override
 	public Reclamation findreclamation(String codeReclamation) {
 		Reclamation a = em.find(Reclamation.class, codeReclamation);

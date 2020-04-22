@@ -51,18 +51,18 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");
 		if (action.equals("Faire un don en nature")) {
-			String id_besoin = req.getParameter("b");
+			String id_besoin = req.getParameter("nom_produit");
 			String date_planifiee = req.getParameter("date_planifiee");
 			String visibilite = req.getParameter("visibilite");
-			String id_beneficiaie = req.getParameter("bene");
+			String id_beneficiaie = req.getParameter("nom_etab");
 			double prix_totale = Double.parseDouble(req.getParameter("prix_totale"));
 			int quantite = Integer.parseInt(req.getParameter("quantite"));
 			//String id_fournisseur = req.getParameter("c");
-			
 			DonEnNature don_en_nature = new DonEnNature(date_planifiee, false, false, visibilite, prix_totale, quantite, false);
 			
 			Besoin besoin = metier.getBesoinById(id_besoin);
 			Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
+			//System.out.println(beneficiaire.toString());
 			//Utilisateur donnateur = metier.findUtilisateurById(idut);
 			//don_en_nature.setUtilisateur(donnateur);
 			don_en_nature.setBesoin(besoin);
