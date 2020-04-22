@@ -75,6 +75,7 @@ public interface PlatformGDRemote {
 		public Categorie getCategorieById(String idC);
 		public Besoin getBesoinById(String idB);
 		public Fournisseur getFournisseurById(String idF);
+		public PhotoBesoin getPhotoBesoinById(String idPb);
 
 		
 		public List<Besoin> getAllBesoin();

@@ -3,8 +3,8 @@
 	<name>PlatformGDEAR</name>
 	<comment></comment>
 	<projects>
-		<project>PlatformGDweb</project>
 		<project>PlatformGD</project>
+		<project>PlatformGDweb</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

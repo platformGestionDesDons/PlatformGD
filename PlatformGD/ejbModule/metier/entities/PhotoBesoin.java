@@ -16,7 +16,9 @@ public class PhotoBesoin
 	@Id 
 	private String idPB; 
 	
-	@OneToMany(fetch = FetchType.EAGER)
+//	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany
+
 	private List<Photo> photos;
 	
 

@@ -687,11 +687,20 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		
 		return besoins;
 	}
+	
+	
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Etablisement> getAllEtablissement() {
 
 		Query req = em.createNativeQuery("SELECT * FROM Etablisement", Etablisement.class);
 		return req.getResultList();
+	}
+
+	@Override
+	public PhotoBesoin getPhotoBesoinById(String idPb) {
+		PhotoBesoin photoBesoin =em.find(PhotoBesoin.class, idPb);
+		return photoBesoin;
 	}
 }
