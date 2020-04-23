@@ -23,12 +23,4 @@ public class Photo
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-//	public PhotoBesoin getPhotoBesoin() {
-//		return photoBesoin;
-//	}
-//
-//	public void setPhotoBesoin(PhotoBesoin photoBesoin) {
-//		this.photoBesoin = photoBesoin;
-//	}
 }
