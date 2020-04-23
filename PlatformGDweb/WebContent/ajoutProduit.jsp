@@ -73,7 +73,8 @@
 $(document).ready(function(){
 	 $("#prixMax").on('mouseup keyup', function () {
 		 let value = $("#prixMin").val();
-		  $(this).val(Math.max(value, $(this).val()));
+		  $(this).attr({
+			  "min": value})
 		});
 	});
 </script>
