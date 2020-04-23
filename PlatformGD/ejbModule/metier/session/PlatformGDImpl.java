@@ -698,5 +698,12 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		return photoBesoin;
 	}
 
+	@Override
+	public void updateEtablisement(Etablisement e) 
+	{
+		if(!e.equals(null))
+			em.merge(e);
+	}
+
 
 }

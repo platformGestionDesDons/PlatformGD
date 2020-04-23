@@ -67,6 +67,7 @@ public interface PlatformGDLocal {
 	public void updatePhotoBesoin(PhotoBesoin pB);
 	public void updateUniteDeMesure(UniteDeMesure uM);
 	public void updateFournisseur(Fournisseur f);
+	public void updateEtablisement(Etablisement e);
 	
 	
 	//read

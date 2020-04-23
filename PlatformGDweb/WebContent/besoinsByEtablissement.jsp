@@ -19,13 +19,7 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-<!-- Your customer chat code -->
-<div class="fb-customerchat"
-     attribution=setup_tool
-     page_id="1419275118198544"
-     logged_in_greeting="Bonjour, On peut vous aider ? "
-     logged_out_greeting="Bonjour, On peut vous aider ? ">
-</div>
+
 
 <!-- facebook page -->
 <script>(function(d, s, id) {
@@ -200,7 +194,7 @@
         <hr class="margin-20">
         <c:forEach var="etablissement" items="${etablissements}">	
         <div class="row">
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-4 col-md-4">
                 <a href="faire_un_don">
                 <div class="visible card-1">
                 <div class="img-wrapper">
@@ -210,78 +204,50 @@
                 </div>
                 </a>
             </div>
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-8 col-md-8">
                 <div class="row">
-                         <div class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
+                         <div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
                             <strong><span class="text-color">Besoin</span></strong>
                         </div>
-                                                <div class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-                            <strong><span class="text-color">Quantité</span></strong>
+                         <div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+                            <strong><span class="text-color">Quantité demandée</span></strong>
                         </div>
-                                                <div class="col-xs-3 col-sm-3 text-center lr-pad-10">
+                         <div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+                            <strong><span class="text-color">Quantité restante</span></strong>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 text-center lr-pad-10">
                             <strong><span class="text-color">Date</span></strong>
                         </div>
-                        <div class="col-xs-3 col-sm-3 text-center lr-pad-10">
+                        <div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+                            <strong><span class="text-color">Priorité</span></strong>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 text-center lr-pad-10">
                             <strong><span class="text-color">Status</span></strong>
                         </div>
                 </div>
                 <hr class="margin-20">
+               <c:forEach var="besoin" items="${etablissement.getBesoins()}">	
                 <div class="row">
-                         <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>Javel</h5>
+                         <div class="col-xs-2 col-sm-2 text-center">
+                            <h5>${besoin.getProduit().getLibelle()}</h5>
                         </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>100 L</h5>
+                        <div class="col-xs-2 col-sm-2 text-center">
+                            <h5>${besoin.getQuantiteInitiale()}</h5>
                         </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>04-04-2020</h5>
+                     	<div class="col-xs-2 col-sm-2 text-center">
+                            <h5>${besoin.getQuantiteRestante()}</h5>
                         </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
+                        <div class="col-xs-2 col-sm-2 text-center">
+                            <h5>${besoin.getDateBesoin()}</h5>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 text-center">
+                            <h5>${besoin.getPriorite()}</h5>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 text-center">
                             <span style="color: green; font-size: 30px;" class="glyphicon glyphicon-ok-sign"></span>
                         </div>
                 </div>
-                <div class="row">
-                         <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>Bavettes</h5>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>500 Unités</h5>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>05-04-2020</h5>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <span style="color: #BB0B0B; font-size: 30px;" class="glyphicon glyphicon-remove-sign"></span>
-                        </div>
-                </div>
-                <div class="row">
-                         <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>Alcool</h5>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>200 L</h5>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>02-04-2020</h5>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <span style="color: #03224C; font-size: 30px;" class="glyphicon glyphicon-share"></span>
-                        </div>
-                </div>
-                <div class="row">
-                         <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>Solution hydroalcoolique</h5>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>100 L</h5>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <h5>05-04-2020</h5>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 text-center">
-                            <span style="color: #BB0B0B; font-size: 30px;" class="glyphicon glyphicon-remove-sign"></span>
-                        </div>
-                </div>
+			</c:forEach>
                 <div class="text-right">
                     <a href="./fund/detail/Hopital_Farhat_Hached_de_Sousse.html" class="btn btn-default btn-menu">Détails ...<i style="font-size: 20px" class=" glyphicon glyphicon-circle-arrow-right"></i> </a>
                 </div>

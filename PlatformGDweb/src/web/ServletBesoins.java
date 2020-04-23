@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import metier.entities.Besoin;
+import metier.entities.Etablisement;
 import metier.entities.Photo;
 import metier.entities.PhotoBesoin;
 import metier.entities.Produit;
@@ -68,6 +69,7 @@ public class ServletBesoins extends HttpServlet {
 			Produit produit = dao.getProduitById(idProduit);
 			b.setProduit(produit);
 			
+
 			
 			 PhotoBesoin photoBesoin = new PhotoBesoin();
 			 
@@ -103,6 +105,14 @@ public class ServletBesoins extends HttpServlet {
 				 b.setPhotoBesoin(photoBesoin);
 			 }
 			 dao.ajoutBesoin(b);
+			 
+				// test ********************************************************
+				List<Etablisement> etablisements = new ArrayList<Etablisement>();
+				etablisements = dao.getAllEtablissement();
+				etablisements.get(0).addBesoin(b);
+				dao.updateEtablisement(etablisements.get(0));
+				dao.updateBesoin(b);
+				// test *********************************************************
 			 
 			List<Besoin> besoins = dao.getAllBesoin();
 			request.setAttribute("ListBesoins", besoins);
