@@ -14,7 +14,7 @@
 						<h3 class="title">Inscrire mon établissement</h3>
 						<hr>
 						<form name="registration_association_form" method="post"
-							action="https://www.cha9a9a.tn/register/association/"
+							action="InscriptionEtablissement"
 							class="pad-20 fos_user_registration_register" role="form">
 
 							<div class="row">

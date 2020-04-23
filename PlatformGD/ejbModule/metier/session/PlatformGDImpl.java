@@ -684,7 +684,6 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Etablisement> getAllEtablissement() {
 
