@@ -35,7 +35,7 @@
 	<div class="form-group">
 		<label class="control-label required" for="motif">Motif</label>
 		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>	
-   		<textarea name="motif" rows="6" cols="40" class="form-control" required="required">Vous pouvez saisir ici le motif.</textarea>
+   		<textarea name="motif" rows="6" cols="40" class="form-control" required="required" placeholder="Vous pouvez saisir ici le motif."></textarea>
    	</div>
 
 	<div class="form-group">
