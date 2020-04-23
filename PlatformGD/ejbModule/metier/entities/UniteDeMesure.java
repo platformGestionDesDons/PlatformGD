@@ -22,6 +22,11 @@ public class UniteDeMesure
 	private Collection<Produit> produits;
 	
 
+	public UniteDeMesure(String idUnite) {
+		super();
+		this.idUnite = idUnite;
+	}
+
 	public UniteDeMesure() {
 		super();
 	}

@@ -166,6 +166,9 @@
                                                                  <li >
                                     <a href="categories"> Categories</a>
                                 </li>
+                                                                                                 <li >
+                                    <a href="udms"> Unités de mesure</a>
+                                </li>
                             
                          <a href="./fund/new.html" class="btn btn-default btn-menu"><i class="fa icon-plus2"></i> Faire un DON</a>
                             
