@@ -7,7 +7,7 @@
 <title>Introuvable</title>
 </head>
 <body>
-<h1>Non trouvé </h1>
+<h1>${errMsg}</h1>
 
 </body>
 </html>

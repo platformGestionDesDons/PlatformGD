@@ -90,16 +90,25 @@ public class ServletBesoins extends HttpServlet {
 			 {				 
 				 for (Part part : fileParts) 
 				{
-					fileName = part.getSubmittedFileName();
-					extension = fileName.substring(fileName.lastIndexOf(".") + 1);
-				    fileName = b.getIdBesoin();
-				    fileName = fileName + "__" + Integer.toString(photoIndex) + "." +extension;
-				    photoIndex++;
-				    Photo photo = new Photo();
-				    photo.setIdP(fileName);    // Id photo = filename in directory
-				    dao.ajoutPhoto(photo);
-				    photos.add(photo);
-				    part.write(uploadPath + File.separator + fileName);
+
+						
+
+					 if(!(part.getContentType().equalsIgnoreCase("image/jpeg"))&&!(part.getContentType().equalsIgnoreCase("image/png")))
+					 {
+							request.setAttribute("errMsg", "Format de photo non supporté");
+							request.getRequestDispatcher("404.jsp").forward(request, response);
+					 }
+						fileName = part.getSubmittedFileName();
+						extension = fileName.substring(fileName.lastIndexOf(".") + 1);
+					    fileName = b.getIdBesoin();
+					    fileName = fileName + "__" + Integer.toString(photoIndex) + "." +extension;
+					    photoIndex++;
+					    Photo photo = new Photo();
+					    photo.setIdP(fileName);    // Id photo = filename in directory
+					    dao.ajoutPhoto(photo);
+					    photos.add(photo);
+					    part.write(uploadPath + File.separator + fileName);
+					 
 				}
 				 photoBesoin.setPhotos(photos);
 				 b.setPhotoBesoin(photoBesoin);
@@ -107,11 +116,11 @@ public class ServletBesoins extends HttpServlet {
 			 dao.ajoutBesoin(b);
 			 
 				// test ********************************************************
-				List<Etablisement> etablisements = new ArrayList<Etablisement>();
-				etablisements = dao.getAllEtablissement();
-				etablisements.get(0).addBesoin(b);
-				dao.updateEtablisement(etablisements.get(0));
-				dao.updateBesoin(b);
+//				List<Etablisement> etablisements = new ArrayList<Etablisement>();
+//				etablisements = dao.getAllEtablissement();
+//				etablisements.get(0).addBesoin(b);
+//				dao.updateEtablisement(etablisements.get(0));
+//				dao.updateBesoin(b);
 				// test *********************************************************
 			 
 			List<Besoin> besoins = dao.getAllBesoin();

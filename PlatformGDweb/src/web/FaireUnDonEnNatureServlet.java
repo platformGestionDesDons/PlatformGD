@@ -88,6 +88,11 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 			 {				 
 				 for (Part part : fileParts) 
 				{
+					 if(!(part.getContentType().equalsIgnoreCase("image/jpeg"))&&!(part.getContentType().equalsIgnoreCase("image/png")))
+					 {
+							req.setAttribute("errMsg", "Format de photo non supporté");
+							req.getRequestDispatcher("404.jsp").forward(req, resp);
+					 }
 					fileName = part.getSubmittedFileName();
 					extension = fileName.substring(fileName.lastIndexOf(".") + 1);
 				    fileName = don_en_nature.getId_don();

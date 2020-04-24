@@ -40,9 +40,11 @@
 
 	<div class="form-group">
 		<label class="control-label required" for="photos">Ajouter des photos</label>
-<!-- 		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>	 -->
-		<input type="file" name="file" multiple />
+		<span class="required text-danger form-asterisk" >(formats acceptés : jpeg/png)</span>
+		<input type="file" id="file" name="file" accept="image/*" multiple  />
+			
 	</div>
+	
 	<div class="form-group">
 	 <button type="submit" class="btn btn-default btn-block">Envoyer</button>
 	 <a href="besoins" class="btn btn-default btn-block" role="button">Annuler</a>
@@ -52,4 +54,51 @@
 	</div>
 	
 	</section>
+    <script type="text/javascript">
+        $(document).ready(function () {
+             var validFilesTypes = ["png", "jpg","jpeg"];
+            $('#file').change(function () {
+                CheckExtension(this);
+//              validateFileSize(this);
+            });
+            function CheckExtension(e) {
+                /*global document: false */
+ 
+ 
+                var file = e;
+                var path = file.value;
+ 
+                var ext = path.substring(path.lastIndexOf(".") + 1, path.length).toLowerCase();
+                var isValidFile = false;
+                for (var i = 0; i < validFilesTypes.length; i++) {
+                    if (ext == validFilesTypes[i]) {
+                        isValidFile = true;
+                        break;
+                    }
+                }
+                if (!isValidFile) {
+                    e.value = null;
+                    alert("Fichier non valide." + 
+                    "Les extensions valides sont:\n\n" + validFilesTypes.join(", ")); 
+                }
+                return isValidFile;
+            }
+ 
+//             function validateFileSize(e) {
+//                 /*global document: false */
+//                 var file = e;
+//                 var fileSize = file.files[0].size;
+//                 var isValidFile = false;
+//                 if (fileSize !== 0 && fileSize <= 25214400) {
+//                     isValidFile = true;
+//                 }
+//                 if (!isValidFile) {
+//                     e.value = null;
+//                     alert("File Size Should be Greater than 0 and less than 25 mb");
+//                 }
+//                 return isValidFile;
+//             }
+        });
+    
+    </script>
 <%@ include file="__footer.jsp"%>

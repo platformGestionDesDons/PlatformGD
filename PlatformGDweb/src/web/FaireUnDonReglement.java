@@ -77,6 +77,11 @@ public class FaireUnDonReglement extends HttpServlet{
 			 {				 
 				 for (Part part : fileParts) 
 				{
+					 if(!(part.getContentType().equalsIgnoreCase("image/jpeg"))&&!(part.getContentType().equalsIgnoreCase("image/png")))
+					 {
+							req.setAttribute("errMsg", "Format de photo non supporté");
+							req.getRequestDispatcher("404.jsp").forward(req, resp);
+					 }
 					fileName = part.getSubmittedFileName();
 					extension = fileName.substring(fileName.lastIndexOf(".") + 1);
 				    fileName = reglement.getId_don();
