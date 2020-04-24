@@ -426,7 +426,6 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 	/*@Override
 	public String ajouteUtilisateur(Utilisateur utilisateur) {
-
 		em.persist(utilisateur);
 		em.flush();
 		return utilisateur.getIdut();
@@ -678,12 +677,13 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 //		
 //		return besoins;
 		
-    	Query req= em.createQuery("select b from Besoin b where b.etablissement.IdEtablissement==:x");
+    	Query req= em.createQuery("select b from Besoin b where b.etablisement.IdEtablissement =:x");
     	req.setParameter("x", idE);
     	return req.getResultList();
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Etablisement> getAllEtablissement() {
 
@@ -695,6 +695,13 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	public PhotoBesoin getPhotoBesoinById(String idPb) {
 		PhotoBesoin photoBesoin =em.find(PhotoBesoin.class, idPb);
 		return photoBesoin;
+	}
+
+	@Override
+	public void updateEtablisement(Etablisement e) 
+	{
+		if(!e.equals(null))
+			em.merge(e);
 	}
 
 

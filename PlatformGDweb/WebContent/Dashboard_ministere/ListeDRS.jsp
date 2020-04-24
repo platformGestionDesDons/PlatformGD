@@ -24,21 +24,24 @@
 							</div>
 							<div
 								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Contact Responsable</span></strong>
+								<strong><span class="text-color">Contact
+										Responsable</span></strong>
 							</div>
 							<div
 								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Nombre Etablissements</span></strong>
+								<strong><span class="text-color">Nombre
+										Etablissements</span></strong>
 							</div>
 						</div>
 						<hr class="margin-20">
-						<c:forEach var="etablissement" items="${etablissement}">
+						<c:forEach items="${etablissements}" var="b">
+							<c:if test="${b.getDrs() == true }">
 								<div class="row">
 									<div class="col-xs-3 col-sm-3 text-center">
-										<h5>${etablissement.getNomEtablissement()}</h5>
+										<h5>${b.getNomEtablissement()}</h5>
 									</div>
 									<div class="col-xs-3 col-sm-3 text-center">
-										<!-- <h5>${etablissement.getAdresses().iterator().next().getGouvernorat()}</h5>-->
+										<!--<h5>${etablissement.getAdresses().iterator().next().getGouvernorat()}</h5>-->
 									</div>
 									<div class="col-xs-3 col-sm-3 text-center">
 										<!-- <h5>${etablissement.getUtilisateur().getTelephone().iterator().next()}</h5>-->
@@ -47,6 +50,7 @@
 										<h5>-</h5>
 									</div>
 								</div>
+							</c:if>
 						</c:forEach>
 						<div class="row">
 							<a href="#" class="btn btn-default btn-menu"><i

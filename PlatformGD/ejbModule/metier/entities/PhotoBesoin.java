@@ -10,15 +10,18 @@ import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class PhotoBesoin 
 {
 	@Id 
 	private String idPB; 
 	
-	@OneToMany(fetch = FetchType.EAGER)
-//	@OneToMany
-
+	//	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Photo> photos;
 	
 

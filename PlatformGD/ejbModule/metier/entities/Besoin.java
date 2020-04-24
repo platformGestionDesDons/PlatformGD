@@ -34,6 +34,8 @@ public class Besoin implements Serializable
 	@OneToOne( cascade = CascadeType.ALL )
 	private PhotoBesoin photoBesoin;
 
+	@ManyToOne
+	private Etablisement etablisement;
 
 	
 	public Besoin() {}
@@ -119,6 +121,18 @@ public class Besoin implements Serializable
 
 
 
+	public Etablisement getEtablisement() {
+		return etablisement;
+	}
+
+
+
+	public void setEtablisement(Etablisement etablisement) {
+		this.etablisement = etablisement;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Besoin [idBesoin=" + idBesoin + ", dateBesoin=" + dateBesoin + ", etat=" + etat + ", quantiteInitiale="
@@ -130,5 +144,3 @@ public class Besoin implements Serializable
 
 
 }
-
-

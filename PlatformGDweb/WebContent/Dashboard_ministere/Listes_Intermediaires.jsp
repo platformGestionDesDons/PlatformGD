@@ -28,17 +28,17 @@
 							</div>
 						</div>
 						<hr class="margin-20">
-						<c:forEach var="etablissement" items="${etablissement}">
-							<c:if test="${etablissement.getIntermediaire() == 'true'}">
+						<c:forEach items="${etablissements}"  var="etab">
+							<c:if test="${etab.getIntermediaire() == true}">
 								<div class="row">
 									<div class="col-xs-4 col-sm-4 text-center">
-										<h5>${etablissement.getNomEtablissement()}</h5>
+										<h5>${etab.getNomEtablissement()}</h5>
 									</div>
 									<div class="col-xs-4 col-sm-4 text-center">
-										<h5>${etablissement.getAdresses().iterator().next().getGouvernorat()}</h5>
+										<!-- <h5>${etablissement.getAdresses().iterator().next().getGouvernorat()}</h5>-->
 									</div>
 									<div class="col-xs-4 col-sm-4 text-center">
-										<h5>${etablissement.getUtilisateur().getTelephone().iterator().next()}</h5>
+										<!-- <h5>${etablissement.getUtilisateur().getTelephone().iterator().next()}</h5>-->
 									</div>
 								</div>
 							</c:if>

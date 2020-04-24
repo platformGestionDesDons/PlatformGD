@@ -29,13 +29,13 @@ public class SupprimerDonServlet extends HttpServlet{
         	don.setEstSupprime(true);
         	metier.updateDonEnNature(don);
         	////////////////notifier l'utilisateur que son don est supprimé
-        	req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+        	req.getRequestDispatcher("Dashboard_ministere/ListesDons.jsp").forward(req, resp);
         } else if (!code_suppression_don_reglement.equals(null)) {
         	Reglement reglement = metier.getDonEnReglementById(code_suppression_don_reglement);
         	reglement.setEstSupprime(true);
         	metier.updateReglement(reglement);
         	////////////////notifier l'utilisateur que son don est supprimé
-        	req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+        	req.getRequestDispatcher("Dashboard_ministere/ListesDons.jsp").forward(req, resp);
         }
 	}
 	@Override

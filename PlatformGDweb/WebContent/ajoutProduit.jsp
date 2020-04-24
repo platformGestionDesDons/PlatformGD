@@ -1,7 +1,7 @@
-
 <%@ include file="__header.jsp"%>
-<%-- <%@ include file="menu_1.jsp"%> --%>
+<%@ include file="menu_etablissement.jsp"%>
 <section class="page-section light-bg">
+<div class="overlay"></div>
 <div class="container">	
 
  <form name="formAjoutProduit" action="produits" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a">
@@ -73,7 +73,8 @@
 $(document).ready(function(){
 	 $("#prixMax").on('mouseup keyup', function () {
 		 let value = $("#prixMin").val();
-		  $(this).val(Math.max(value, $(this).val()));
+		  $(this).attr({
+			  "min": value})
 		});
 	});
 </script>

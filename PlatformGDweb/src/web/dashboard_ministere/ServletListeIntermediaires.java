@@ -18,7 +18,7 @@ public class ServletListeIntermediaires extends HttpServlet{
 	private PlatformGDLocal dao;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("etablissement", dao.getAllEtablissement());
+		req.setAttribute("etablissements", dao.getAllEtablissement());
 		req.getRequestDispatcher("Dashboard_ministere/Listes_Intermediaires.jsp").forward(req,resp);
 	}
 	@Override

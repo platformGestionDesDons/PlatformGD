@@ -2,6 +2,7 @@
 <%@ include file="__header.jsp"%>
 <%@ include file="menu_donnateur.jsp"%>
 <section class="page-section">
+<div class="overlay"></div>
 	<div class="container">
 
 
@@ -107,7 +108,7 @@
 								<div>
 									<a href="#"
 										class="btn btn-box btn-default fs20 pad-20 animated fadeInDown visible"
-										style="min-width: 240px;" data-animation="fadeInDown">Voir
+										style="min-width: 100px;" data-animation="fadeInDown">Voir
 										plus</a>
 								</div>
 							</div>
@@ -142,7 +143,7 @@
 								<div>
 									<a href="#"
 										class="btn btn-box btn-default fs20 pad-20 animated fadeInDown visible"
-										style="min-width: 240px;" data-animation="fadeInDown">Voir
+										style="min-width: 100px;" data-animation="fadeInDown">Voir
 										plus</a>
 								</div>
 							</div>
@@ -209,7 +210,7 @@
 								<div>
 									<a href="#"
 										class="btn btn-box btn-default fs20 pad-20 animated fadeInDown visible"
-										style="min-width: 240px;" data-animation="fadeInDown">Voir
+										style="min-width: 100px;" data-animation="fadeInDown">Voir
 										plus</a>
 								</div>
 							</div>

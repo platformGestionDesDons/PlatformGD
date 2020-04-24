@@ -19,7 +19,7 @@ public class ServletListeEtablissement extends HttpServlet{
 	private PlatformGDLocal dao;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		req.setAttribute("etablissements", dao.getAllEtablissement());
 		req.getRequestDispatcher("Dashboard_ministere/Liste_Etablilssements.jsp").forward(req,resp);
 	}
 	@Override

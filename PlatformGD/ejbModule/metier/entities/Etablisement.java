@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.*;
+
 @Entity
 public class Etablisement implements Serializable {
 	@Id
@@ -72,10 +74,12 @@ public class Etablisement implements Serializable {
 	
 
 	@OneToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	//@JoinTable(name = "T_ETABLISSEMENT_ADRESSE", joinColumns = @JoinColumn(name = "IdEtablissement"), inverseJoinColumns = @JoinColumn(name = "idAdresse"))
 	private Collection<Adresse> adresses;
 
 	@OneToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	//@JoinTable(name = "T_TELEPHONE_ETABLISSEMENT", joinColumns = @JoinColumn(name = "IdEtablissement"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
 	private Collection<Telephone> telephones;
 
@@ -83,16 +87,19 @@ public class Etablisement implements Serializable {
 	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
 	private Utilisateur utilisateur;
 
-	@OneToMany
+	@OneToMany(mappedBy="etablisement")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Besoin> besoins;
+	
+	@OneToMany(mappedBy="etablissement")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<Don> dons;
+	
 	
 	public String getNomEtablissement() {
 		return NomEtablissement;
 	}
 
-	@OneToMany(mappedBy="etablissement", fetch = FetchType.EAGER)
-	private List<Don> dons;
-	
 	public void setNomEtablissement(String nomEtablissement) {
 		NomEtablissement = nomEtablissement;
 	}
@@ -157,8 +164,9 @@ public class Etablisement implements Serializable {
 		return besoins;
 	}
 
-	public void setBesoins(List<Besoin> besoins) {
-		this.besoins = besoins;
-	}
+	   public void addBesoin(Besoin besoin) {
+	        besoins.add(besoin);
+	        besoin.setEtablisement(this);
+	    }
 	
 }

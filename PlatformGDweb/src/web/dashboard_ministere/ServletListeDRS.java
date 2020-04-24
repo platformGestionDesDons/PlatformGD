@@ -1,7 +1,6 @@
 package web.dashboard_ministere;
 
 import java.io.IOException;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +18,7 @@ public class ServletListeDRS extends HttpServlet{
 	private PlatformGDLocal dao;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("etablissement", dao.getAllEtablissement());
+		req.setAttribute("etablissements", dao.getAllEtablissement());
 		req.getRequestDispatcher("Dashboard_ministere/ListeDRS.jsp").forward(req,resp);
 	}
 	@Override

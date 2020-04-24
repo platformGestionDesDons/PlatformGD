@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import metier.session.PlatformGDLocal;
 
-@WebServlet("/Liste_Dons")
+@WebServlet(urlPatterns = {"/Liste_Dons"})
 public class ServletListeDons extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	@EJB

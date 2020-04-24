@@ -10,6 +10,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name="Categorie")
 @NamedQuery(name="Categorie.findAll", query="SELECT p FROM Categorie p")
@@ -20,7 +23,8 @@ public class Categorie
 	private String idC;
 	private String libelle;
 	
-	@OneToMany(mappedBy="categorie", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="categorie")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Produit> produits;
 	
 	public Categorie() {
@@ -53,4 +57,3 @@ public class Categorie
 	
 	
 }
-

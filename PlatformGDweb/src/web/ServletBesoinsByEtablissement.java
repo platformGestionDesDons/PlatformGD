@@ -1,6 +1,7 @@
 package web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -9,28 +10,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import metier.entities.Etablisement;
 import metier.session.PlatformGDLocal;
 
-@WebServlet(urlPatterns = { "/Dashboard_ministere" })
-public class VueMinistereServlet extends HttpServlet{
+@WebServlet(urlPatterns = { "/besoinsByEtablissement" })
+public class ServletBesoinsByEtablissement extends HttpServlet{
 	
 	@EJB
 	private PlatformGDLocal metier;
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+
+		List<Etablisement> etablissements = metier.getAllEtablissement();
+		req.setAttribute("etablissements", metier.getAllEtablissement());
+
+		req.getRequestDispatcher("besoinsByEtablissement.jsp").forward(req, resp);
 	}
+	
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String action = req.getParameter("action");
 		
-		if (action.equals("Voir tous les dons en nature")) {
-			req.setAttribute("don_en_nature", metier.getAllDonsEnNature());
-			doGet(req, resp);
-		} else if (action.equals("Voir tous les reglements")){
-			req.setAttribute("reglement", metier.getAllDonsReglement());
-			doGet(req, resp);
-		} 
 	}
 }

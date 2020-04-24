@@ -1,9 +1,8 @@
-
 <%@ include file="__header.jsp"%>
-<%-- <%@ include file="menu_1.jsp"%> --%>
+<%@ include file="menu_etablissement.jsp"%>
 <section class="page-section light-bg">
 <div class="container">	
-
+<div class="overlay"></div>
  <form name="formAjoutBesoin" action="besoins" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a" enctype="multipart/form-data"> 
 <h1>Ajouter un besoin</h1>
 
@@ -35,7 +34,7 @@
 	<div class="form-group">
 		<label class="control-label required" for="motif">Motif</label>
 		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>	
-   		<textarea name="motif" rows="6" cols="40" class="form-control" required="required">Vous pouvez saisir ici le motif.</textarea>
+   		<textarea name="motif" rows="6" cols="40" class="form-control" required="required" placeholder="Vous pouvez saisir ici le motif."></textarea>
    	</div>
 
 	<div class="form-group">

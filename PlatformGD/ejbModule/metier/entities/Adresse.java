@@ -16,8 +16,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Adresse implements Serializable {
 	@Id
-	//UUID uuid = UUID.randomUUID();
-	//private String idAdresse=uuid.toString();
 	private String idAdresse=UUID.randomUUID().toString();
 	private String gouvernorat;
 	private String adresse;

@@ -40,104 +40,69 @@
 							</div>
 							<div class="form-box-cha9a9a top-margin-20"
 								style="padding: 10px !important;">
-								<div class="container">
-									<h1>Listes des Dons en nature</h1>
-									<c:forEach items="${don_en_nature}" var="d">
-										<div class="row">
-											<div
-												class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-												<strong><span class="text-color">Photo Don</span></strong>
-											</div>
-											<div
-												class="col-xs-10 col-sm-10 text-center fund-bottom-border lr-pad-10">
-
-												<div class="container">
-													<div class="row">
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Nom Don
-															</span></strong>
-														</div>
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Bénéficiaire
-															</span></strong>
-														</div>
-														<div
-															class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Donnateur
-															</span></strong>
-														</div>
-														<div
-															class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Prix
-																	totale </span></strong>
-														</div>
-														<div
-															class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Quantite
-															</span></strong>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.getBesoin().getProduit().getLibelle()}</h5>
-														</div>
-														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>Etablissement</h5>
-														</div>
-														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>Donnateur</h5>
-														</div>
-														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>${d.getPrix_totale()}</h5>
-														</div>
-														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>${d.getQuantite()}</h5>
-														</div>
-													</div>
-													<hr class="margin-20">
-													<div class="row">
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Est
-																	acceptee</span></strong>
-														</div>
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Est
-																	supprimee</span></strong>
-														</div>
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Accepter</span></strong>
-														</div>
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Supprimer</span></strong>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.isEstAccepte()}</h5>
-														</div>
-														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.isEstSupprime()}</h5>
-														</div>
-														<div class="col-xs-3 col-sm-3 text-center">
-																 <a href="accepter_don?code_don_en_nature=${d.getId_don()}">Accepter</a>															 
-														</div>
-														<div class="col-xs-3 col-sm-3 text-center">
-															<a href="supprimer_don?code_don_en_nature=${d.getId_don()}">Supprimer</a>
-														</div>
-													</div>
-												</div>
-
-											</div>
-										</div>
-										<hr class="margin-20">
-									</c:forEach>
-								</div>
+								<table class="table">
+									<thead>
+									<tr>
+										<th scope="col">
+											<strong><span class="text-color">Photo Don</span></strong>
+										</th>
+										<th scope="col">
+											<strong><span class="text-color">Nom Don</span></strong>
+										</th>
+										<th scope="col">
+											<strong><span class="text-color">Bénéficiaire</span></strong>
+										</th scope="col">
+										<th>
+											<strong><span class="text-color">Donnateur</span></strong>
+										</th scope="col">
+										<th>
+											<strong><span class="text-color">Prix totale </span></strong>
+										</th scope="col">
+										<th>
+											<strong><span class="text-color">Quantite</span></strong>
+										</th scope="col">
+										<th>
+											<strong><span class="text-color">Est acceptee</span></strong>
+										</th scope="col">
+										<th scope="col"></th>
+										<th scope="col"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${don_en_nature}" var="d">
+											<c:if test="${d.isEstSupprime()}">
+											<tr>
+											<td>
+											</td>
+											<td>
+											<h5>${d.getBesoin().getProduit().getLibelle()}</h5>
+											</td>
+											<td>
+											<h5>${d.getEtablissement().getNomEtablissement()}</h5>
+											</td>
+											<td>
+											<h5>Donnateur</h5>
+											</td>
+											<td>
+											<h5>${d.getPrix_totale()}</h5>
+											</td>
+											<td>
+											<h5>${d.getQuantite()}</h5>
+											</td>
+											<td>
+												<h5>${d.isEstAccepte()}</h5>
+											</td>
+											<td>
+												<a href="accepter_don?code_don_en_nature=${d.getId_don()}" class="btn btn-success btn-sm" role="button">Accepter</a>
+											</td>
+											<td>
+												<a href="supprimer_don?code_don_en_nature=${d.getId_don()}" class="btn btn-danger btn-sm" role="button" >Supprimer</a>
+											</td>
+											</tr>
+											</c:if>
+										</c:forEach>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -151,104 +116,69 @@
 							</div>
 							<div class="form-box-cha9a9a top-margin-20"
 								style="padding: 10px !important;">
-								<div class="container">
-									<h1>Listes des Dons Reglements</h1>
-									<c:forEach items="${reglement}" var="d">
-										<div class="row">
-											<div
-												class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-												<strong><span class="text-color">Photo Don</span></strong>
-											</div>
-											<div
-												class="col-xs-10 col-sm-10 text-center fund-bottom-border lr-pad-10">
-
-												<div class="container">
-													<div class="row">
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Montant
-															</span></strong>
-														</div>
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Bénéficiaire
-															</span></strong>
-														</div>
-														<div
-															class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Donnateur
-															</span></strong>
-														</div>
-														<div
-															class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Mode Reglement
-																	 </span></strong>
-														</div>
-														<div
-															class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Date Reglement
-															</span></strong>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.getMontant()}</h5>
-														</div>
-														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>Etablissement</h5>
-														</div>
-														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>Donnateur</h5>
-														</div>
-														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>${d.getModeReglement()}</h5>
-														</div>
-														<div class="col-xs-2 col-sm-2 text-center">
-															<h5>${d.getDateReglement()}</h5>
-														</div>
-													</div>
-													<hr class="margin-20">
-													<div class="row">
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Est
-																	acceptee</span></strong>
-														</div>
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Est
-																	supprimee</span></strong>
-														</div>
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Accepter</span></strong>
-														</div>
-														<div
-															class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-															<strong><span class="text-color">Supprimer</span></strong>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.isEstAccepte()}</h5>
-														</div>
-														<div class="col-xs-3 col-sm-3 text-center">
-															<h5>${d.isEstSupprime()}</h5>
-														</div>
-														<div class="col-xs-3 col-sm-3 text-center">
-																 <a href="accepter_don?code_reglement=${d.getId_don()}">Accepter</a>
-														</div>
-														<div class="col-xs-3 col-sm-3 text-center">
-															<a href="supprimer_don?code_reglement=${d.getId_don()}">Supprimer</a>
-														</div>
-													</div>
-												</div>
-
-											</div>
-										</div>
-										<hr class="margin-20">
-									</c:forEach>
-								</div>
+									<table class="table">
+									<thead>
+									<tr>
+										<th scope="col">
+											<strong><span class="text-color">Photo Don</span></strong>
+										</th>
+										<th scope="col">
+											<strong><span class="text-color">Montant</span></strong>
+										</th>
+										<th scope="col">
+											<strong><span class="text-color">Bénéficiaire</span></strong>
+										</th scope="col">
+										<th>
+											<strong><span class="text-color">Donnateur</span></strong>
+										</th scope="col">
+										<th>
+											<strong><span class="text-color">Mode de reglement</span></strong>
+										</th scope="col">
+										<th>
+											<strong><span class="text-color">Date reglement</span></strong>
+										</th scope="col">
+										<th>
+											<strong><span class="text-color">Est acceptee</span></strong>
+										</th scope="col">
+										<th scope="col"></th>
+										<th scope="col"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${reglement}" var="r">
+										<c:if test="${r.isEstSupprime()}">
+											<tr>
+											<td>
+											</td>
+											<td>
+											<h5>${r.getMontant()}</h5>
+											</td>
+											<td>
+											<h5>${r.getEtablissement().getNomEtablissement()}</h5>
+											</td>
+											<td>
+											<h5>Donnateur</h5>
+											</td>
+											<td>
+											<h5>${r.getModeReglement()}</h5>
+											</td>
+											<td>
+											<h5>${r.getDateReglement()}</h5>
+											</td>
+											<td>
+												<h5>${r.isEstAccepte()}</h5>
+											</td>
+											<td>
+												<a href="accepter_don?code_reglement=${r.getId_don()}" class="btn btn-success btn-sm" role="button">Accepter</a>
+											</td>
+											<td>
+												<a href="supprimer_don?code_reglement=${r.getId_don()}" class="btn btn-danger btn-sm" role="button">Supprimer</a>
+											</td>
+											</tr>
+											</c:if>
+										</c:forEach>
+									</tbody>
+									</table>
 							</div>
 						</div>
 					</div>

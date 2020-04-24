@@ -9,6 +9,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name = "Fournisseur")
 @NamedQuery(name="Fournisseur.findAll", query="SELECT f FROM Fournisseur f")
@@ -25,6 +28,7 @@ public class Fournisseur
 	
 	@ManyToMany
 	@JoinTable(name="produit_fournisseur")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Produit> produits;
 	
 	public Fournisseur() {
