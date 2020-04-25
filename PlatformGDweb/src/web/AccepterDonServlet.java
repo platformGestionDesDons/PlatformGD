@@ -29,7 +29,7 @@ public class AccepterDonServlet extends HttpServlet {
 			DonEnNature don = metier.getDonEnNatureById(code_accept_don_nature);
 
 			if (don.isEstAccepte()) {
-				req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+				req.getRequestDispatcher("Dashboard_ministere/ListesDons.jsp").forward(req, resp);
 			} else {
 				don.setEstAccepte(true);
 				String id_besoin = don.getBesoin().getIdBesoin();
@@ -40,16 +40,16 @@ public class AccepterDonServlet extends HttpServlet {
 				besoin.setQuantiteRestante(besoin.getQuantiteInitiale() - don.getQuantite());
 				metier.updateBesoin(besoin);
 				metier.updateDonEnNature(don);
-				req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+				req.getRequestDispatcher("Dashboard_ministere/ListesDons.jsp").forward(req, resp);
 			}
 		} else if (!code_accept_don_reglement.equals(null)) {
 			Reglement reglement = metier.getDonEnReglementById(code_accept_don_reglement);
 			if(reglement.isEstAccepte()) {
-				req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+				req.getRequestDispatcher("Dashboard_ministere/ListeDons.jsp").forward(req, resp);
 			} else {
 				reglement.setEstAccepte(true);
 				metier.updateReglement(reglement);
-				req.getRequestDispatcher("/VueMinistere.jsp").forward(req, resp);
+				req.getRequestDispatcher("Dashboard_ministere/ListeDons.jsp").forward(req, resp);
 			}
 		}
 	}

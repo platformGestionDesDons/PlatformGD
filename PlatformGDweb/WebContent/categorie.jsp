@@ -1,6 +1,6 @@
 
 <%@ include file="__header.jsp"%>
-<%-- <%@ include file="menu_1.jsp"%> --%>
+<%@ include file="menu_etablissement.jsp"%>
 	<div class="container">
 		<h2>
 			Nombre de catégories disponibles sur le site :

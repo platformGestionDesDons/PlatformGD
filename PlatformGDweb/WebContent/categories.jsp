@@ -1,5 +1,7 @@
 
 <%@ include file="__header.jsp"%>
+
+<%@ include file="menu_etablissement.jsp"%>
 <section class="page-section light-bg">
 	<div class="container">
 		<h1>Liste des categories</h1>

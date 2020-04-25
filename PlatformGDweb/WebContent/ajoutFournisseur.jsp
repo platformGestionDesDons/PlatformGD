@@ -1,7 +1,8 @@
 
 <%@ include file="__header.jsp"%>
-<%-- <%@ include file="menu_1.jsp"%> --%>
+<%@ include file="menu_etablissement.jsp"%>
 <section class="page-section light-bg">
+<div class="overlay"></div>
 <div class="container">	
 
  <form name="formAjoutFournisseur" action="ajoutFournisseur" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a"> 

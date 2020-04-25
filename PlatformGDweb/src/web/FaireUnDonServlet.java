@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import metier.entities.Etablisement;
 import metier.session.PlatformGDLocal;
 
 @WebServlet(urlPatterns = { "/faire_un_don" })
@@ -22,9 +23,9 @@ public class FaireUnDonServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String code_etablissement = (String) req.getParameter("code");
+		String code_etablissement = (String) req.getParameter("id_etablissement");
 		req.setAttribute("etablissement", metier.findetablissement(code_etablissement));
-		req.setAttribute("besoin_etab", metier.getAllBesoin());//getBesoinByEtablissement(long id_etablissement)
+		req.setAttribute("besoin_etab", metier.getBesoinsByEtablissement(code_etablissement));//getBesoinByEtablissement(long id_etablissement)
 		//req.setAttribute("donnateur", metier.getAllDonnateur());//getDonnateurByEtablissement(long id_etablissement)
 		req.setAttribute("fournisseur",metier.getAllFournisseur());
 		req.getRequestDispatcher("/etablissement_hopitale.jsp").forward(req, resp);
@@ -33,6 +34,7 @@ public class FaireUnDonServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String code_etablissement = (String) req.getParameter("id_etablissement");
 		String action = req.getParameter("action");
 		if (action.equals("Faire un don en nature")) {	
 			req.setAttribute("besoin_etab", metier.getAllBesoin());//getBesoinByEtablissement(String id_etablissement)

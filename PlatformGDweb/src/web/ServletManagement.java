@@ -37,7 +37,7 @@ public class ServletManagement extends HttpServlet {
 		HttpSession session = request.getSession();
 		if ((Boolean) (session.getAttribute("logged") != null)
 				&& (Boolean) (session.getAttribute("logged").equals(true))) {
-			request.getRequestDispatcher("404.jsp").forward(request, response);
+			request.getRequestDispatcher("ajoutBesoin.jsp").forward(request, response);
 		} else {
 			request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 		}
@@ -52,18 +52,20 @@ public class ServletManagement extends HttpServlet {
 		if ((Boolean) (session.getAttribute("logged") != null)
 				&& (Boolean) (session.getAttribute("logged").equals(true))) {
 			
-			request.getRequestDispatcher("404.jsp").forward(request, response);
+			request.getRequestDispatcher("ajoutBesoin.jsp").forward(request, response);
 		} else {
 			String username = request.getParameter("username");
 			String clearPassword = request.getParameter("password");
 			DaoManagement daoManagement = new DaoManagement();
 			auth = daoManagement.authentification(username, clearPassword);
 			session.setAttribute("logged", auth);
-			System.out.println(auth);
 			if (auth == true) {
 
 				Utilisateur utilisateur = new Utilisateur();
 				utilisateur = (Utilisateur) metier.authentification_Utilisateur(username);
+				if(utilisateur.equals(null)) {
+					System.out.println("++++++++++++++++++");
+				}
 				request.setAttribute("ID", utilisateur.getIdut());
 				request.setAttribute("e-mail", username);
 				request.setAttribute("Nom", utilisateur.getNom());
@@ -71,7 +73,7 @@ public class ServletManagement extends HttpServlet {
 				request.setAttribute("role", utilisateur.getRole());
 				session.setAttribute("utilisateur", utilisateur);
 				
-				request.getRequestDispatcher("404.jsp").forward(request, response);
+				request.getRequestDispatcher("ajoutBesoin.jsp").forward(request, response);
 				
 			} else {
 				request.setAttribute("errur1", "check your password or e-mail");

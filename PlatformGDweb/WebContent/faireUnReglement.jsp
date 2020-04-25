@@ -1,17 +1,13 @@
 <%@ include file="__header.jsp"%>
 
-<%@ include file="menu_1.jsp"%>
-<div class="page-header">
-	<div class="container">
-		<h3 class="title text-center">Créer votre Don</h3>
-	</div>
-</div>
+<%@ include file="menu_donnateur.jsp"%>
 <section class="page-section light-bg">
-
+	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 form-box-cha9a9a">
-
+				<h3 class="title">Créer mon don</h3>
+						<hr>
 				<form name="new_fund" method="post" class="form-group"
 					action="${pageContext.request.contextPath}/don_reglement"
 					enctype="multipart/form-data">

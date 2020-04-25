@@ -33,4 +33,8 @@ public class ServletBesoinsByEtablissement extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/heads/farhaoui

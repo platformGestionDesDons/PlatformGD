@@ -678,7 +678,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 //		
 //		return besoins;
 		
-    	Query req= em.createQuery("select b from Besoin b where b.etablissement.IdEtablissement==:x");
+    	Query req= em.createQuery("select b from Besoin b where b.etablisement.IdEtablissement =:x");
     	req.setParameter("x", idE);
     	return req.getResultList();
 	}
@@ -704,6 +704,10 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		if(!e.equals(null))
 			em.merge(e);
 	}
+<<<<<<< HEAD
+
+=======
+>>>>>>> refs/heads/farhaoui
 
 
 }

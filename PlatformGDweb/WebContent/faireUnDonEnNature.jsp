@@ -1,31 +1,40 @@
 <%@ include file="__header.jsp"%>
 
-<%@ include file="menu_1.jsp"%>
-<div class="page-header">
-	<div class="container">
-		<h3 class="title text-center">Créer votre Don</h3>
-	</div>
-</div>
+<%@ include file="menu_donnateur.jsp"%>
 <section class="page-section light-bg">
-
+	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 form-box-cha9a9a">
-
+				<h3 class="title">Créer mon don</h3>
+						<hr>
 				<form name="new_fund" method="post" class="form-group"
 					action="${pageContext.request.contextPath}/don_en_nature"
 					enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
+							Bénéficiaire</label> <span
+							class="required text-danger form-asterisk"
+							title="Ce champ est requis">*</span><select id="nom_etablissement" name="nom_etab"
+							class="form-control">
+								<div class="cha9a9a-title text-center pad-5">
+									<c:forEach items="${beneficiaire}" var="bene">
+										<option value="${bene.getIdEtablissement()}">${bene.getNomEtablissement()}</option>
+									</c:forEach>
+								</div></select>
+					</div>
+					<div class="form-group">
+						<label class="control-label required" for="new_fund_name">Nom
 							besoin </label> <span
 							class="required text-danger form-asterisk"
-							title="Ce champ est requis">*</span><select id="new_fund_type" name="nom_produit"
-							class="form-control"><option value="30">
+							title="Ce champ est requis">*</span><select id="nom_besoin" name="nom_produit"
+							class="form-control">
 								<div class="cha9a9a-title text-center pad-5">
 									<c:forEach items="${besoin_etab}" var="b">
 										<option value="${b.getIdBesoin()}">${b.getProduit().getLibelle()}</option>
 									</c:forEach>
 								</div></select>
+								
 					</div>
 					<!--  <div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
@@ -65,18 +74,7 @@
 						<input type="text" id="new_fund_name" name="quantite"
 							class="form-control" />
 					</div>
-					<div class="form-group">
-						<label class="control-label required" for="new_fund_name">Nom
-							Bénéficiaire</label> <span
-							class="required text-danger form-asterisk"
-							title="Ce champ est requis">*</span><select id="new_fund_type" name="nom_etab"
-							class="form-control"><option value="30">
-								<div class="cha9a9a-title text-center pad-5">
-									<c:forEach items="${beneficiaire}" var="bene">
-										<option value="${bene.getIdEtablissement()}">${bene.getNomEtablissement()}</option>
-									</c:forEach>
-								</div></select>
-					</div>
+					
 					<!-- <div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
 							Fournisseur</label> <select id="new_fund_type" name="nom_produit"
@@ -88,9 +86,10 @@
 								</div></select>
 					</div> -->
 					<div class="form-group">
-						<label class="control-label required" for="photos">Ajoutervdes photos</label>
-						<span class="required text-danger form-asterisk" >(formats acceptés : jpeg/png)</span>
-						<input type="file" name="file" accept="image/*" multiple />
+						<label class="control-label required" for="photos">Ajouter
+							des photos</label>
+						<!-- 		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>	 -->
+						<input type="file" name="file" multiple />
 					</div>
 					<button class="btn btn-default btn-block" type="submit"
 						name="action" value="Faire un don en nature">

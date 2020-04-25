@@ -1,9 +1,8 @@
-
 <%@ include file="__header.jsp"%>
-<%-- <%@ include file="menu_1.jsp"%> --%>
+<%@ include file="menu_etablissement.jsp"%>
 <section class="page-section light-bg">
 <div class="container">	
-
+<div class="overlay"></div>
  <form name="formAjoutBesoin" action="besoins" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a" enctype="multipart/form-data"> 
 <h1>Ajouter un besoin</h1>
 
