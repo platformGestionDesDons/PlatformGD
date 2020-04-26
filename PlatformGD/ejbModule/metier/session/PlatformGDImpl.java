@@ -704,10 +704,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		if(!e.equals(null))
 			em.merge(e);
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/heads/farhaoui
 
 
 }

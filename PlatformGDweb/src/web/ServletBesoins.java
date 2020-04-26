@@ -116,19 +116,18 @@ public class ServletBesoins extends HttpServlet {
 			 dao.ajoutBesoin(b);
 			 
 				// test ********************************************************
-<<<<<<< HEAD
+
 //				List<Etablisement> etablisements = new ArrayList<Etablisement>();
 //				etablisements = dao.getAllEtablissement();
 //				etablisements.get(0).addBesoin(b);
 //				dao.updateEtablisement(etablisements.get(0));
 //				dao.updateBesoin(b);
-=======
+
 				List<Etablisement> etablisements = new ArrayList<Etablisement>();
 				etablisements = dao.getAllEtablissement();
 				etablisements.get(0).addBesoin(b);
 				dao.updateEtablisement(etablisements.get(0));
 				dao.updateBesoin(b);
->>>>>>> refs/heads/farhaoui
 				// test *********************************************************
 			 
 			List<Besoin> besoins = dao.getAllBesoin();
