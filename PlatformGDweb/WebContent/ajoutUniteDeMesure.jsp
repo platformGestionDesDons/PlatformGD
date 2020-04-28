@@ -10,13 +10,13 @@
 
   <div class="form-group">
  	 <div class="form-group">
-	    <label class="control-label required" for="idUnite">Unité</label>
+	    <label class="control-label required" for="idUnite">Unité de mesure</label>
 		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>
 	    <input type="text" class="form-control" id="idUnite" name="idUnite" required="required">
 	  </div>
 
   	<div class="form-group">
-	 <button type="submit" class="btn btn-default btn-block">Envoyer</button>
+	 <button type="submit" class="btn btn-default btn-block">Ajouter</button>
 	 <a href="udms" class="btn btn-default btn-block" role="button">Annuler</a>
 	</div>
   </div>

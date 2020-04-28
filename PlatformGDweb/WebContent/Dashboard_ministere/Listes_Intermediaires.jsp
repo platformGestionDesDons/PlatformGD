@@ -3,8 +3,6 @@
 <section class="page-section">
 	<div class="container">
 		<div class="row">
-		<a href="AjoutEtablissement"
-			class="btn btn-success">Ajouter une établissement</a>	
 			<div class="vcenter col-md-12 text-center">
 				<div class="visible-sm-block visible-xs-block top-margin-10">
 					<div class="form-box-cha9a9a widget bottom-pad-0"
@@ -14,11 +12,11 @@
 				<div class="form-box-cha9a9a top-margin-20"
 					style="padding: 10px !important;">
 					<div class="container">
-						<h1>Listes des Intermédiaires</h1>
+						<h1>Liste des Intermédiaires</h1>
 						<div class="row">
 							<div
 								class="col-xs-4 col-sm-4 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Nom Etablissement Intermedaire</span></strong>
+								<strong><span class="text-color">Nom établissement</span></strong>
 							</div>
 							<div
 								class="col-xs-4 col-sm-4 text-center fund-bottom-border lr-pad-10">
@@ -26,7 +24,7 @@
 							</div>
 							<div
 								class="col-xs-4 col-sm-4 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Contact Responsable</span></strong>
+								<strong><span class="text-color">Contact responsable</span></strong>
 							</div>
 						</div>
 						<hr class="margin-20">

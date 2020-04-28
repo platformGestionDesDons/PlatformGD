@@ -28,27 +28,27 @@
                                 <a href="Liste_Intermediaire">Liste intermédiaires</a>
                             </li>
                             <li>
-                                <a href="Liste_Fournisseurs">Liste Fournisseurs</a>
+                                <a href="Liste_Fournisseurs">Liste fournisseurs</a>
                             </li>
                             <li>
-                                <a href="Liste_Donnateurs">Liste donnateurs</a>
+                                <a href="Liste_Donnateurs">Liste donateurs</a>
                             </li>
                             <li >
                                 <a href="Liste_Etablissements"> Liste établissments</a>
                             </li>
 
                             <li >
-                                <a href="Liste_Dons">Liste des Dons</a>
+                                <a href="Liste_Dons">Liste dons</a>
                             </li>
                             <li >
-                                <a href="Liste_Besoins">Liste des Besoins</a>
+                                <a href="Liste_Besoins">Liste besoins</a>
                             </li>
 
                             <li >
                                 <a href="Liste_DRS">Liste DRS</a>
                             </li>
                             <li>
-                                <a href="index.jsp">Deconnection</a>
+                                <a href="index.jsp">Déconnexion</a>
                             </li> 
 
                         </ul>

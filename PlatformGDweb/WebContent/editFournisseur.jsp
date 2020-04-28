@@ -9,7 +9,7 @@
 
 
 		<div class="form-group">
-			<label class="control-label required" for="libelle">Libelle</label>
+			<label class="control-label required" for="libelle">Libellé</label>
 			<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>
 			<input type="text" id="libelle" name="libelle" value="${fournisseur.getLibelle()}"  class="form-control" required="required"/>
 		</div>
@@ -68,12 +68,12 @@
 		   </div>
 		</div>
   	<div class="form-group">
-		<label class="control-label required" for="telephone">Téléphone</label>
+		<label class="control-label required" for="telephone">Télèphone</label>
 		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>
 	   <input type="tel" name="telephone" value="${fournisseur.getNumTelF()}" class="form-control" required="required"/>
    	</div>
   	<div class="form-group">
-	 <button type="submit" class="btn btn-default btn-block">Envoyer</button>
+	 <button type="submit" class="btn btn-default btn-block">Confirmer</button>
 	 <a href="fournisseurs" class="btn btn-default btn-block" role="button">Annuler</a>
    	</div>
 </form>

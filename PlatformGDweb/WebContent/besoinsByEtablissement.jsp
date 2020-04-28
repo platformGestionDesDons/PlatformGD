@@ -60,12 +60,7 @@
 							<!-- nav -->
 							<ul class="nav navbar-nav">
 								<li><a href="#">Profil</a></li>
-								<li><a href="don_en_nature">Faire un don en nature</a></li>
-
-								<li class="current"><a href="don_reglement">Faire un
-										don reglement</a></li>
-
-								<li><a href="index.jsp">Deconnexion</a></li>
+								<li><a href="index.jsp">Déconnexion</a></li>
 
 							</ul>
 							<!-- Right nav -->
@@ -264,7 +259,7 @@
 				<div class="section-title" data-animation="fadeInUp">
 					<!-- Heading -->
 					<h2 class="title">
-						<strong>All<span class="text-color"> </span></strong>
+						<strong>Liste des besoins par établissement<span class="text-color"> </span></strong>
 					</h2>
 				</div>
 			</div>
@@ -277,7 +272,7 @@
 							<div class="visible card-1">
 								<div class="img-wrapper">
 									<div class="thumb-fund"
-										style="background-image: url(media/cache/cha9a9a_thumb/uploads/images/Hopital_Farhat_Hached_de_Sousse.jpg);"></div>
+										style="background-image: url(media/cache/cha9a9a_thumb/uploads/images/hopitale.jpg);"></div>
 								</div>
 								<div class="cha9a9a-title text-center pad-5">
 									<h5>${etablissement.getNomEtablissement()}</h5>
@@ -302,14 +297,14 @@
 										restante</span></strong>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Date</span></strong>
+								<strong><span class="text-color">Date création</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
 								<strong><span class="text-color">Priorité</span></strong>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
-								<strong><span class="text-color">Status</span></strong>
+								<strong><span class="text-color">Statut</span></strong>
 							</div>
 						</div>
 						<hr class="margin-20">

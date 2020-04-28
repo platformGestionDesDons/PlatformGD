@@ -2,8 +2,6 @@
 <%@ include file="menu_ministere.jsp"%>
 <section class="page-section">
 	<div class="container">
-	<a href="AjoutEtablissement"
-			class="btn btn-success">Ajouter une établissement</a>	
 		<div class="row">
 		
 			<div class="vcenter col-md-12 text-center">
@@ -15,15 +13,15 @@
 				<div class="form-box-cha9a9a top-margin-20"
 					style="padding: 10px !important;">
 					<div class="container">
-						<h1>Listes des Besoins</h1>
+						<h1>Liste des Besoins</h1>
 						<div class="row">
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Nom Produit</span></strong>
+								<strong><span class="text-color">Nom produit</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Date Besoin</span></strong>
+								<strong><span class="text-color">Date création</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
@@ -31,13 +29,13 @@
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Q_Initiale</span></strong>
+								<strong><span class="text-color">Quantité initiale</span></strong>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Q_Restante</span></strong>
+								<strong><span class="text-color">Quantité restante</span></strong>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
-								<strong><span class="text-color">Priorite</span></strong>
+								<strong><span class="text-color">Priorité</span></strong>
 							</div>
 						</div>
 						<hr class="margin-20">

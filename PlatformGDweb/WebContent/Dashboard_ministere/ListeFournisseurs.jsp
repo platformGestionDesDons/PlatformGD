@@ -12,11 +12,11 @@
 				<div class="form-box-cha9a9a top-margin-20"
 					style="padding: 10px !important;">
 					<div class="container">
-						<h1>Listes des Fournisseurs</h1>
+						<h1>Liste des Fournisseurs</h1>
 						<div class="row">
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Nom Fournisseur</span></strong>
+								<strong><span class="text-color">Nom fournisseur</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
@@ -28,14 +28,14 @@
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Numéro de tel</span></strong>
+								<strong><span class="text-color">Numéro de télèphone</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
 								<strong><span class="text-color">Région</span></strong>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
-								<strong><span class="text-color">Code postale</span></strong>
+								<strong><span class="text-color">Code postal</span></strong>
 							</div>
 						</div>
 						<hr class="margin-20">
