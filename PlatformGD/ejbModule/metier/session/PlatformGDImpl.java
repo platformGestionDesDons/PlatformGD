@@ -704,6 +704,11 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		if(!e.equals(null))
 			em.merge(e);
 	}
+	
+	public void updateUtilisateur(Utilisateur utilisateur) {
+		if(!utilisateur.equals(null))
+			em.merge(utilisateur);
+	}
 
 
 

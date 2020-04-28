@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
@@ -23,15 +24,8 @@ public class Utilisateur implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	//UUID uuid = UUID.randomUUID();
-	//private String idut=uuid.toString();
-	
 	private String idut=UUID.randomUUID().toString();
 	private String email;
 
@@ -40,13 +34,13 @@ public class Utilisateur implements Serializable {
 	private String mdp;
 	private Boolean etatDecompte;
 	private String role;
+	private Boolean accepted;
 
 	@OneToMany(targetEntity = Reclamation.class, mappedBy = "utilisateur")
 	private Collection<Reclamation> reclamations;
 
-	@ManyToOne
-	
-	//@JoinTable(name = "T_UTILISATEU_ADRESSE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "idAdresse"))
+
+	@OneToOne
 	private Adresse adresse;
 
 	@OneToMany
@@ -54,10 +48,15 @@ public class Utilisateur implements Serializable {
 	//@JoinTable(name = "T_UTILISATEUR_TELEPHONE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
 	private Collection<Telephone> telephone;
 
+	
 	@OneToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
 	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
 	private Collection<Etablisement> etablisements;
+
+	@ManyToOne
+	private Etablisement etablissement;
+
 	
 	@OneToMany(mappedBy="utilisateur", fetch = FetchType.EAGER)
 	private List<Don> dons;
@@ -153,21 +152,7 @@ public class Utilisateur implements Serializable {
 		this.reclamations = reclamation;
 	}
 
-	public Adresse getAdresse() {
-		return adresse;
-	}
 
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
-
-	public Collection<Etablisement> getEtablisements() {
-		return etablisements;
-	}
-
-	public void setEtablisements(Collection<Etablisement> etablisements) {
-		this.etablisements = etablisements;
-	}
 
 	public List<Don> getDons() {
 		return dons;
@@ -175,6 +160,30 @@ public class Utilisateur implements Serializable {
 
 	public void setDons(List<Don> dons) {
 		this.dons = dons;
+	}
+
+	public Boolean getAccepted() {
+		return accepted;
+	}
+
+	public void setAccepted(Boolean accepted) {
+		this.accepted = accepted;
+	}
+
+	public Etablisement getEtablissement() {
+		return etablissement;
+	}
+
+	public void setEtablissement(Etablisement etablissement) {
+		this.etablissement = etablissement;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 	
 }

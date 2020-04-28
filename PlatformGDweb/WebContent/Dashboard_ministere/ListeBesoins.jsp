@@ -2,7 +2,10 @@
 <%@ include file="menu_ministere.jsp"%>
 <section class="page-section">
 	<div class="container">
+	<a href="AjoutEtablissement"
+			class="btn btn-success">Ajouter une établissement</a>	
 		<div class="row">
+		
 			<div class="vcenter col-md-12 text-center">
 				<div class="visible-sm-block visible-xs-block top-margin-10">
 					<div class="form-box-cha9a9a widget bottom-pad-0"

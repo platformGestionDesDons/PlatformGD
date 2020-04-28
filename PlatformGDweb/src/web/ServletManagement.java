@@ -1,6 +1,5 @@
 package web;
 
-import java.util.regex.*;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import metier.entities.Utilisateur;
-import metier.session.PlatformGDImpl;
 import metier.session.PlatformGDLocal;
 import service.DaoManagement;
 

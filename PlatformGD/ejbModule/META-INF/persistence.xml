@@ -6,6 +6,7 @@
 	<persistence-unit name="PlatformGD"
 		transaction-type="JTA">
 		<jta-data-source>java:/PlatformeDs</jta-data-source>
+
 		<class>metier.entities.DonEnNature</class>
 		<class>metier.entities.Don</class>
 		<class>metier.entities.Reglement</class>
