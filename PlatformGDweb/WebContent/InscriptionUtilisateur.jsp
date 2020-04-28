@@ -59,13 +59,12 @@
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label class="control-label required"
-											for="registration_form_lastname">Rôle</label> </i><span
-											class="required text-danger form-asterisk"
+										<label class="control-label required" for="Adresse">Adresse</label>
+
+										</i><span class="required text-danger form-asterisk"
 											title="Ce champ est requis">*</span> <input type="text"
-											id="registration_form_lastname" name="input51"
-											required="required" placeholder="Tapez votre rôle"
-											class="form-control" />
+											id="Adresse" name="input81" required="required"
+											placeholder="Tapez votre adresse" class="form-control" />
 									</div>
 								</div>
 							</div>
@@ -101,16 +100,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label required" for="Adresse">Adresse</label>
-
-										</i><span class="required text-danger form-asterisk"
-											title="Ce champ est requis">*</span> <input type="text"
-											id="Adresse" name="input81" required="required"
-											placeholder="Tapez votre adresse" class="form-control" />
-									</div>
-								</div>
+								
 							</div>
 							<div class="row">
 								<div class="col-md-6">

@@ -56,7 +56,6 @@ public class InscriptionUtilisateur extends HttpServlet {
 			String prenom = request.getParameter("input21");
 			String email = request.getParameter("input31");
 			String password = request.getParameter("input41");
-			String role = request.getParameter("input51");
 
 			Utilisateur utilisateur = new Utilisateur();
 
@@ -64,7 +63,7 @@ public class InscriptionUtilisateur extends HttpServlet {
 			utilisateur.setPrenom(prenom);
 			utilisateur.setEmail(email);
 			utilisateur.setMdp(password);
-			utilisateur.setRole(role);
+			utilisateur.setRole("donateur");
 			utilisateur.setEtatDecompte(true);
 			DaoManagement daoManagement = new DaoManagement();
 

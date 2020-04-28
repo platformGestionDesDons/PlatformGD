@@ -2,7 +2,9 @@
 <%@ include file="menu_ministere.jsp"%>
 <section class="page-section">
 	<div class="container">
-		<div class="row">	
+		<a href="ajoutFournisseur" class="btn btn-success">Ajouter un
+			fournisseur</a>
+		<div class="row">
 			<div class="vcenter col-md-12 text-center">
 				<div class="visible-sm-block visible-xs-block top-margin-10">
 					<div class="form-box-cha9a9a widget bottom-pad-0"
@@ -28,36 +30,39 @@
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Numéro de télèphone</span></strong>
+								<strong><span class="text-color">Numéro de
+										télèphone</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Région</span></strong>
 							</div>
-							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
-								<strong><span class="text-color">Code postal</span></strong>
-							</div>
+							<div class="col-xs-2 col-sm-2 text-center lr-pad-10"></div>
 						</div>
 						<hr class="margin-20">
 						<c:forEach var="fournisseur" items="${fournisseurs}">
-							<div class="row">
+							<div class="row" id="${fournisseur.getIdF()}">
 								<div class="col-xs-2 col-sm-2 text-center">
-									<h5>${fournisseur.getLibelle()}</h5>
+									<h6>${fournisseur.getLibelle()}</h6>
 								</div>
 								<div class="col-xs-2 col-sm-2 text-center">
-									<h5>${fournisseur.getAdresseF()}</h5>
+									<h6>${fournisseur.getAdresseF()},
+										${fournisseur.getCodePostal()},
+										${fournisseur.getGouvernorat()}</h6>
 								</div>
 								<div class="col-xs-2 col-sm-2 text-center">
-									<h5>${fournisseur.getEmailF()}</h5>
+									<h6>${fournisseur.getEmailF()}</h6>
 								</div>
 								<div class="col-xs-2 col-sm-2 text-center">
-									<h5>${fournisseur.getNumTelF()}</h5>
+									<h6>${fournisseur.getNumTelF()}</h6>
 								</div>
 								<div class="col-xs-2 col-sm-2 text-center">
-									<h5>${fournisseur.getGouvernorat()}</h5>
+									<a href="editFournisseur?idFournisseur=${fournisseur.getIdF()}"
+										class="btn btn-warning btn-sm" role="button"
+										id="editfournisseur">Editer</a>
 								</div>
 								<div class="col-xs-2 col-sm-2 text-center">
-									<h5>${fournisseur.getCodePostal()}</h5>
+									<button class="btn btn-danger btn-sm" id="deletefournisseur">
+										Supprimer</button>
 								</div>
 							</div>
 						</c:forEach>
@@ -70,5 +75,34 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function() {
+			$("button").click(function() {
+				let id = $(this).closest('div').attr('id');
+				switch (this.id) {
+				case "deletefournisseur":
+					console.log("delete product" + id);
+					async("delete", {
+						id : id
+					})
+					break;
+				}
+			})
+			function async(method, data) {
+				console.log(data);
+				$.ajax({
+					url : "Liste_Fournisseurs",
+					data : data,
+					method : method
+				}).done(function(data) {
+					console.log(data);
+					if (data) {
+						location.href = "Liste_Fournisseurs"
+					}
+				});
+			}
+
+		})
+	</script>
 </section>
 <%@ include file="__footer.jsp"%>

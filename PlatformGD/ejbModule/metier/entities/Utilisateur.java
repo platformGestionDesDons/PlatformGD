@@ -3,7 +3,7 @@ package metier.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
+import java.util.UUID; 
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,7 +17,6 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
-
 @Table(name = "Utilisateur")
 public class Utilisateur implements Serializable {
 	public Utilisateur() {
