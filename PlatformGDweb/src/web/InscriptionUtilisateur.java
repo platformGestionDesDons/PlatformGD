@@ -71,7 +71,6 @@ public class InscriptionUtilisateur extends HttpServlet {
 			System.out.print("************************************************************************");
 			
 			List<Telephone> liste_telephone = new ArrayList<Telephone>();
-			
 			String Tel = request.getParameter("input61");
 			Telephone telephone = new Telephone();
 			telephone.setNumero(Tel);
@@ -86,7 +85,7 @@ public class InscriptionUtilisateur extends HttpServlet {
 			adresse.setGouvernorat(c1);
 			adresse.setCodePostale(Integer.parseInt(c3));
 			adresse.setAdresse(c2);
-
+			
 			System.out.println("**********************************************************************");
 //			if (Pattern.matches("[7]{1}[0-9]{7}", Tel) && Pattern.matches("[a-zA-Z] ", role)
 //					&& Pattern.matches("[0-9] ", c3) && Pattern.matches("[a-zA-Z] ", c2)

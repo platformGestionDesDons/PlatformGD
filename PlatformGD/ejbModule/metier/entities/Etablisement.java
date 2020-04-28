@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.*;
 
@@ -73,19 +74,18 @@ public class Etablisement implements Serializable {
 
 	
 
-	@OneToMany
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToOne
 	//@JoinTable(name = "T_ETABLISSEMENT_ADRESSE", joinColumns = @JoinColumn(name = "IdEtablissement"), inverseJoinColumns = @JoinColumn(name = "idAdresse"))
-	private Collection<Adresse> adresses;
+	private Adresse adresse;
 
 	@OneToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
 	//@JoinTable(name = "T_TELEPHONE_ETABLISSEMENT", joinColumns = @JoinColumn(name = "IdEtablissement"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
 	private Collection<Telephone> telephones;
 
-	@ManyToOne
-	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
-	private Utilisateur utilisateur;
+	@OneToMany(mappedBy = "etablissement")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<Utilisateur> utilisateurs;
 
 	@OneToMany(mappedBy="etablisement")
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -136,22 +136,6 @@ public class Etablisement implements Serializable {
 		this.libelle = libelle;
 	}
 
-	public Collection<Adresse> getAdresses() {
-		return adresses;
-	}
-
-	public void setAdresses(Collection<Adresse> adresses) {
-		this.adresses = adresses;
-	}
-
-	public Utilisateur getUtilisateur() {
-		return utilisateur;
-	}
-
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
-	}
-
 	public List<Don> getDons() {
 		return dons;
 	}
@@ -168,5 +152,25 @@ public class Etablisement implements Serializable {
 	        besoins.add(besoin);
 	        besoin.setEtablisement(this);
 	    }
+
+	public Collection<Utilisateur> getUtilisateurs() {
+		return utilisateurs;
+	}
+
+	public void setUtilisateurs(Collection<Utilisateur> utilisateurs) {
+		this.utilisateurs = utilisateurs;
+	}
+
+	public void setBesoins(List<Besoin> besoins) {
+		this.besoins = besoins;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 	
 }

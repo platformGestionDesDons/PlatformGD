@@ -21,13 +21,6 @@ public class Adresse implements Serializable {
 	private String adresse;
 	private int codePostale;
 
-	@OneToMany
-	//@JoinTable(name = "T_UTILISATEU_ADRESSE", joinColumns = @JoinColumn(name = "idAdresse"), inverseJoinColumns = @JoinColumn(name = "idut"))
-	private Collection<Utilisateur> utilisateurs;
-
-	@ManyToOne
-	//@JoinTable(name = "T_ETABLISSEMENT_ADRESSE", joinColumns = @JoinColumn(name = "idAdresse"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
-	private Etablisement etablisement;
 
 	public String getIdAdresse() {
 		return idAdresse;
@@ -37,21 +30,6 @@ public class Adresse implements Serializable {
 		this.idAdresse = idAdresse;
 	}
 
-	public Collection<Utilisateur> getUtilisateurs() {
-		return utilisateurs;
-	}
-
-	public void setUtilisateurs(Collection<Utilisateur> utilisateurs) {
-		this.utilisateurs = utilisateurs;
-	}
-
-	public Etablisement getEtablisement() {
-		return etablisement;
-	}
-
-	public void setEtablisement(Etablisement etablisement) {
-		this.etablisement = etablisement;
-	}
 
 	public Adresse(String gouvernorat, String adresse, int codePostale) {
 		super();
@@ -88,14 +66,6 @@ public class Adresse implements Serializable {
 
 	public void setCodePostale(int codePostale) {
 		this.codePostale = codePostale;
-	}
-
-	public Collection<Utilisateur> getCommands() {
-		return utilisateurs;
-	}
-
-	public void setCommands(Collection<Utilisateur> commands) {
-		this.utilisateurs = commands;
 	}
 
 }
