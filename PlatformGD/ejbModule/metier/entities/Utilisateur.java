@@ -1,22 +1,19 @@
 package metier.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 
@@ -48,14 +45,17 @@ public class Utilisateur implements Serializable {
 	private Collection<Reclamation> reclamations;
 
 	@ManyToOne
+	
 	//@JoinTable(name = "T_UTILISATEU_ADRESSE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "idAdresse"))
 	private Adresse adresse;
 
 	@OneToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	//@JoinTable(name = "T_UTILISATEUR_TELEPHONE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
 	private Collection<Telephone> telephone;
 
 	@OneToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
 	private Collection<Etablisement> etablisements;
 	

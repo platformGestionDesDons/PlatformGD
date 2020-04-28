@@ -35,10 +35,14 @@
 										<h5>${etab.getNomEtablissement()}</h5>
 									</div>
 									<div class="col-xs-4 col-sm-4 text-center">
-										<!-- <h5>${etablissement.getAdresses().iterator().next().getGouvernorat()}</h5>-->
+										<c:forEach items="${etab.getAdresses()}"  var="adr">
+											<h5>${adr.getGouvernorat()}</h5>
+										</c:forEach>
 									</div>
 									<div class="col-xs-4 col-sm-4 text-center">
-										<!-- <h5>${etablissement.getUtilisateur().getTelephone().iterator().next()}</h5>-->
+										<c:forEach items="${etab.getUtilisateur().getTelephone()}"  var="tel">
+											<h5>${tel.getNumero()}</h5>
+										</c:forEach>
 									</div>
 								</div>
 							</c:if>

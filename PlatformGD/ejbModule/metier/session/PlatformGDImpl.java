@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
@@ -595,17 +596,17 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		
 	}*/
 
-	public Utilisateur authentification_Utilisateur(String email) {
-		try {
-			Query tq = em.createQuery("select u from Utilisateur u WHERE email=? ", Utilisateur.class);
-			tq.setParameter(1, email);
-			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
-			em.merge(utilisateur);
-			return utilisateur;
-		} catch (Exception noresult) {
-			return null;
-		}
-	}
+//	public Utilisateur getUtilisateurByEmail(String email) {
+//		try {
+//			Query tq = em.createQuery("select u from Utilisateur u WHERE email=? ", Utilisateur.class);
+//			tq.setParameter(1, email);
+//			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
+//			em.merge(utilisateur);
+//			return utilisateur;
+//		} catch (Exception noresult) {
+//			return null;
+//		}
+//	}
 
 	@Override
 	public Etablisement verification_du_compte(Utilisateur utilisateur) {
@@ -640,19 +641,18 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 
 	@Override
-	public boolean authentification(String mail, String hashedPassword) {
-		try {
+	public Utilisateur authentification(String mail, String hashedPassword) {
 			Query tq = em.createQuery("select u from Utilisateur u WHERE u.email =:x and u.mdp =:y ",Utilisateur.class);
-			System.out.println("5555");
 			tq.setParameter("x", mail);
 			tq.setParameter("y", hashedPassword);
-			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
-			em.merge(utilisateur);
-			return true;
-		} catch (Exception noresult) {
-			System.out.println(noresult);
-			return false;
-		}
+			Utilisateur utilisateur = null;
+			try{
+				utilisateur = (Utilisateur) tq.getSingleResult();
+			}
+				catch (NoResultException nre){
+				
+				}
+			return utilisateur;
 	}
 
 	@Override

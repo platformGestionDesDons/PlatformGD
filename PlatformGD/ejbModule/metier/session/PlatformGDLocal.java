@@ -105,9 +105,9 @@ public interface PlatformGDLocal {
 		public void ajoutetelephone(Telephone telephone);
 		//public String ajoutetelephone(Telephone telephone);
 		public void ajout_ut_tel(String l1, String l2, String l3);
-		public Utilisateur authentification_Utilisateur(String email );
+		//public Utilisateur getUtilisateurByEmail(String email );
 		public Etablisement verification_du_compte(Utilisateur utilisateur);
-		public boolean authentification(String mail, String hashedPassword);
+		public Utilisateur authentification(String mail, String hashedPassword);
 		public boolean veriff(String mail);
 
 		// delete

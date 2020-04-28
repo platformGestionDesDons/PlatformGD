@@ -68,7 +68,7 @@ public class InscriptionUtilisateur extends HttpServlet {
 			utilisateur.setEtatDecompte(true);
 			DaoManagement daoManagement = new DaoManagement();
 
-			System.out.print("************************************************************************");
+			System.out.println("************************************************************************");
 			
 			List<Telephone> liste_telephone = new ArrayList<Telephone>();
 			
@@ -94,7 +94,8 @@ public class InscriptionUtilisateur extends HttpServlet {
 //					&& Pattern.matches("[a-zA-Z] ", nom) && Pattern.matches("[a-zA-Z]", prenom)
 //					&& Pattern.matches("[a-zA-Z 0-9]", password)
 //					&& email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
-				if (metier.veriff(email) == false) {
+				if (metier.veriff(email) == false) 
+				{
 					metier.ajouteadresse(adresse);
 					metier.ajoutetelephone(telephone);
 					utilisateur.setAdresse(adresse);
