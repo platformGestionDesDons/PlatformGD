@@ -73,11 +73,11 @@ public class ServletManagement extends HttpServlet {
 				request.setAttribute("role", utilisateur.getRole());
 				session.setAttribute("utilisateur", utilisateur);
 				
-				request.getRequestDispatcher("ajoutBesoin.jsp").forward(request, response);
+				request.getRequestDispatcher("404.jsp").forward(request, response);
 				
 			} else {
 				request.setAttribute("errur1", "check your password or e-mail");
-				request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
+				request.getRequestDispatcher("404.jsp").forward(request, response);
 			}
 		}
 	}

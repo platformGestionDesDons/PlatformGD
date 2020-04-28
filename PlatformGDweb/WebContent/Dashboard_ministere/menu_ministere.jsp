@@ -25,23 +25,32 @@
                         <ul class="nav navbar-nav">
                             
                             <li >
-                                <a href="Liste_Intermediaire">Liste intermédiaires</a>
+                                <a href="Liste_Intermediaire">Intermédiaires</a>
                             </li>
                             <li>
-                                <a href="Liste_Fournisseurs">Liste fournisseurs</a>
+                                <a href="Liste_Fournisseurs">Fournisseurs</a>
                             </li>
                             <li>
-                                <a href="Liste_Donnateurs">Liste donateurs</a>
+                                <a href="Liste_Donnateurs">Donateurs</a>
+                            </li>
+                            <li>
+                                <a href="Liste_produits">Produits</a>
+                            </li>
+                            <li>
+                                <a href="Liste_categories">Catégories</a>
+                            </li>
+                            <li>
+                                <a href="Liste_unite_de_mesure">Unité</a>
                             </li>
                             <li >
-                                <a href="Liste_Etablissements"> Liste établissments</a>
+                                <a href="Liste_Etablissements">Etablissments</a>
                             </li>
 
                             <li >
-                                <a href="Liste_Dons">Liste dons</a>
+                                <a href="Liste_Dons">Dons</a>
                             </li>
                             <li >
-                                <a href="Liste_Besoins">Liste besoins</a>
+                                <a href="Liste_Besoins">Besoins</a>
                             </li>
 
                             <li >
