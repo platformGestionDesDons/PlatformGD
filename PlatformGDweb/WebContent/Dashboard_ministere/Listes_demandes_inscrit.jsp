@@ -5,7 +5,7 @@
 
 	<div class="container">
 	<a href="AjoutEtablissement"
-			class="btn btn-success">Ajouter une établissement</a>	
+			class="btn btn-success">Ajouter un établissement</a>	
 		<div class="row">
 			<div class="section-title margin-0">
 				<h2 class="title">Les demandes d'inscription</h2>
@@ -14,10 +14,10 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Nom etablissement</th>
-					<th>Type Etablissement</th>
-					<th>Libelle Etablissement</th>
-					<th>Adresse Etablissement</th>
+					<th>Nom établissement</th>
+					<th>Type</th>
+					<th>Libellé</th>
+					<th>Adresse</th>
 					<th>Nom&prénom responsable</th>
 					<th>Email</th>
 					<th></th>

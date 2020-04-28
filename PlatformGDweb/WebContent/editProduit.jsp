@@ -8,13 +8,13 @@
 	<h1>Produit : ${produit.getLibelle()}</h1>
 
 		<div class="form-group">
-			<label class="control-label required" for="libelle">Libelle</label>
+			<label class="control-label required" for="libelle">Libellé</label>
 			<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>
 			<input type="text" id="libelle" name="libelle" value="${produit.getLibelle()}"  class="form-control" required="required"/>
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-6">
-		      <label for="categorie">Categorie : ${produit.getCategorie().getLibelle()}</label>
+		      <label for="categorie">Catégorie : ${produit.getCategorie().getLibelle()}</label>
 		    </div>
 		    
 		    <div class="form-group col-md-6">
@@ -39,7 +39,7 @@
  	</div>  
 
   	<div class="form-group">
-		 <button type="submit" class="btn btn-default btn-block">Envoyer</button>
+		 <button type="submit" class="btn btn-default btn-block">Confirmer</button>
 		 <a href="produits" class="btn btn-default btn-block" role="button">Annuler</a>
  	</div>
 </form>

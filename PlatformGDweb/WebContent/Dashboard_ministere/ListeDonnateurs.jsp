@@ -12,11 +12,11 @@
 				<div class="form-box-cha9a9a top-margin-20"
 					style="padding: 10px !important;">
 					<div class="container">
-						<h1>Listes des Donnateurs</h1>
+						<h1>Liste des donateurs</h1>
 						<div class="row">
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Nom donnateur</span></strong>
+								<strong><span class="text-color">Nom donateur</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
@@ -28,10 +28,10 @@
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Numéro de tel</span></strong>
+								<strong><span class="text-color">Numéro de télèphone</span></strong>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Status</span></strong>
+								<strong><span class="text-color">Statut</span></strong>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
 								<strong><span class="text-color">Région</span></strong>

@@ -34,7 +34,7 @@
                                     <a href="fournisseurs"> Fournisseurs</a>
                                 </li>
                                                                  <li >
-                                    <a href="categories"> Categories</a>
+                                    <a href="categories"> Catégories</a>
                                 </li>
                                                     </ul>
                         <!-- Right nav -->

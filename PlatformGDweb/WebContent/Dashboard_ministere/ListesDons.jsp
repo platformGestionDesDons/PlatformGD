@@ -11,7 +11,7 @@
 
 		<div class="row">
 			<div class="section-title margin-0">
-				<h2 class="title">Gérer vos dons des services sanitaires</h2>
+				<h2 class="title">Gérer les dons</h2>
 			</div>
 		</div>
 		<form name="new_fund" method="post" class="form-group"
@@ -43,9 +43,9 @@
 								<table class="table">
 									<thead>
 									<tr>
-										<th scope="col">
+										<!--<th scope="col">
 											<strong><span class="text-color">Photo Don</span></strong>
-										</th>
+										</th>-->
 										<th scope="col">
 											<strong><span class="text-color">Nom Don</span></strong>
 										</th>
@@ -53,16 +53,16 @@
 											<strong><span class="text-color">Bénéficiaire</span></strong>
 										</th scope="col">
 										<th>
-											<strong><span class="text-color">Donnateur</span></strong>
+											<strong><span class="text-color">Donateur</span></strong>
 										</th scope="col">
 										<th>
-											<strong><span class="text-color">Prix totale </span></strong>
+											<strong><span class="text-color">Prix total </span></strong>
 										</th scope="col">
 										<th>
-											<strong><span class="text-color">Quantite</span></strong>
+											<strong><span class="text-color">Quantité</span></strong>
 										</th scope="col">
 										<th>
-											<strong><span class="text-color">Est acceptee</span></strong>
+											<strong><span class="text-color">Approuvé</span></strong>
 										</th scope="col">
 										<th scope="col"></th>
 										<th scope="col"></th>
@@ -70,10 +70,10 @@
 									</thead>
 									<tbody>
 										<c:forEach items="${don_en_nature}" var="d">
-											<c:if test="${d.isEstSupprime()}">
+											<c:if test="${d.isEstSupprime() == false}">
 											<tr>
-											<td>
-											</td>
+											<!--<td>
+											</td>-->
 											<td>
 											<h5>${d.getBesoin().getProduit().getLibelle()}</h5>
 											</td>
@@ -81,7 +81,7 @@
 											<h5>${d.getEtablissement().getNomEtablissement()}</h5>
 											</td>
 											<td>
-											<h5>Donnateur</h5>
+											<h5>Donateur</h5>
 											</td>
 											<td>
 											<h5>${d.getPrix_totale()}</h5>
@@ -123,22 +123,22 @@
 											<strong><span class="text-color">Photo Don</span></strong>
 										</th>
 										<th scope="col">
-											<strong><span class="text-color">Montant</span></strong>
+											<strong><span class="text-color">Montant (DT)</span></strong>
 										</th>
 										<th scope="col">
 											<strong><span class="text-color">Bénéficiaire</span></strong>
 										</th scope="col">
 										<th>
-											<strong><span class="text-color">Donnateur</span></strong>
+											<strong><span class="text-color">Donateur</span></strong>
 										</th scope="col">
 										<th>
-											<strong><span class="text-color">Mode de reglement</span></strong>
+											<strong><span class="text-color">Mode de réglement</span></strong>
 										</th scope="col">
 										<th>
-											<strong><span class="text-color">Date reglement</span></strong>
+											<strong><span class="text-color">Date réglement</span></strong>
 										</th scope="col">
 										<th>
-											<strong><span class="text-color">Est acceptee</span></strong>
+											<strong><span class="text-color">Approuvé</span></strong>
 										</th scope="col">
 										<th scope="col"></th>
 										<th scope="col"></th>
@@ -146,7 +146,7 @@
 									</thead>
 									<tbody>
 										<c:forEach items="${reglement}" var="r">
-										<c:if test="${r.isEstSupprime()}">
+										<c:if test="${r.isEstSupprime() == false}">
 											<tr>
 											<td>
 											</td>
@@ -157,7 +157,7 @@
 											<h5>${r.getEtablissement().getNomEtablissement()}</h5>
 											</td>
 											<td>
-											<h5>Donnateur</h5>
+											<h5>Donateur</h5>
 											</td>
 											<td>
 											<h5>${r.getModeReglement()}</h5>
@@ -169,6 +169,7 @@
 												<h5>${r.isEstAccepte()}</h5>
 											</td>
 											<td>
+												
 												<a href="accepter_don?code_reglement=${r.getId_don()}" class="btn btn-success btn-sm" role="button">Accepter</a>
 											</td>
 											<td>

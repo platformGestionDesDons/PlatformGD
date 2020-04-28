@@ -45,7 +45,7 @@
 	  	</div>
 	  	
 		<div class="form-group" >
-			 <button type="submit" class="btn btn-default btn-block">Envoyer</button>
+			 <button type="submit" class="btn btn-default btn-block">Confirmer</button>
 			 <a href="besoin?idBesoin=${besoin.getIdBesoin()}" class="btn btn-default btn-block" role="button">Annuler</a>
 	  	</div>
 	</form>

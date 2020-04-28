@@ -26,7 +26,7 @@
 
 <div class="form-group">    
  	
-	<label class="control-label required" for="libelle">Libelle</label>
+	<label class="control-label required" for="libelle">Libellé</label>
 	<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>
    <input type="text" name="libelle" required="required" placeholder="Tapez votre libelle"  class="form-control"/>
 </div>
@@ -91,7 +91,7 @@
 
 
 
-	 <button type="submit" class="btn btn-default btn-block">Envoyer</button>
+	 <button type="submit" class="btn btn-default btn-block">Ajouter</button>
 	 <a href="fournisseurs" class="btn btn-default btn-block" role="button">Annuler</a>
 
 </div>

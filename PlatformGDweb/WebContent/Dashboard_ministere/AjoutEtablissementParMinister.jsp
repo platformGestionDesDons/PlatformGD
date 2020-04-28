@@ -11,7 +11,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 form-box-cha9a9a">
-						<h3 class="title">Ajouter une etablissement</h3>
+						<h3 class="title">Ajouter un etablissement</h3>
 						<hr>
 						<form name="registration_association_form" method="post"
 							action="AjoutEtablissement"
@@ -55,7 +55,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label class="control-label required"
-											for="registration_association_form_association_name">Libelle</label>
+											for="registration_association_form_association_name">Libellé</label>
 
 										</i><span class="required text-danger form-asterisk"
 											title="Ce champ est requis">*</span> <select
@@ -71,14 +71,33 @@
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label class="control-label required"
-											for="registration_form_firstname">Gouvernorat</label> </i><span
-											class="required text-danger form-asterisk"
-											title="Ce champ est requis">*</span> <input type="text"
-											id="registration_form_firstname" name="input7"
-											required="required"
-											placeholder=" Choisissez votre guvernorat"
-											class="form-control" />
+										<label class="control-label required" for="Gouvernorat">Gouvernorat</label>
+										</i><span class="required text-danger form-asterisk"
+											title="Ce champ est requis">*</span> <select id="Gouvernorat"
+											name="input7" class="form-control">
+											<option value="Ariana">Ariana</option>
+											<option value="Béja">Béja</option>
+											<option value="Ben Arous">Ben Arous</option>
+											<option value="Bizerte">Bizerte</option>
+											<option value="Gabes">Gabes</option>
+											<option value="Gafsa">Gafsa</option>
+											<option value="Jendouba">Jendouba</option>
+											<option value="Kairouan">Kairouan</option>
+											<option value="Kasserine">Kasserine</option>
+											<option value="Kébili">Kébili</option>
+											<option value="Le Kef">Le Kef</option>
+											<option value="Mahdia">Mahdia</option>
+											<option value="La Manouba">La Manouba</option>
+											<option value="Médenine">Médenine</option>
+											<option value="Monastir">Monastir</option>
+											<option value="Nabeul">Nabeul</option>
+											<option value="Sfax">Sfax</option>
+											<option value="Sidi Bouzid">Sidi Bouzid</option>
+											<option value="Tataouine">Tataouine</option>
+											<option value="Tozeur">Tozeur</option>
+											<option value="Tunis">Tunis</option>
+											<option value="Zaghouan">Zaghouan</option>
+										</select>
 									</div>
 								</div>
 							</div>
@@ -109,22 +128,6 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<div class="checkbox">
-											<label class="required"><input type="checkbox"
-												id="registration_association_form_cgu_accepted"
-												name="registration_association_form[cgu_accepted]"
-												required="required" class="form-group-lg" value="1" />
-												J'accepte <a href="../../cgu/iframe.html" class="iframe"
-												style="text-decoration: underline;" id="cgu-content">les
-													conditions générales d'utilisation</a></label>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
 								<div class="col-md-6 text-right"></div>
 							</div>
 
@@ -142,20 +145,7 @@
 										value="Valider l&#039;inscription" />
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<br>
-									<p>
-										En créant un compte, vous confirmez que vous acceptez <a
-											href="../../cgu/iframe.html" class="iframe"
-											style="text-decoration: underline;" id="cgu-content">les
-											conditions d'utilisation</a>, <a href="../../privacy/iframe.html"
-											class="iframe" style="text-decoration: underline;"
-											id="cgu-content">la politique de confidentialité</a> et
-										l'utilisation des cookies de platform.
-									</p>
-								</div>
-							</div>
+							
 							<div class="clearfix"></div>
 
 							<input type="hidden" id="registration_association_form__token"

@@ -12,10 +12,10 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Libelle</th>
+      <th scope="col">Libellé</th>
       <th scope="col">Adresse</th>
       <th scope="col">Email</th>
-      <th scope="col">Numero de Télephone</th>
+      <th scope="col">Numero de Télèphone</th>
     </tr>
   </thead>
   <tbody>
