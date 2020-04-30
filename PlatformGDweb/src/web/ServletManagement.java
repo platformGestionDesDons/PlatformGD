@@ -33,11 +33,27 @@ public class ServletManagement extends HttpServlet {
 		HttpSession session = request.getSession();
 		if ((Boolean) (session.getAttribute("user") != null)) 
 		{
-			System.out.println("**************************** Sesssion ******************************************");
-			System.out.println(session);
-			System.out.println(session.getAttribute("user"));
-			request.getRequestDispatcher("ajoutBesoin.jsp").forward(request, response);
-		} 
+			Utilisateur user = (Utilisateur) session.getAttribute("user");
+			if(user.getRole().equals("ministere"))
+			{
+				request.getRequestDispatcher("/Ministere").forward(request, response);
+			}
+			else
+			{
+				if(user.getRole().equals("responsable"))
+				{
+					request.getRequestDispatcher("/categories").forward(request, response);
+				}
+				else {
+					if(user.getRole().equals("donateur"))
+					{
+						request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+					}
+					
+				}
+			}
+			
+		}
 		else 
 		{
 			request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
@@ -55,7 +71,26 @@ public class ServletManagement extends HttpServlet {
 		//user already logged in
 		if ((Boolean) (session.getAttribute("user") != null)) 
 		{
-			request.getRequestDispatcher("ajoutBesoin.jsp").forward(request, response);
+			Utilisateur user = (Utilisateur) session.getAttribute("user");
+			if(user.getRole().equals("ministere"))
+			{
+				request.getRequestDispatcher("/Ministere").forward(request, response);
+			}
+			else
+			{
+				if(user.getRole().equals("responsable"))
+				{
+					request.getRequestDispatcher("/categories").forward(request, response);
+				}
+				else {
+					if(user.getRole().equals("donateur"))
+					{
+						request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+					}
+					
+				}
+			}
+			
 		}
 		
 		//user not logged in
@@ -65,20 +100,32 @@ public class ServletManagement extends HttpServlet {
 			String clearPassword = request.getParameter("password");
 			DaoManagement daoManagement = new DaoManagement();
 			Utilisateur utilisateur = daoManagement.hashPassword(username, clearPassword);
-			System.out.println("**************************** before if ******************************************");
-			System.out.println(utilisateur);
-			System.out.println("**************************** indisde if ******************************************");
 			
 			// User found
 			if (utilisateur!=null) 
 			{
-				System.out.println("**************************** indisde if ******************************************");
-				System.out.println(utilisateur);
-				System.out.println("**************************** indisde if ******************************************");
 				session.setAttribute("user", utilisateur);
 				session.setAttribute("utilisateur", utilisateur);
 				
-				request.getRequestDispatcher("ajoutBesoin.jsp").forward(request, response);	
+				Utilisateur user = (Utilisateur) session.getAttribute("user");
+				if(user.getRole().equals("ministere"))
+				{
+					request.getRequestDispatcher("/Ministere").forward(request, response);
+				}
+				else
+				{
+					if(user.getRole().equals("responsable"))
+					{
+						request.getRequestDispatcher("/categories").forward(request, response);
+					}
+					else {
+						if(user.getRole().equals("donateur"))
+						{
+							request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+						}
+						
+					}
+				}	
 			}
 			
 			else 

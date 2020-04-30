@@ -5,16 +5,16 @@
 	<div class="container">
 
 
-		<div class="row">
-			<div class="section-title margin-0">
-				<h2 class="title">Collecter des besoins pour l&#039;équipe
-					medicale</h2>
-			</div>
-		</div>
+<!-- 		<div class="row"> -->
+<!-- 			<div class="section-title margin-0"> -->
+<!-- 				<h2 class="title">Collecter des besoins pour l&#039;équipe -->
+<!-- 					medicale</h2> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 
 		<div class="row">
 
-			<div class="col-md-9">
+			<div class="col-md-5">
 				<div class="form-box-cha9a9a">
 					<div class="container">
 						<div class="fund-image -opacity text-center">
@@ -29,6 +29,24 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
+			
+<!-- 				<div class="form-box-cha9a9a top-margin-20" -->
+<!-- 					style="padding: 10px !important;"> -->
+					<div class="container">
+
+						<form name="new_fund" method="post" class="form-group"
+							action="${pageContext.request.contextPath}/faire_un_don">
+							<div class="pull-right btn-box">
+								<input class="btn btn-default fs20 white igive-btn form-control"
+									type="submit" name="action" value="Faire un don en nature">
+							</div>
+							<div class="pull-left btn-box">
+								<input class="btn btn-default fs20 white igive-btn form-control"
+									type="submit" name="action" value="faire un don reglement">
+							</div>
+						</form>
+					</div>
+<!-- 				</div> -->
 				<div class="visible-sm-block visible-xs-block top-margin-10">
 					<div class="form-box-cha9a9a widget bottom-pad-0"
 						style="padding-top: 0px;"></div>
@@ -37,7 +55,7 @@
 				<div class="form-box-cha9a9a top-margin-20"
 					style="padding: 10px !important;">
 					<div class="container">
-						<h1>Listes des Besoins</h1>
+						<h1>Liste des Besoins</h1>
 						<div class="row">
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
@@ -53,12 +71,12 @@
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Quantite
+								<strong><span class="text-color">Quantité
 										Initiale</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Quantite
+								<strong><span class="text-color">Quantité
 										Restante</span></strong>
 							</div>
 							<div
@@ -117,7 +135,7 @@
 				<div class="form-box-cha9a9a top-margin-20"
 					style="padding: 10px !important;">
 					<div class="container">
-						<h1>Listes des donnateurs</h1>
+						<h1>Liste des donnateurs</h1>
 						<div class="row">
 							<div
 								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
@@ -152,11 +170,11 @@
 				<div class="form-box-cha9a9a top-margin-20"
 					style="padding: 10px !important;">
 					<div class="container">
-						<h1>Listes des Fournisseurs</h1>
+						<h1>Liste des Fournisseurs</h1>
 						<div class="row">
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Libelle
+								<strong><span class="text-color">Libellé
 										Fournisseur</span></strong>
 							</div>
 							<div
@@ -216,23 +234,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-box-cha9a9a top-margin-20"
-					style="padding: 10px !important;">
-					<div class="container">
 
-						<form name="new_fund" method="post" class="form-group"
-							action="${pageContext.request.contextPath}/faire_un_don">
-							<div class="pull-right btn-box">
-								<input class="btn btn-default fs20 white igive-btn form-control"
-									type="submit" name="action" value="Faire un don en nature">
-							</div>
-							<div class="pull-left btn-box">
-								<input class="btn btn-default fs20 white igive-btn form-control"
-									type="submit" name="action" value="faire un don reglement">
-							</div>
-						</form>
-					</div>
-				</div>
 
 			</div>
 		</div>

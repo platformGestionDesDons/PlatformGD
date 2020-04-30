@@ -37,6 +37,9 @@
 							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
 								<strong><span class="text-color">Priorité</span></strong>
 							</div>
+							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
+								<strong><span class="text-color"></span></strong>
+							</div>
 						</div>
 						<hr class="margin-20">
 						<c:forEach var="besoin" items="${besoins}">
@@ -58,6 +61,10 @@
 									</div>
 									<div class="col-xs-2 col-sm-2 text-center">
 										<h5>${besoin.getPriorite()}</h5>
+									</div>
+									<div class="col-xs-2 col-sm-2 text-center">
+										<a href="besoinMinistere?idBesoin=${besoin.getIdBesoin()}" 
+										class="btn btn-default btn-sm btn-menu" role="button" id="consulter">Consulter</a>
 									</div>
 								</div>
 						</c:forEach>

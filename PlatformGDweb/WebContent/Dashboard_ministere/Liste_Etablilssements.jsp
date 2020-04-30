@@ -45,27 +45,17 @@
 									<div class="col-xs-3 col-sm-3 text-center">
 										<h5>${etab.getNomEtablissement()}</h5>
 									</div>
-<<<<<<< HEAD
-									<div class="col-xs-4 col-sm-4 text-center">
-										<c:forEach items="${etab.getAdresses()}"  var="adr">
-											<h5>${adr.getGouvernorat()}</h5>
-										</c:forEach>
-=======
+
 									<div class="col-xs-2 col-sm-2 text-center">
 										<h5>${etab.getLibelle()}</h5>
->>>>>>> refs/remotes/origin/farhaoui
+
 									</div>
-<<<<<<< HEAD
-									<div class="col-xs-4 col-sm-4 text-center">
-										<c:forEach items="${etab.getUtilisateur().getTelephone()}"  var="tel">
-											<h5>${tel.getNumero()}</h5>
-										</c:forEach>
-=======
+
 									<div class="col-xs-2 col-sm-2 text-center">
 										<h5>${etab.getAdresse().getGouvernorat()}<br>${etab.getAdresse().getAdresse()}
 											, ${etab.getAdresse().getCodePostale()}
 										</h5>
->>>>>>> refs/remotes/origin/farhaoui
+
 									</div>
 									<div class="col-xs-2 col-sm-2 text-center">
 										<c:forEach items="${etab.getUtilisateurs()}" var="utilisateur">

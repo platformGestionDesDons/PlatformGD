@@ -40,7 +40,7 @@
 
   	<div class="form-group">
 		 <button type="submit" class="btn btn-default btn-block">Confirmer</button>
-		 <a href="produits" class="btn btn-default btn-block" role="button">Annuler</a>
+		 <a href="Liste_produits" class="btn btn-default btn-block" role="button">Annuler</a>
  	</div>
 </form>
 </div>

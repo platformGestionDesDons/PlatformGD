@@ -3,7 +3,7 @@
 <%@ include file="menu_ministere.jsp"%>
 <section class="page-section light-bg">
 	<div class="container">
-	<a href="ajoutProduit" class="btn btn-success">Ajouter un
+	<a href="ajoutProduitMinistere" class="btn btn-success">Ajouter un
 			produit</a>
 		<div class="row">
 			<div class="vcenter col-md-12 text-center">
@@ -45,7 +45,7 @@
 						<c:forEach var="produit" items="${ListProduits}">
 							<div class="row" id="${produit.getIdProduit()}">
 							<div class="col-xs-2 col-sm-2 text-center">
-									<h6>${produit.getLibelle()}</h6>
+							<a href="produitMinistere?idProduit=${produit.getIdProduit()}">${produit.getLibelle() } </a>
 								</div>
 								<div class="col-xs-2 col-sm-2 text-center">
 									<h6>${produit.getDescriptionTechnique()}</h6>
@@ -62,7 +62,7 @@
 								<div class="col-xs-2 col-sm-2 text-center">
 									<a href="editProduit?idProduit=${produit.getIdProduit()}" class="btn btn-warning btn-sm" role="button" id="editproduit">Editer</a>
 								</div>
-								<div class="col-xs-2 col-sm-2 text-center">
+								<div class="col-xs-2 col-sm-2 text-center" id="${produit.getIdProduit()}">
 									<button class="btn btn-danger btn-sm" id="deleteproduct">
 					Supprimer </button>
 								</div>

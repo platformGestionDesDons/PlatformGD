@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import metier.entities.DonEnNature;
@@ -41,6 +42,10 @@ public class FaireUnDonReglement extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		HttpSession session = req.getSession(false);
+		Utilisateur user = (Utilisateur) session.getAttribute("user");
+		
 		String action = req.getParameter("action");
 		if (action.equals("Faire un don reglement")) {
 			String date_planifiee = req.getParameter("date_planifiee");
@@ -91,8 +96,12 @@ public class FaireUnDonReglement extends HttpServlet{
 				 photoDon.setPhotos(photos);
 				 reglement.setPhotoDon(photoDon);
 			 }
-
-			metier.ajouterDonReglement(reglement);
+			 
+			 metier.ajouterDonReglement(reglement);
+			 user.addDon(reglement);
+			 metier.updateUtilisateur(user);
+			 metier.updateReglement(reglement);
+			
 			req.getRequestDispatcher("Dashboard_donateur/faireUnReglement.jsp").forward(req, resp);
 		}
 	}

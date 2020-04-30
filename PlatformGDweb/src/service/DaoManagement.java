@@ -12,19 +12,20 @@ import java.util.Base64;
 import java.util.Hashtable;
 
 import metier.entities.Utilisateur;
+import metier.session.PlatformGDLocal;
 import metier.session.PlatformGDRemote;
 
 public class DaoManagement {
 	@EJB
-	private PlatformGDRemote metier;
+	private PlatformGDLocal metier;
 	
 	public DaoManagement() {
 		try {
 			final Hashtable<String, String> jndiProperties = new Hashtable<String, String>();
 			jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
 			final Context context = new InitialContext(jndiProperties);
-			metier = (PlatformGDRemote) context
-					.lookup("java:global/PlatformGDEAR/PlatformGD/BK!metier.session.PlatformGDRemote");
+			metier = (PlatformGDLocal) context
+					.lookup("java:global/PlatformGDEAR/PlatformGD/BK!metier.session.PlatformGDLocal");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

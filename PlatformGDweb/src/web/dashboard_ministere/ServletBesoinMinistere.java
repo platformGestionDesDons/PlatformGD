@@ -1,5 +1,6 @@
 package web.dashboard_ministere;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -9,36 +10,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import metier.entities.Categorie;
-import metier.entities.Fournisseur;
-import metier.entities.Produit;
-import metier.entities.UniteDeMesure;
+import metier.entities.Besoin;
+
+import metier.entities.Photo;
+
 import metier.session.PlatformGDLocal;
 
 
 
-@WebServlet("/produitMinistere")
-public class ServletProduit extends HttpServlet {
+@WebServlet("/besoinMinistere")
+public class ServletBesoinMinistere extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
 	private PlatformGDLocal dao;
 	
-	public ServletProduit() {
+	public ServletBesoinMinistere() {
 		super();
 		
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String idProduit = request.getParameter("idProduit");
+		String idBesoin = request.getParameter("idBesoin");
 		
 		
-		Produit produit = dao.getProduitById(idProduit);
+		Besoin besoin = dao.getBesoinById(idBesoin);
+		List<Photo> photos = new ArrayList<Photo>();
 		
-		if(produit != null) 
+		if(besoin != null) 
 		{
-		request.setAttribute("produit",produit);
-		List<Fournisseur> fournisseurs = dao.getFournisseurByProduit(produit.getIdProduit());
+		request.setAttribute("besoin",besoin);
+		if( besoin.getPhotoBesoin()!=null)
+		{
+			photos = besoin.getPhotoBesoin().getPhotos();
+		}
+		
 		
 //		System.out.println("***********************");
 //		System.out.println("***********************");
@@ -50,18 +56,17 @@ public class ServletProduit extends HttpServlet {
 //		System.out.println("***********************");
 		
 		
-		request.setAttribute("fournisseurs",fournisseurs);
-		request.getRequestDispatcher("Dashboard_ministere/produitMinistere.jsp").forward(request,response);
+		request.setAttribute("photos",photos);
+		request.getRequestDispatcher("Dashboard_ministere/besoinMinistere.jsp").forward(request,response);
 		}
 		else {
-			request.getRequestDispatcher("404Produit.jsp").forward(request,response);
+			request.getRequestDispatcher("Dashboard_etablissement/404Produit.jsp").forward(request,response);
 		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
-		
 	}
 	
 	

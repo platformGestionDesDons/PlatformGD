@@ -3,7 +3,7 @@
 <%@ include file="menu_ministere.jsp"%>
 <section class="page-section light-bg">
 	<div class="container">
-		<a href="ajoutCategorie" class="btn btn-success">Ajouter une
+		<a href="ajoutCategorieMinistere" class="btn btn-success">Ajouter une
 			catégorie</a>
 		<div class="row">
 			<div class="vcenter col-md-12 text-center">
@@ -38,7 +38,7 @@
 										<li><c:out value="${produit.getLibelle()}"></c:out></li>
 									</c:forEach>
 								</div>
-								<div class="col-xs-2 col-sm-2 text-center">
+								<div class="col-xs-2 col-sm-2 text-center" id="${categorie.getIdC()}">
 									<button class="btn btn-danger btn-sm" id="deletecategorie">Supprimer
 									</button>
 								</div>
@@ -71,13 +71,13 @@
 			function async(method, data) {
 				console.log(data);
 				$.ajax({
-					url : "categories",
+					url : "Liste_categories",
 					data : data,
 					method : method
 				}).done(function(data) {
 					console.log(data);
 					if (data) {
-						location.href = "categories"
+						location.href = "Liste_categories"
 					}
 				});
 			}

@@ -16,7 +16,7 @@ import metier.entities.UniteDeMesure;
 import metier.session.PlatformGDLocal;
 
 
-@WebServlet("/ajoutProduit")
+@WebServlet("/ajoutProduitMinistere")
 public class ServletAjoutProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -41,7 +41,7 @@ public class ServletAjoutProduit extends HttpServlet {
 			request.setAttribute("udms", udms);
 		    List<Categorie> categories = dao.getAllCategorie();
 			request.setAttribute("categories", categories);
-			request.getRequestDispatcher("Dashboard_ministere/ajoutProduit.jsp").forward(request, response);
+			request.getRequestDispatcher("Dashboard_ministere/ajoutProduitMinistere.jsp").forward(request, response);
 		
 	}
 

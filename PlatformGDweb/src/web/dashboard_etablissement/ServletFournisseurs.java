@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import metier.entities.Fournisseur;
-import metier.entities.Produit;
 import metier.session.PlatformGDLocal;
 
 

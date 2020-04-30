@@ -39,7 +39,7 @@
 			function async(method,data){
 				console.log(data);
 				$.ajax({
-					url:"udms",
+					url:"Liste_unite_de_mesure",
 					data:data,
 					method:method
 			})
@@ -47,7 +47,7 @@
 					function(data){
 						console.log(data);
 						if(data){
-							location.href="udms"
+							location.href="Liste_unite_de_mesure"
 						}
 					}
 			);

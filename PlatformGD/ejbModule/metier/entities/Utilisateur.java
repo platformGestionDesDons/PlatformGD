@@ -157,9 +157,14 @@ public class Utilisateur implements Serializable {
 		return dons;
 	}
 
-	public void setDons(List<Don> dons) {
-		this.dons = dons;
-	}
+//	public void setDons(List<Don> dons) {
+//		this.dons = dons;
+//	}
+	public void addDon(Don don) 
+	{
+		dons.add(don);
+	    don.setUtilisateur(this);
+    }
 
 	public Boolean getAccepted() {
 		return accepted;
