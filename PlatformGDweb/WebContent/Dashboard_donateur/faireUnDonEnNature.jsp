@@ -86,10 +86,9 @@
 								</div></select>
 					</div> -->
 					<div class="form-group">
-						<label class="control-label required" for="photos">Ajouter
-							des photos</label>
-						<!-- 		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>	 -->
-						<input type="file" name="file" multiple />
+						<label class="control-label required" for="photos">Ajouter des photos</label>
+						<span class="required text-danger form-asterisk" >(formats acceptés : jpeg/png)</span>	
+						<input type="file" name="file" accept="image/*" multiple />
 					</div>
 					<button class="btn btn-default btn-block" type="submit"
 						name="action" value="Faire un don en nature">
