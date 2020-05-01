@@ -4,7 +4,7 @@
 <section class="page-section light-bg">
 <div class="container">	
 
- <form name="formEditProduit" action="editProduit?idProduit=${produit.getIdProduit()}" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a">
+ <form name="formEditProduit" action="editProduitMinistere?idProduit=${produit.getIdProduit()}" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a">
 	<h1>Produit : ${produit.getLibelle()}</h1>
 
 		<div class="form-group">

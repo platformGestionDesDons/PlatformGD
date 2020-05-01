@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import metier.entities.Utilisateur;
 
-@WebFilter(urlPatterns = {"/ajoutBesoin","/besoin", "/besoins", "/categories", "/editBesoin", 
+@WebFilter(urlPatterns = {"/ajoutBesoin","/besoin", "/besoins", "/categories", "/editBesoin", "/editProduit",
 		"/fournisseurs","/produit", "/produits", "/udms"})
 public class EtablissementFilter implements Filter {
 

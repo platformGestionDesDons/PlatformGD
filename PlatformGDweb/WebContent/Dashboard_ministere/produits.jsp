@@ -60,7 +60,7 @@
 									<h6>${produit.getCategorie().getLibelle()}</h6>
 								</div>
 								<div class="col-xs-2 col-sm-2 text-center">
-									<a href="editProduit?idProduit=${produit.getIdProduit()}" class="btn btn-warning btn-sm" role="button" id="editproduit">Editer</a>
+									<a href="editProduitMinistere?idProduit=${produit.getIdProduit()}" class="btn btn-warning btn-sm" role="button" id="editproduit">Editer</a>
 								</div>
 								<div class="col-xs-2 col-sm-2 text-center" id="${produit.getIdProduit()}">
 									<button class="btn btn-danger btn-sm" id="deleteproduct">
