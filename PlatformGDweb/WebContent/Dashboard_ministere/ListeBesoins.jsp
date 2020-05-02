@@ -25,7 +25,7 @@
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Etat</span></strong>
+								<strong><span class="text-color">Bénéficiaire</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
@@ -34,30 +34,37 @@
 							<div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
 								<strong><span class="text-color">Quantité restante</span></strong>
 							</div>
-							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
+							<div class="col-xs-1 col-sm-1 text-center lr-pad-10">
 								<strong><span class="text-color">Priorité</span></strong>
+							</div>
+							<div class="col-xs-1 col-sm-1 text-center lr-pad-10">
+								<strong><span class="text-color"></span></strong>
 							</div>
 						</div>
 						<hr class="margin-20">
 						<c:forEach var="besoin" items="${besoins}">
 								<div class="row">
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${besoin.getProduit().getLibelle()}</h5>
+									<div class="col-xs-2 col-sm-2">
+										<h6>${besoin.getProduit().getLibelle()}</h6>
 									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${besoin.getDateBesoin()}</h5>
+									<div class="col-xs-2 col-sm-2">
+										<h6>${besoin.getDateBesoin()}</h6>
 									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${besoin.getEtat()}</h5>
+									<div class="col-xs-2 col-sm-2 ">
+										<h6>${besoin.getEtablisement().getNomEtablissement()}</h6>
 									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${besoin.getQuantiteInitiale()}</h5>
+									<div class="col-xs-2 col-sm-2 ">
+										<h5>${besoin.getQuantiteInitiale()}</h6>
 									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${besoin.getQuantiteRestante()}</h5>
+									<div class="col-xs-2 col-sm-2 ">
+										<h5>${besoin.getQuantiteRestante()}</h6>
 									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${besoin.getPriorite()}</h5>
+									<div class="col-xs-1 col-sm-1">
+										<h6>${besoin.getPriorite()}</h6>
+									</div>
+									<div class="col-xs-1 col-sm-1">
+										<a href="besoinMinistere?idBesoin=${besoin.getIdBesoin()}" 
+										class="btn btn-default btn-sm btn-menu" role="button" id="consulter">Consulter</a>
 									</div>
 								</div>
 						</c:forEach>

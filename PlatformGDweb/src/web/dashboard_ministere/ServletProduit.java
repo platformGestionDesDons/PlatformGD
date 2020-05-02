@@ -17,7 +17,7 @@ import metier.session.PlatformGDLocal;
 
 
 
-@WebServlet("/produit")
+@WebServlet("/produitMinistere")
 public class ServletProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,7 +51,7 @@ public class ServletProduit extends HttpServlet {
 		
 		
 		request.setAttribute("fournisseurs",fournisseurs);
-		request.getRequestDispatcher("Dashboard_ministere/produit.jsp").forward(request,response);
+		request.getRequestDispatcher("Dashboard_ministere/produitMinistere.jsp").forward(request,response);
 		}
 		else {
 			request.getRequestDispatcher("404Produit.jsp").forward(request,response);

@@ -18,9 +18,7 @@
 							title="Ce champ est requis">*</span><select id="nom_etablissement" name="nom_etab"
 							class="form-control">
 								<div class="cha9a9a-title text-center pad-5">
-									<c:forEach items="${beneficiaire}" var="bene">
 										<option value="${bene.getIdEtablissement()}">${bene.getNomEtablissement()}</option>
-									</c:forEach>
 								</div></select>
 					</div>
 					<div class="form-group">

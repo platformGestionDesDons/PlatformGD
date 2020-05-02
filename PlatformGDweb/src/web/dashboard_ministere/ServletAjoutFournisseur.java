@@ -18,7 +18,7 @@ import metier.entities.Produit;
 import metier.session.PlatformGDLocal;
 
 
-@WebServlet("/ajoutFournisseur")
+@WebServlet("/ajoutFournisseurMinistere")
 public class ServletAjoutFournisseur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -35,13 +35,14 @@ public class ServletAjoutFournisseur extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException 
+	{
 
 		    List<Produit> produits = dao.getAllProduit();
 			request.setAttribute("produits", produits);
 			List<Categorie> categories = dao.getAllCategorie();
 			request.setAttribute("categories", categories);
-			request.getRequestDispatcher("Dashboard_ministere/ajoutFournisseur.jsp").forward(request, response);
+			request.getRequestDispatcher("Dashboard_ministere/ajoutFournisseurMinistere.jsp").forward(request, response);
 		
 	}
 

@@ -195,7 +195,7 @@
 											href="../privacy/iframe.html" class="iframe"
 											style="text-decoration: underline;" id="cgu-content">la
 											politique de confidentialité</a> et l'utilisation des cookies de
-										Cha9a9a.tn.
+										platform.
 									</p>
 								</div>
 							</div>

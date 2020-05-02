@@ -17,7 +17,7 @@ import metier.entities.Produit;
 import metier.entities.UniteDeMesure;
 import metier.session.PlatformGDLocal;
 
-@WebServlet("/editProduit")
+@WebServlet("/editProduitMinistere")
 public class ServletEditProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

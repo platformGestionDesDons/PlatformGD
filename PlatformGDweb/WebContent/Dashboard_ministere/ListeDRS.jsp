@@ -24,31 +24,38 @@
 							</div>
 							<div
 								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Contact
+								<strong><span class="text-color">Nom & prénom
 										responsable</span></strong>
 							</div>
 							<div
 								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Nombre
-										établissements</span></strong>
+								<strong><span class="text-color">Contact
+										responsable</span></strong>
 							</div>
 						</div>
 						<hr class="margin-20">
 						<c:forEach items="${etablissements}" var="b">
 							<c:if test="${b.getDrs() == true }">
 								<div class="row">
-									<div class="col-xs-3 col-sm-3 text-center">
-										<h5>${b.getNomEtablissement()}</h5>
+									<div class="col-xs-3 col-sm-3">
+										<h6>${b.getNomEtablissement()}</h6>
 									</div>
-									<div class="col-xs-3 col-sm-3 text-center">
-										<!--<h5>${etablissement.getAdresses().iterator().next().getGouvernorat()}</h5>-->
+									<div class="col-xs-3 col-sm-3">
+										<h6>${b.getAdresse().getAdresse()}, ${b.getAdresse().getGouvernorat()}, ${b.getAdresse().getCodePostale()}</h6>
 									</div>
-									<div class="col-xs-3 col-sm-3 text-center">
-										<!-- <h5>${etablissement.getUtilisateur().getTelephone().iterator().next()}</h5>-->
+									<div class="col-xs-3 col-sm-3">
+										<c:forEach items="${b.getUtilisateurs()}" var="utilisateur">
+											<h6>${utilisateur.getNom()}, ${utilisateur.getPrenom()}</h6><br>
+										</c:forEach>
 									</div>
-									<div class="col-xs-3 col-sm-3 text-center">
-										<h5>-</h5>
+									<div class="col-xs-3 col-sm-3">
+										<c:forEach items="${b.getUtilisateurs()}" var="utilisateur">
+											<c:forEach items="${utilisateur.getTelephone()}" var="tel">
+												${tel.getNumero()}, 
+											</c:forEach>
+										</c:forEach>
 									</div>
+									
 								</div>
 							</c:if>
 						</c:forEach>

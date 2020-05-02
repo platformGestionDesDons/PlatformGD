@@ -1,7 +1,6 @@
 package metier.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID; 
@@ -9,8 +8,6 @@ import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -41,6 +38,7 @@ public class Utilisateur implements Serializable {
 	@OneToMany(targetEntity = Reclamation.class, mappedBy = "utilisateur")
 	private Collection<Reclamation> reclamations;
 
+
 	@OneToOne
 	private Adresse adresse;
 
@@ -49,8 +47,15 @@ public class Utilisateur implements Serializable {
 	//@JoinTable(name = "T_UTILISATEUR_TELEPHONE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
 	private Collection<Telephone> telephone;
 
+	
+	@OneToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
+	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
+	private Collection<Etablisement> etablisements;
+
 	@ManyToOne
 	private Etablisement etablissement;
+
 	
 	@OneToMany(mappedBy="utilisateur", fetch = FetchType.EAGER)
 	private List<Don> dons;
@@ -152,9 +157,14 @@ public class Utilisateur implements Serializable {
 		return dons;
 	}
 
-	public void setDons(List<Don> dons) {
-		this.dons = dons;
-	}
+//	public void setDons(List<Don> dons) {
+//		this.dons = dons;
+//	}
+	public void addDon(Don don) 
+	{
+		dons.add(don);
+	    don.setUtilisateur(this);
+    }
 
 	public Boolean getAccepted() {
 		return accepted;

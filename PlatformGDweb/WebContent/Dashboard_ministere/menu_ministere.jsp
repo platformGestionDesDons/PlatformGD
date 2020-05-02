@@ -57,7 +57,7 @@
                                 <a href="Liste_DRS">Liste DRS</a>
                             </li>
                             <li>
-                                <a href="index.jsp">Déconnexion</a>
+                                <a href="LogOut">Déconnexion</a>
                             </li> 
 
                         </ul>

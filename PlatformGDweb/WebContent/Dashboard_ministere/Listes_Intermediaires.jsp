@@ -19,27 +19,43 @@
 								<strong><span class="text-color">Nom établissement</span></strong>
 							</div>
 							<div
-								class="col-xs-4 col-sm-4 text-center fund-bottom-border lr-pad-10">
+								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
 								<strong><span class="text-color">Adresse</span></strong>
 							</div>
 							<div
-								class="col-xs-4 col-sm-4 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Contact responsable</span></strong>
+								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Nom & prénom
+										responsable</span></strong>
+							</div>
+							<div
+								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Contact
+										responsable</span></strong>
 							</div>
 						</div>
 						<hr class="margin-20">
 						<c:forEach items="${etablissements}"  var="etab">
 							<c:if test="${etab.getIntermediaire() == true}">
 								<div class="row">
-									<div class="col-xs-4 col-sm-4 text-center">
-										<h5>${etab.getNomEtablissement()}</h5>
+									<div class="col-xs-3 col-sm-3">
+										<h6>${b.getNomEtablissement()}</h6>
 									</div>
-									<div class="col-xs-4 col-sm-4 text-center">
-										<!-- <h5>${etablissement.getAdresses().iterator().next().getGouvernorat()}</h5>-->
+									<div class="col-xs-3 col-sm-3">
+										<h6>${b.getAdresse().getAdresse()}, ${b.getAdresse().getGouvernorat()}, ${b.getAdresse().getCodePostale()}</h6>
 									</div>
-									<div class="col-xs-4 col-sm-4 text-center">
-										<!-- <h5>${etablissement.getUtilisateur().getTelephone().iterator().next()}</h5>-->
+									<div class="col-xs-3 col-sm-3">
+										<c:forEach items="${b.getUtilisateurs()}" var="utilisateur">
+											<h6>${utilisateur.getNom()}, ${utilisateur.getPrenom()}</h6><br>
+										</c:forEach>
 									</div>
+									<div class="col-xs-3 col-sm-3">
+										<c:forEach items="${b.getUtilisateurs()}" var="utilisateur">
+											<c:forEach items="${utilisateur.getTelephone()}" var="tel">
+												${tel.getNumero()}, 
+											</c:forEach>
+										</c:forEach>
+									</div>
+									
 								</div>
 							</c:if>
 						</c:forEach>

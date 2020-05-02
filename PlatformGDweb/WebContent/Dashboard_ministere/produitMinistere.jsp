@@ -12,7 +12,7 @@
 		</div>
 		<div class="col-sm-2">
 		<br>
-		  	<a href="produits" class="btn btn-default" role="button">Retour</a>
+		  	<a href="Liste_produits" class="btn btn-default" role="button">Retour</a>
 		</div>
 	</div>
 		<table class="table table-hover" border = "1">

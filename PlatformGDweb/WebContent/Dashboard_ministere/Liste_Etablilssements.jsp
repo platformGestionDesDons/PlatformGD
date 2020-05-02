@@ -45,13 +45,17 @@
 									<div class="col-xs-3 col-sm-3 text-center">
 										<h5>${etab.getNomEtablissement()}</h5>
 									</div>
+
 									<div class="col-xs-2 col-sm-2 text-center">
 										<h5>${etab.getLibelle()}</h5>
+
 									</div>
+
 									<div class="col-xs-2 col-sm-2 text-center">
 										<h5>${etab.getAdresse().getGouvernorat()}<br>${etab.getAdresse().getAdresse()}
 											, ${etab.getAdresse().getCodePostale()}
 										</h5>
+
 									</div>
 									<div class="col-xs-2 col-sm-2 text-center">
 										<c:forEach items="${etab.getUtilisateurs()}" var="utilisateur">

@@ -74,7 +74,7 @@
    	</div>
   	<div class="form-group">
 	 <button type="submit" class="btn btn-default btn-block">Confirmer</button>
-	 <a href="fournisseurs" class="btn btn-default btn-block" role="button">Annuler</a>
+	 <a href="Liste_Fournisseurs" class="btn btn-default btn-block" role="button">Annuler</a>
    	</div>
 </form>
 </div>

@@ -44,7 +44,6 @@
 													<h5>--Veuillez choisir une option--</h5>
 											</option>
 											<option value="intermediaire">intermediaire</option>
-											<option value="ministaire">ministaire</option>
 											<option value="drs">drs</option>
 											<option value="Hospital">Hospital</option>
 										</select>
@@ -66,6 +65,8 @@
 											</option>
 											<option value="HR">Hôpital régional</option>
 											<option value="HM">Défense et intérieur</option>
+											<option value="EPS">EPS</option>
+											<option value="autres">autres</option>
 										</select>
 									</div>
 								</div>

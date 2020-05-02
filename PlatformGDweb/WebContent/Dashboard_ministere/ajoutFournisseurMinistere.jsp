@@ -5,7 +5,7 @@
 <div class="overlay"></div>
 <div class="container">	
 
- <form name="formAjoutFournisseur" action="ajoutFournisseur" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a"> 
+ <form name="formAjoutFournisseur" action="ajoutFournisseurMinistere" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a"> 
 <h1>Ajouter un Fournisseur</h1>
 
 <div class="form-group">
@@ -92,7 +92,7 @@
 
 
 	 <button type="submit" class="btn btn-default btn-block">Ajouter</button>
-	 <a href="fournisseurs" class="btn btn-default btn-block" role="button">Annuler</a>
+	 <a href="Liste_Fournisseurs" class="btn btn-default btn-block" role="button">Annuler</a>
 
 </div>
 </form> 

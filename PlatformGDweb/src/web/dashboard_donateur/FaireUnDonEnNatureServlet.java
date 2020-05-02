@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import metier.entities.Besoin;
@@ -50,6 +51,11 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		HttpSession session = req.getSession(false);
+		Utilisateur user = (Utilisateur) session.getAttribute("user");
+		
+		
 		String action = req.getParameter("action");
 		if (action.equals("Faire un don en nature")) {
 			String id_besoin = req.getParameter("nom_produit");
@@ -68,6 +74,7 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 			//don_en_nature.setUtilisateur(donnateur);
 			don_en_nature.setBesoin(besoin);
 			don_en_nature.setEtablissement(beneficiaire);
+			
 			
 			PhotoDon photoDon = new PhotoDon();
 			 
@@ -102,10 +109,12 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 				 photoDon.setPhotos(photos);
 				 don_en_nature.setPhotoDon(photoDon);
 			 }
-
-
-			metier.ajouterDonEnNature(don_en_nature);
-			req.getRequestDispatcher("Dashboard_donateur/faireUnDonEnNature.jsp").forward(req, resp);
+			 
+			 metier.ajouterDonEnNature(don_en_nature);
+			 user.addDon(don_en_nature);
+			 metier.updateUtilisateur(user);
+			 metier.updateDonEnNature(don_en_nature);
+			 req.getRequestDispatcher("Dashboard_donateur/faireUnDonEnNature.jsp").forward(req, resp);
 		}
 	}
 

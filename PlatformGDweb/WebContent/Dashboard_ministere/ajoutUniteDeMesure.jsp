@@ -16,7 +16,7 @@
 
   	<div class="form-group">
 	 <button type="submit" class="btn btn-default btn-block">Ajouter</button>
-	 <a href="udms" class="btn btn-default btn-block" role="button">Annuler</a>
+	 <a href="Liste_unite_de_mesure" class="btn btn-default btn-block" role="button">Annuler</a>
 	</div>
   </div>
 </form>

@@ -1,6 +1,5 @@
 package web;
 
-import java.util.regex.*;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import metier.entities.Utilisateur;
-import metier.session.PlatformGDImpl;
 import metier.session.PlatformGDLocal;
 import service.DaoManagement;
 
@@ -19,65 +17,128 @@ import service.DaoManagement;
 
 public class ServletManagement extends HttpServlet {
 
-	/**
-	*
-	*/
 	private static final long serialVersionUID = 1L;
+	
+	
 	@EJB
 	private PlatformGDLocal metier;
 
-	public ServletManagement() {
-		metier = new PlatformGDImpl();
-	}
+	public ServletManagement() {}
 
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-// TODO Auto-generated method stub
+
 		HttpSession session = request.getSession();
-		if ((Boolean) (session.getAttribute("logged") != null)
-				&& (Boolean) (session.getAttribute("logged").equals(true))) {
-			request.getRequestDispatcher("ajoutBesoin.jsp").forward(request, response);
-		} else {
+		if ((Boolean) (session.getAttribute("user") != null)) 
+		{
+			Utilisateur user = (Utilisateur) session.getAttribute("user");
+			if(user.getRole().equals("ministere"))
+			{
+				request.getRequestDispatcher("/Ministere").forward(request, response);
+			}
+			else
+			{
+				if(user.getRole().equals("responsable") && user.getAccepted().equals(true))
+				{
+						 request.getRequestDispatcher("/categories").forward(request, response);
+					
+				}
+				else {
+					if(user.getRole().equals("donateur"))
+					{
+						request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+					} else {
+						request.getRequestDispatcher("/LoginPage").forward(request, response);
+					}
+					
+				}
+			}
+			
+		}
+		else 
+		{
 			request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 		}
 	}
+	
+	
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-// TODO Auto-generated method stub
+
 		HttpSession session = request.getSession();
-		boolean auth = false;
-		if ((Boolean) (session.getAttribute("logged") != null)
-				&& (Boolean) (session.getAttribute("logged").equals(true))) {
+		
+		//user already logged in
+		if ((Boolean) (session.getAttribute("user") != null)) 
+		{
+			Utilisateur user = (Utilisateur) session.getAttribute("user");
+			if(user.getRole().equals("ministere"))
+			{
+				request.getRequestDispatcher("/Ministere").forward(request, response);
+			}
+			else
+			{
+				if(user.getRole().equals("responsable") && user.getAccepted().equals(true))
+				{
+					request.getRequestDispatcher("/categories").forward(request, response);
+				}
+				else {
+					if(user.getRole().equals("donateur"))
+					{
+						request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+					} else {
+						request.setAttribute("errur1", "Votre compte n'est encore accepté par le ministere !");
+						request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
+					}
+				}
+			}
 			
-			request.getRequestDispatcher("ajoutBesoin.jsp").forward(request, response);
-		} else {
+		}
+		
+		//user not logged in
+		else 
+		{
 			String username = request.getParameter("username");
 			String clearPassword = request.getParameter("password");
 			DaoManagement daoManagement = new DaoManagement();
-			auth = daoManagement.authentification(username, clearPassword);
-			session.setAttribute("logged", auth);
-			if (auth == true) {
-
-				Utilisateur utilisateur = new Utilisateur();
-				utilisateur = (Utilisateur) metier.authentification_Utilisateur(username);
-				if(utilisateur.equals(null)) {
-					System.out.println("++++++++++++++++++");
-				}
-				request.setAttribute("ID", utilisateur.getIdut());
-				request.setAttribute("e-mail", username);
-				request.setAttribute("Nom", utilisateur.getNom());
-				request.setAttribute("prenom", utilisateur.getPrenom());
-				request.setAttribute("role", utilisateur.getRole());
+			Utilisateur utilisateur = daoManagement.hashPassword(username, clearPassword);
+			
+			// User found
+			if (utilisateur!=null) 
+			{
+				session.setAttribute("user", utilisateur);
 				session.setAttribute("utilisateur", utilisateur);
 				
-				request.getRequestDispatcher("404.jsp").forward(request, response);
-				
-			} else {
-				request.setAttribute("errur1", "check your password or e-mail");
-				request.getRequestDispatcher("404.jsp").forward(request, response);
+				Utilisateur user = (Utilisateur) session.getAttribute("user");
+				if(user.getRole().equals("ministere"))
+				{
+					request.getRequestDispatcher("/Ministere").forward(request, response);
+				}
+				else
+				{
+					if(user.getRole().equals("responsable") && user.getAccepted().equals(true))
+					{
+						request.getRequestDispatcher("/categories").forward(request, response);
+					}
+					else {
+						if(user.getRole().equals("donateur"))
+						{
+							request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+						} else {
+						request.setAttribute("errur1", "Votre compte n'est encore accepté par le ministere !");
+						request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
+						}
+					}
+				}	
+			}
+			
+			else 
+			{
+				request.setAttribute("errur1", "Vérifiez votre mot de passe ou votre mail !");
+				request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 			}
 		}
 	}

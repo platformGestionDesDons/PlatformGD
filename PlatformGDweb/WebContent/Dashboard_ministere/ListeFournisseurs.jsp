@@ -2,7 +2,7 @@
 <%@ include file="menu_ministere.jsp"%>
 <section class="page-section">
 	<div class="container">
-		<a href="ajoutFournisseur" class="btn btn-success">Ajouter un
+		<a href="ajoutFournisseurMinistere" class="btn btn-success">Ajouter un
 			fournisseur</a>
 		<div class="row">
 			<div class="vcenter col-md-12 text-center">
@@ -60,7 +60,7 @@
 										class="btn btn-warning btn-sm" role="button"
 										id="editfournisseur">Editer</a>
 								</div>
-								<div class="col-xs-2 col-sm-2 text-center">
+								<div class="col-xs-2 col-sm-2 text-center" id="${fournisseur.getIdF()}">
 									<button class="btn btn-danger btn-sm" id="deletefournisseur">
 										Supprimer</button>
 								</div>

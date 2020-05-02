@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
@@ -639,19 +640,18 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 
 	@Override
-	public boolean authentification(String mail, String hashedPassword) {
-		try {
-			Query tq = em.createQuery("select u from Utilisateur u WHERE u.email =:x and u.mdp =:y ",Utilisateur.class);
-			System.out.println("5555");
-			tq.setParameter("x", mail);
-			tq.setParameter("y", hashedPassword);
-			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
-			em.merge(utilisateur);
-			return true;
-		} catch (Exception noresult) {
-			System.out.println(noresult);
-			return false;
+	public Utilisateur authentification(String mail, String hashedPassword) {
+		Query tq = em.createQuery("select u from Utilisateur u WHERE u.email =:x and u.mdp =:y ",Utilisateur.class);
+		tq.setParameter("x", mail);
+		tq.setParameter("y", hashedPassword);
+		Utilisateur utilisateur = null;
+		try{
+			utilisateur = (Utilisateur) tq.getSingleResult();
 		}
+			catch (NoResultException nre){
+			
+			}
+		return utilisateur;
 	}
 
 	@Override

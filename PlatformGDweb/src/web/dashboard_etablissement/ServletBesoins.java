@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import metier.entities.Besoin;
@@ -23,6 +24,7 @@ import metier.entities.Etablisement;
 import metier.entities.Photo;
 import metier.entities.PhotoBesoin;
 import metier.entities.Produit;
+import metier.entities.Utilisateur;
 import metier.session.PlatformGDLocal;
 
 
@@ -58,8 +60,13 @@ public class ServletBesoins extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException 
-	{
-
+	{		
+			// get infos from session
+			HttpSession session = request.getSession(false);
+			Utilisateur user = (Utilisateur) session.getAttribute("user");
+			Etablisement etablisement = user.getEtablissement();
+			
+			
 			String idProduit = request.getParameter("produit");
 			int quantite = Integer.parseInt(request.getParameter("quantite"));
 			String priorite =  request.getParameter("Priorite");		
@@ -105,14 +112,9 @@ public class ServletBesoins extends HttpServlet {
 				 b.setPhotoBesoin(photoBesoin);
 			 }
 			 dao.ajoutBesoin(b);
-			 
-				// test ********************************************************
-				List<Etablisement> etablisements = new ArrayList<Etablisement>();
-				etablisements = dao.getAllEtablissement();
-				etablisements.get(0).addBesoin(b);
-				dao.updateEtablisement(etablisements.get(0));
-				dao.updateBesoin(b);
-				// test *********************************************************
+			 etablisement.addBesoin(b);
+			dao.updateEtablisement(etablisement);
+			dao.updateBesoin(b);
 			 
 			List<Besoin> besoins = dao.getAllBesoin();
 			request.setAttribute("ListBesoins", besoins);
