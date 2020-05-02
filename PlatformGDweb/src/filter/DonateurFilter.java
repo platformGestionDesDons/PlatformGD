@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import metier.entities.Utilisateur;
 
-@WebFilter(urlPatterns = {"/don_en_nature", "/don_reglement", "/faire_un_don", "/besoinsByEtablissement"})
+@WebFilter(urlPatterns = {"/don_en_nature", "/don_reglement", "/faire_un_don", "/besoinsByEtablissement", "/LogOut"})
 public class DonateurFilter implements Filter {
 
     

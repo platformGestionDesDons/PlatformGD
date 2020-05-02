@@ -19,7 +19,7 @@ import metier.entities.Utilisateur;
 		"/ajoutFournisseurMinistere", "/ajoutProduitMinistere", "/ajout_unite_de_mesure", "/besoinMinistere",
 		 "/Liste_categories", "/Demandes_inscrit", "/editFournisseur", "/editProduitMinistere","/Liste_Besoins"
 		,"/Liste_Donnateurs", "/Liste_Dons", "/Liste_DRS", "/Liste_Etablissements", "/Liste_Fournisseurs", "/Liste_Intermediaire"
-		, "/Ministere", "/produitMinistere", "/Liste_produits", "/supprimer_inscrit", "/Liste_unite_de_mesure", "/supprimer_don"})
+		, "/Ministere", "/produitMinistere", "/Liste_produits", "/supprimer_inscrit", "/Liste_unite_de_mesure", "/supprimer_don", "/LogOut"})
 public class MinistereFilter implements Filter {
 
 //	private static final Set<String> ALLOWED_PATHS_lOGIN = Collections.unmodifiableSet(new HashSet<>(
