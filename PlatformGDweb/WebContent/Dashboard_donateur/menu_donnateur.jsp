@@ -28,7 +28,6 @@
 						<ul class="nav navbar-nav">
 							<li><a href="#">Profil</a></li>
 							<li><a href="LogOut">Deconnexion</a></li>
-
 						</ul>
 						<!-- Right nav -->
 					</div>

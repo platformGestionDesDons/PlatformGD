@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import metier.entities.Utilisateur;
 
-@WebFilter(urlPatterns = {"/don_en_nature", "/don_reglement", "/faire_un_don", "/besoinsByEtablissement", "/LogOut"})
+@WebFilter(urlPatterns = {"/don_en_nature", "/don_reglement", "/faire_un_don", "/besoinsByEtablissement", "/faire_un_don_step1"})
 public class DonateurFilter implements Filter {
 
     
@@ -37,9 +37,6 @@ public class DonateurFilter implements Filter {
         if (loggedIn)
         {
         	user = (Utilisateur) session.getAttribute("user");
-			System.out.println("**************************** before donateur ******************************************");
-			System.out.println(user.getRole());
-			System.out.println(user.getRole().equals("donateur"));
         	if(user.getRole().equals("donateur")) 
         	{
     			System.out.println("**************************** donateur ******************************************");

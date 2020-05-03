@@ -60,7 +60,7 @@
 							<!-- nav -->
 							<ul class="nav navbar-nav">
 								<li><a href="#">Profil</a></li>
-								<li><a href="index.jsp">Déconnexion</a></li>
+								<li><a href="LogOut">Déconnexion</a></li>
 
 							</ul>
 							<!-- Right nav -->
