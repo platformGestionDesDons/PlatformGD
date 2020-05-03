@@ -35,8 +35,11 @@ public class FaireUnDonReglement extends HttpServlet{
 	private static final String UPLOAD_DIRECTORY = "uploads\\images\\Reglement";
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+	{
+		
+		String code_etablissement = (String) req.getParameter("id_etablissement");
+		req.setAttribute("etablisement", metier.getEtablissementById(code_etablissement));
 		req.getRequestDispatcher("Dashboard_donateur/faireUnReglement.jsp").forward(req, resp);
 	}
 
@@ -46,22 +49,18 @@ public class FaireUnDonReglement extends HttpServlet{
 		HttpSession session = req.getSession(false);
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
 		
-		String action = req.getParameter("action");
-		if (action.equals("Faire un don reglement")) {
+		String id_beneficiaie = req.getParameter("nom_etablissement");
 			String date_planifiee = req.getParameter("date_planifiee");
-			//String id_beneficiaire = req.getParameter("bene");
 			String visibilite = req.getParameter("visibilite");
 			String date_reglement = req.getParameter("date_reglement");
 			String mode_reglement = req.getParameter("mode_reglement");
 			double montant = Double.parseDouble((req.getParameter("montant")));
-			String id_beneficiaie = req.getParameter("nom_bene");
+			
 			Reglement reglement = new Reglement(date_planifiee, false, false, visibilite, montant, 
-					date_reglement, mode_reglement, false);
+			date_reglement, mode_reglement, false);
 			Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
 			reglement.setEtablissement(beneficiaire);
 			
-//			Utilisateur donnateur = metier.findUtilisateurById(idut);
-//			reglement.setUtilisateur(donnateur);
 			
 			PhotoDon photoDon = new PhotoDon();
 			 
@@ -107,7 +106,7 @@ public class FaireUnDonReglement extends HttpServlet{
 			 metier.updateUtilisateur(user);
 			 metier.updateReglement(reglement);
 			
-			req.getRequestDispatcher("Dashboard_donateur/faireUnReglement.jsp").forward(req, resp);
-		}
+			req.getRequestDispatcher("Dashboard_donateur/besoinsByEtablissement.jsp").forward(req, resp);
+		
 	}
 }

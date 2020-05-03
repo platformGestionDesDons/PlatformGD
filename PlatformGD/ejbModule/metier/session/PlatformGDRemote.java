@@ -34,7 +34,7 @@ public interface PlatformGDRemote {
 
 
 	public String getNomEtablissementById(String id_etablissement);
-	
+	public Etablisement getEtablissementById(String id_etablissement);
 
 	
 	// create

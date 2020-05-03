@@ -710,6 +710,12 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 			em.merge(utilisateur);
 	}
 
+	@Override
+	public Etablisement getEtablissementById(String id_etablissement) {
+		Etablisement etablisement =em.find(Etablisement.class, id_etablissement);
+		return etablisement;
+	}
+
 
 
 }

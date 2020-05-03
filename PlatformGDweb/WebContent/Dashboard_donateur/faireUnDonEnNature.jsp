@@ -15,65 +15,63 @@
 						<label class="control-label required" for="new_fund_name">Nom
 							Bénéficiaire</label> <span
 							class="required text-danger form-asterisk"
-							title="Ce champ est requis">*</span><select id="nom_etablissement" name="nom_etab"
-							class="form-control">
-								<div class="cha9a9a-title text-center pad-5">
-									<c:forEach items="${beneficiaire}" var="bene">
-										<option value="${bene.getIdEtablissement()}">${bene.getNomEtablissement()}</option>
-									</c:forEach>
-								</div></select>
+							title="Ce champ est requis">*</span>
+						<div class="cha9a9a-title text-center pad-5">
+							<select id="nom_etablissement" name="nom_etablissement" class="form-control" disabled>
+								<option value="${etablisement.getIdEtablissement()}" selected>${etablisement.getNomEtablissement()}</option>
+							</select>
+							<input type="hidden" name="nom_etablissement" value="${beneficiaire.getIdEtablissement()}" />
+						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
 							besoin </label> <span
 							class="required text-danger form-asterisk"
-							title="Ce champ est requis">*</span><select id="nom_besoin" name="nom_produit"
-							class="form-control">
-								<div class="cha9a9a-title text-center pad-5">
-									<c:forEach items="${besoin_etab}" var="b">
-										<option value="${b.getIdBesoin()}">${b.getProduit().getLibelle()}</option>
-									</c:forEach>
-								</div></select>
-								
+							title="Ce champ est requis">*</span>
+							<div class="cha9a9a-title text-center pad-5">
+								<select id="nom_besoin" name="nom_besoin"
+								class="form-control" disabled>
+										<option value="${besoin.getIdBesoin()}" selected>${besoin.getProduit().getLibelle()}</option>
+								</select>
+								<input type="hidden" name="nom_besoin" value="${besoin.getIdBesoin()}" />	
+							</div>
 					</div>
-					<!--  <div class="form-group">
-						<label class="control-label required" for="new_fund_name">Nom
-							produit ( indépendant du besoin )</label> <input type="text"
-							id="new_fund_name" name="" class="form-control" />
-					</div> -->
+
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Date
 							de réception</label> <span
 							class="required text-danger form-asterisk"
-							title="Ce champ est requis">*</span><input type="text" id="new_fund_name" name="date_planifiee"
-							class="form-control" />
+							title="Ce champ est requis">*</span>
+							<input type="text" id="new_fund_name" name="date_planifiee"
+							class="form-control" required/>
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Voulez
 							vous afficher votre nom avec la liste des donnateurs ?</label> <span
 							class="required text-danger form-asterisk"
 							title="Ce champ est requis">*</span> <select id="new_fund_type"
-							name="visibilite" class="form-control">
+							name="visibilite" class="form-control" required>
 							<div class="cha9a9a-title text-center pad-5">
 								<option value="OUI">Oui</option>
 								<option value="NON">Non</option>
 							</div>
 						</select>
 					</div>
-					<div class="form-group">
-						<label class="control-label required" for="new_fund_name">Prix
-							totale</label> <span
-							class="required text-danger form-asterisk"
-							title="Ce champ est requis">*</span><input type="text" id="new_fund_name" name="prix_totale"
-							class="form-control" />
-					</div>
-					<div class="form-group">
+					<div id="${prixMoy}" class="form-group">
 						<label class="control-label required" for="new_fund_name">Quantité</label><span
 							class="required text-danger form-asterisk"
 							title="Ce champ est requis">*</span>
-						<input type="text" id="new_fund_name" name="quantite"
-							class="form-control" />
+						<input type="number" id="quantite" name="quantite" value="0" min="0" class="form-control" required="required"/>
 					</div>
+					
+					<div class="form-group">
+						<label class="control-label required" for="new_fund_name">Prix
+							total</label> <span
+							class="required text-danger form-asterisk"
+							title="Ce champ est requis">*</span>
+    					<input type="number" class="form-control" id="prixTotal" name="prixTotal" step=any  readonly="readonly">
+					</div>
+
 					
 					<!-- <div class="form-group">
 						<label class="control-label required" for="new_fund_name">Nom
@@ -88,7 +86,7 @@
 					<div class="form-group">
 						<label class="control-label required" for="photos">Ajouter des photos</label>
 						<span class="required text-danger form-asterisk" >(formats acceptés : jpeg/png)</span>	
-						<input type="file" name="file" accept="image/*" multiple />
+						<input type="file" name="file" accept="image/*" multiple  />
 					</div>
 					<button class="btn btn-default btn-block" type="submit"
 						name="action" value="Faire un don en nature">
@@ -101,7 +99,14 @@
 		</div>
 	</div>
 </section>
-<script type="text/javascript">
+<script>
+$(document).ready(function(){
+	$("#quantite").change(function(){
+		let quantite = $(this).val();
+		let prixMoy=  parseFloat($("#quantite").closest('div').attr('id'));
+		$("#prixTotal").val(quantite*prixMoy);
+		});
 	
+	});
 </script>
 <%@ include file="__footer.jsp"%>

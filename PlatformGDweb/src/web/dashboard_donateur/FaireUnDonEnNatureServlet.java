@@ -45,6 +45,7 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		req.getRequestDispatcher("Dashboard_donateur/faireUnDonEnNature.jsp").forward(req, resp);
 		
 	}
@@ -55,20 +56,17 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 		HttpSession session = req.getSession(false);
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
 		
-		
-		String action = req.getParameter("action");
-		if (action.equals("Faire un don en nature")) {
-			String id_besoin = req.getParameter("nom_produit");
+			String id_etablissement = req.getParameter("nom_etablissement");
+			String id_besoin = req.getParameter("nom_besoin");
 			String date_planifiee = req.getParameter("date_planifiee");
 			String visibilite = req.getParameter("visibilite");
-			String id_beneficiaie = req.getParameter("nom_etab");
-			double prix_totale = Double.parseDouble(req.getParameter("prix_totale"));
+			double prix_totale = Double.parseDouble(req.getParameter("prixTotal"));
 			int quantite = Integer.parseInt(req.getParameter("quantite"));
-			//String id_fournisseur = req.getParameter("c");
+
 			DonEnNature don_en_nature = new DonEnNature(date_planifiee, false, false, visibilite, prix_totale, quantite, false);
 			
 			Besoin besoin = metier.getBesoinById(id_besoin);
-			Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
+			Etablisement beneficiaire = metier.findetablissement(id_etablissement);
 			//System.out.println(beneficiaire.toString());
 			//Utilisateur donnateur = metier.findUtilisateurById(idut);
 			//don_en_nature.setUtilisateur(donnateur);
@@ -119,8 +117,8 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 			 user.addDon(don_en_nature);
 			 metier.updateUtilisateur(user);
 			 metier.updateDonEnNature(don_en_nature);
-			 req.getRequestDispatcher("Dashboard_donateur/faireUnDonEnNature.jsp").forward(req, resp);
-		}
+			 req.getRequestDispatcher("Dashboard_donateur/besoinsByEtablissement.jsp").forward(req, resp);
+		
 	}
 
 }
