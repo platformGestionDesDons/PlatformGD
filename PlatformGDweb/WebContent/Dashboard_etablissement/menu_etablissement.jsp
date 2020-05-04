@@ -36,7 +36,7 @@
                                                                  <li >
                                     <a href="categories"> Catégories</a>
                                 </li>
-                                <li><a href="LogOut">Deconnexion</a></li>
+                                <li><a href="LogOut">Déconnexion</a></li>
                                                     </ul>
                         <!-- Right nav -->
                     </div>

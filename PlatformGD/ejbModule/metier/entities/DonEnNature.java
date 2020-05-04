@@ -21,7 +21,7 @@ public class DonEnNature extends Don implements Serializable{
 	}
 
 
-	public DonEnNature(String date_planifiee, boolean estAcceptee, boolean estSupprimee, String visibilite,
+	public DonEnNature(Date date_planifiee, boolean estAcceptee, boolean estSupprimee, String visibilite,
 			double prix_totale2, int quantite2, boolean vu) {
 		super(date_planifiee, estAcceptee, estSupprimee, visibilite,vu);
 		this.prix_totale = prix_totale2;

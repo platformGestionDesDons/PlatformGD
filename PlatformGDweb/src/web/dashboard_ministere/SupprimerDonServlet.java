@@ -22,18 +22,11 @@ public class SupprimerDonServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String code_suppression_don_nature = (String) req.getParameter("code_don_en_nature");
-        String code_suppression_don_reglement = (String) req.getParameter("code_reglement");
         
         if(!code_suppression_don_nature.equals(null)) {
         	DonEnNature don = metier.getDonEnNatureById(code_suppression_don_nature);
         	don.setEstSupprime(true);
         	metier.updateDonEnNature(don);
-        	////////////////notifier l'utilisateur que son don est supprimé
-        	req.getRequestDispatcher("Dashboard_ministere/ListesDons.jsp").forward(req, resp);
-        } else if (!code_suppression_don_reglement.equals(null)) {
-        	Reglement reglement = metier.getDonEnReglementById(code_suppression_don_reglement);
-        	reglement.setEstSupprime(true);
-        	metier.updateReglement(reglement);
         	////////////////notifier l'utilisateur que son don est supprimé
         	req.getRequestDispatcher("Dashboard_ministere/ListesDons.jsp").forward(req, resp);
         }

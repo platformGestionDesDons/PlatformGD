@@ -26,7 +26,7 @@
 											id="nom_etablissement" name="nom_etab" class="form-control">
 											<div class="cha9a9a-title text-center pad-5">
 												<c:forEach items="${etablissements}" var="etab">
-													<c:if test="${etab.getMinistere() == false}">
+													<c:if test="${etab.getMinistraire() == false}">
 													<option value="${etab.getIdEtablissement()}">${etab.getNomEtablissement()}</option>
 													</c:if>
 												</c:forEach>

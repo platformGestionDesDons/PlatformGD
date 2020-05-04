@@ -50,8 +50,9 @@ public class ServletManagement extends HttpServlet {
 					{
 						request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
 					} else {
-						request.getRequestDispatcher("/LoginPage").forward(request, response);
-					}
+						request.setAttribute("errur1", "Votre compte n'est pas encore validé par le ministere !");
+						request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
+						}
 					
 				}
 			}
@@ -90,7 +91,7 @@ public class ServletManagement extends HttpServlet {
 					{
 						request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
 					} else {
-						request.setAttribute("errur1", "Votre compte n'est encore accepté par le ministere !");
+						request.setAttribute("errur1", " Votre compte n'est pas encore validé par le ministere !");
 						request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 					}
 				}
@@ -128,7 +129,8 @@ public class ServletManagement extends HttpServlet {
 						{
 							request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
 						} else {
-						request.setAttribute("errur1", "Votre compte n'est encore accepté par le ministere !");
+						request.setAttribute("errur1", "Votre compte n'est pas encore validé par le ministere !");
+						session.invalidate();
 						request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
 						}
 					}

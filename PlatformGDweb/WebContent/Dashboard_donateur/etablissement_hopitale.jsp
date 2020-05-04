@@ -18,17 +18,25 @@
 <!-- 					style="padding: 10px !important;"> -->
 					<div class="container">
 
-						<form name="new_fund" method="post" class="form-group"
-							action="${pageContext.request.contextPath}/faire_un_don">
 							<div class="pull-right btn-box">
-								<input class="btn btn-default fs20 white igive-btn form-control"
-									type="submit" name="action" value="Faire un don en nature">
+								<a href="faire_un_don_step1?id_etablissement=${etablissement.getIdEtablissement()}" class="btn btn-default fs20 white igive-btn form-control" 
+								role="button">Faire un don en nature</a>
 							</div>
 							<div class="pull-left btn-box">
-								<input class="btn btn-default fs20 white igive-btn form-control"
-									type="submit" name="action" value="Faire un don reglement">
+								<a href="don_reglement?id_etablissement=${etablissement.getIdEtablissement()}" class="btn btn-default fs20 white igive-btn form-control" 
+								role="button">Faire un don reglement</a>
 							</div>
-						</form>
+<!-- 						<form name="new_fund" method="post" class="form-group" -->
+<%-- 							action="${pageContext.request.contextPath}/faire_un_don"> --%>
+<!-- 							<div class="pull-right btn-box"> -->
+<!-- 								<input class="btn btn-default fs20 white igive-btn form-control" -->
+<!-- 									type="submit" name="action" value="Faire un don en nature"> -->
+<!-- 							</div> -->
+<!-- 							<div class="pull-left btn-box"> -->
+<!-- 								<input class="btn btn-default fs20 white igive-btn form-control" -->
+<!-- 									type="submit" name="action" value="Faire un don réglement"> -->
+<!-- 							</div> -->
+<!-- 						</form> -->
 					</div>
 <!-- 				</div> -->
 				<div class="visible-sm-block visible-xs-block top-margin-10">
@@ -117,7 +125,7 @@
 				<div class="form-box-cha9a9a top-margin-20"
 					style="padding: 10px !important;">
 					<div class="container">
-						<h1>Liste des donnateurs</h1>
+						<h1>Liste des donateurs</h1>
 						<div class="row">
 							<div
 								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">

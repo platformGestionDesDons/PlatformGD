@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import metier.entities.Utilisateur;
 
 @WebFilter(urlPatterns = {"/ajoutBesoin","/besoin", "/besoins", "/categories", "/editBesoin", "/editProduit",
-		"/fournisseurs","/produit", "/produits", "/udms", "/LogOut"})
+		"/fournisseurs","/produit", "/produits", "/udms"})
 public class EtablissementFilter implements Filter {
 
 
@@ -27,7 +27,7 @@ public class EtablissementFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession(false);
-        String loginURI = request.getContextPath() + "";
+        String loginURI = request.getContextPath() + "/";
 
         
         

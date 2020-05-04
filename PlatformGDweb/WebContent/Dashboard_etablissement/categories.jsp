@@ -4,7 +4,7 @@
 <%@ include file="menu_etablissement.jsp"%>
 <section class="page-section light-bg">
 	<div class="container">
-		<h1>Liste des categories</h1>
+		<h1>Liste des catégories</h1>
 
  <a href="ajoutCategorie"
 			class="btn btn-success">Ajouter une catégorie</a>			

@@ -1,6 +1,7 @@
 package metier.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -25,7 +26,7 @@ public class Don implements Serializable{
 
 	@Id
 	private String id_don;
-	private String DatePlanifiee;
+	private Date DatePlanifiee;
 	private boolean estAccepte;
 	private boolean estSupprime;
 	private String visibilite;
@@ -46,7 +47,7 @@ public class Don implements Serializable{
 	
 	public Don() {
 	}
-	public Don(String datePlanifiee, boolean estAccepte, boolean estSupprime, String visibilite, boolean vu) {
+	public Don(Date datePlanifiee, boolean estAccepte, boolean estSupprime, String visibilite, boolean vu) {
 		this.id_don = UUID.randomUUID().toString();
 		DatePlanifiee = datePlanifiee;
 		this.estAccepte = estAccepte;
@@ -55,7 +56,7 @@ public class Don implements Serializable{
 		this.vu = vu;
 	}
 	
-	public Don(String datePlanifiee, String visibilite) {
+	public Don(Date datePlanifiee, String visibilite) {
 		this.id_don = UUID.randomUUID().toString();
 		DatePlanifiee = datePlanifiee;
 		this.visibilite = visibilite;
@@ -78,10 +79,10 @@ public class Don implements Serializable{
 	public void setId_don(String id_don) {
 		this.id_don = id_don;
 	}
-	public String getDatePlanifiee() {
+	public Date getDatePlanifiee() {
 		return DatePlanifiee;
 	}
-	public void setDatePlanifiee(String datePlanifiee) {
+	public void setDatePlanifiee(Date datePlanifiee) {
 		DatePlanifiee = datePlanifiee;
 	}
 	public boolean isEstAccepte() {

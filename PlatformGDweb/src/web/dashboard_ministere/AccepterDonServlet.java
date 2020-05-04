@@ -23,7 +23,6 @@ public class AccepterDonServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String code_accept_don_nature = (String) req.getParameter("code_don_en_nature");
-		String code_accept_don_reglement = (String) req.getParameter("code_reglement");
 
 		if (!code_accept_don_nature.equals(null)) {
 			DonEnNature don = metier.getDonEnNatureById(code_accept_don_nature);
@@ -41,15 +40,6 @@ public class AccepterDonServlet extends HttpServlet {
 				metier.updateBesoin(besoin);
 				metier.updateDonEnNature(don);
 				req.getRequestDispatcher("Dashboard_ministere/ListesDons.jsp").forward(req, resp);
-			}
-		} else if (!code_accept_don_reglement.equals(null)) {
-			Reglement reglement = metier.getDonEnReglementById(code_accept_don_reglement);
-			if(reglement.isEstAccepte()) {
-				req.getRequestDispatcher("Dashboard_ministere/ListeDons.jsp").forward(req, resp);
-			} else {
-				reglement.setEstAccepte(true);
-				metier.updateReglement(reglement);
-				req.getRequestDispatcher("Dashboard_ministere/ListeDons.jsp").forward(req, resp);
 			}
 		}
 	}

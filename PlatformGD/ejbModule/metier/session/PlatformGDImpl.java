@@ -595,17 +595,17 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		
 	}*/
 
-	public Utilisateur authentification_Utilisateur(String email) {
-		try {
-			Query tq = em.createQuery("select u from Utilisateur u WHERE email=? ", Utilisateur.class);
-			tq.setParameter(1, email);
-			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
-			em.merge(utilisateur);
-			return utilisateur;
-		} catch (Exception noresult) {
-			return null;
-		}
-	}
+//	public Utilisateur getUtilisateurByEmail(String email) {
+//		try {
+//			Query tq = em.createQuery("select u from Utilisateur u WHERE email=? ", Utilisateur.class);
+//			tq.setParameter(1, email);
+//			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
+//			em.merge(utilisateur);
+//			return utilisateur;
+//		} catch (Exception noresult) {
+//			return null;
+//		}
+//	}
 
 	@Override
 	public Etablisement verification_du_compte(Utilisateur utilisateur) {
@@ -641,17 +641,17 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 
 	@Override
 	public Utilisateur authentification(String mail, String hashedPassword) {
-		Query tq = em.createQuery("select u from Utilisateur u WHERE u.email =:x and u.mdp =:y ",Utilisateur.class);
-		tq.setParameter("x", mail);
-		tq.setParameter("y", hashedPassword);
-		Utilisateur utilisateur = null;
-		try{
-			utilisateur = (Utilisateur) tq.getSingleResult();
-		}
-			catch (NoResultException nre){
-			
+			Query tq = em.createQuery("select u from Utilisateur u WHERE u.email =:x and u.mdp =:y ",Utilisateur.class);
+			tq.setParameter("x", mail);
+			tq.setParameter("y", hashedPassword);
+			Utilisateur utilisateur = null;
+			try{
+				utilisateur = (Utilisateur) tq.getSingleResult();
 			}
-		return utilisateur;
+				catch (NoResultException nre){
+				
+				}
+			return utilisateur;
 	}
 
 	@Override
@@ -708,6 +708,13 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		if(!utilisateur.equals(null))
 			em.merge(utilisateur);
 	}
+
+	@Override
+	public Etablisement getEtablissementById(String id_etablissement) {
+		Etablisement etablisement =em.find(Etablisement.class, id_etablissement);
+		return etablisement;
+	}
+
 
 
 }

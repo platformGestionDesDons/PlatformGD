@@ -8,7 +8,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import metier.entities.Besoin;
 import metier.entities.Categorie;
@@ -56,19 +60,35 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
 		
 		
-		String action = req.getParameter("action");
-		if (action.equals("Faire un don en nature")) {
-			String id_besoin = req.getParameter("nom_produit");
-			String date_planifiee = req.getParameter("date_planifiee");
+//		String action = req.getParameter("action");
+//		if (action.equals("Faire un don en nature")) {
+//			String id_besoin = req.getParameter("nom_produit");
+//			String date_planifiee = req.getParameter("date_planifiee");
+//			String visibilite = req.getParameter("visibilite");
+//			String id_beneficiaie = req.getParameter("nom_etab");
+//			double prix_totale = Double.parseDouble(req.getParameter("prix_totale"));
+//			int quantite = Integer.parseInt(req.getParameter("quantite"));
+			String id_etablissement = req.getParameter("nom_etablissement");
+			System.out.println(id_etablissement);
+			String id_besoin = req.getParameter("nom_besoin");
+			Date date_planifiee = new Date();
+				try {
+					date_planifiee = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_planifiee"));
+				} catch (java.text.ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
 			String visibilite = req.getParameter("visibilite");
-			String id_beneficiaie = req.getParameter("nom_etab");
-			double prix_totale = Double.parseDouble(req.getParameter("prix_totale"));
+			double prix_totale = Double.parseDouble(req.getParameter("prixTotal"));
 			int quantite = Integer.parseInt(req.getParameter("quantite"));
-			//String id_fournisseur = req.getParameter("c");
 			DonEnNature don_en_nature = new DonEnNature(date_planifiee, false, false, visibilite, prix_totale, quantite, false);
 			
 			Besoin besoin = metier.getBesoinById(id_besoin);
-			Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
+			Etablisement beneficiaire = metier.findetablissement(id_etablissement);
+			////Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
+			
+			
 			//System.out.println(beneficiaire.toString());
 			//Utilisateur donnateur = metier.findUtilisateurById(idut);
 			//don_en_nature.setUtilisateur(donnateur);
@@ -114,8 +134,8 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 			 user.addDon(don_en_nature);
 			 metier.updateUtilisateur(user);
 			 metier.updateDonEnNature(don_en_nature);
-			 req.getRequestDispatcher("Dashboard_donateur/faireUnDonEnNature.jsp").forward(req, resp);
+			 req.getRequestDispatcher("/besoinsByEtablissement").forward(req, resp);
 		}
-	}
+	
 
 }

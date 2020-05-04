@@ -37,7 +37,7 @@ public class ServletBesoins extends HttpServlet {
 
 	@EJB
 	private PlatformGDLocal dao;
-	
+
 	public ServletBesoins() {
 		super();
 		
@@ -45,8 +45,10 @@ public class ServletBesoins extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
-		List<Besoin> besoins = dao.getAllBesoin();
+			HttpSession session = request.getSession();
+			Utilisateur user = (Utilisateur) session.getAttribute("user");
+			String id_etablissement = (String) user.getEtablissement().getIdEtablissement();
+			List<Besoin> besoins = dao.getBesoinsByEtablissement(id_etablissement);
 
 
 			request.setAttribute("ListBesoins", besoins);
@@ -116,7 +118,7 @@ public class ServletBesoins extends HttpServlet {
 			dao.updateEtablisement(etablisement);
 			dao.updateBesoin(b);
 			 
-			List<Besoin> besoins = dao.getAllBesoin();
+			List<Besoin> besoins = dao.getBesoinsByEtablissement(user.getEtablissement().getIdEtablissement());
 			request.setAttribute("ListBesoins", besoins);
 			request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request, response);
 	}

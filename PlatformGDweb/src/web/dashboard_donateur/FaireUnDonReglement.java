@@ -2,7 +2,10 @@ package web.dashboard_donateur;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,8 +39,10 @@ public class FaireUnDonReglement extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		String code_etablissement = (String) req.getParameter("id_etablissement");
+		req.setAttribute("etablisement", metier.getEtablissementById(code_etablissement));
 		req.getRequestDispatcher("Dashboard_donateur/faireUnReglement.jsp").forward(req, resp);
+		//req.getRequestDispatcher("Dashboard_donateur/faireUnReglement.jsp").forward(req, resp);
 	}
 
 	@Override
@@ -45,23 +50,38 @@ public class FaireUnDonReglement extends HttpServlet{
 		
 		HttpSession session = req.getSession(false);
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
+//		
+			
+			String id_beneficiaie = req.getParameter("nom_etablissement");
+			
+			Date date_planifiee = new Date();
+			try {
+				date_planifiee = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_planifiee"));
+			} catch (java.text.ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
-		String action = req.getParameter("action");
-		if (action.equals("Faire un don reglement")) {
-			String date_planifiee = req.getParameter("date_planifiee");
-			//String id_beneficiaire = req.getParameter("bene");
+			
+			
 			String visibilite = req.getParameter("visibilite");
-			String date_reglement = req.getParameter("date_reglement");
+			
+			Date date_reglement = new Date();
+			try {
+				date_reglement = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_reglement"));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			String mode_reglement = req.getParameter("mode_reglement");
 			double montant = Double.parseDouble((req.getParameter("montant")));
-			String id_beneficiaie = req.getParameter("nom_bene");
+			//String id_beneficiaie = req.getParameter("nom_bene");
 			Reglement reglement = new Reglement(date_planifiee, false, false, visibilite, montant, 
 					date_reglement, mode_reglement, false);
 			Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
 			reglement.setEtablissement(beneficiaire);
 			
-//			Utilisateur donnateur = metier.findUtilisateurById(idut);
-//			reglement.setUtilisateur(donnateur);
 			
 			PhotoDon photoDon = new PhotoDon();
 			 
@@ -102,7 +122,7 @@ public class FaireUnDonReglement extends HttpServlet{
 			 metier.updateUtilisateur(user);
 			 metier.updateReglement(reglement);
 			
-			req.getRequestDispatcher("Dashboard_donateur/faireUnReglement.jsp").forward(req, resp);
+			req.getRequestDispatcher("Dashboard_donateur/besoinsByEtablissement.jsp").forward(req, resp);
 		}
-	}
+	
 }
