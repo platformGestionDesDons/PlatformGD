@@ -42,7 +42,7 @@
 							de réception</label> <span
 							class="required text-danger form-asterisk"
 							title="Ce champ est requis">*</span>
-							<input type="text" id="new_fund_name" name="date_planifiee"
+							<input type="date" id="date_planifiee" name="date_planifiee"
 							class="form-control" required/>
 					</div>
 					<div class="form-group">
@@ -100,6 +100,20 @@
 	</div>
 </section>
 <script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("date_planifiee").setAttribute("min", today);
+
 $(document).ready(function(){
 	$("#quantite").change(function(){
 		let quantite = $(this).val();

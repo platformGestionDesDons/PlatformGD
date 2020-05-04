@@ -2,7 +2,10 @@ package web.dashboard_donateur;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,10 +52,22 @@ public class FaireUnDonReglement extends HttpServlet{
 		HttpSession session = req.getSession(false);
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
 		
-		String id_beneficiaie = req.getParameter("nom_etablissement");
-			String date_planifiee = req.getParameter("date_planifiee");
+			String id_beneficiaie = req.getParameter("nom_etablissement");
+			Date date_planifiee = new Date();
+			try {
+				date_planifiee = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_planifiee"));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			String visibilite = req.getParameter("visibilite");
-			String date_reglement = req.getParameter("date_reglement");
+			Date date_reglement = new Date();
+			try {
+				date_reglement = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_reglement"));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			String mode_reglement = req.getParameter("mode_reglement");
 			double montant = Double.parseDouble((req.getParameter("montant")));
 			

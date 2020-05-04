@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="__header.jsp" %>
 
 <%@ include file="menu_etablissement.jsp"%>
@@ -26,7 +27,8 @@
       <td><c:out value="${besoin.getQuantiteInitiale()} ${besoin.getProduit().getUniteDeMesure().getIdUnite()}"></c:out></td>
       <td><c:out value="${besoin.getQuantiteRestante()} ${besoin.getProduit().getUniteDeMesure().getIdUnite()}"></c:out></td>
       <td><c:out value="${besoin.getEtat()}"></c:out></td>
-      <td><c:out value="${besoin.getDateBesoin()}"></c:out></td>
+      <td><fmt:formatDate type = "both"  value = "${besoin.getDateBesoin()}"/></td>
+      
       <td><c:out value="${besoin.getPriorite()}"></c:out></td>
       <td><a href="besoin?idBesoin=${besoin.getIdBesoin()}" class="btn btn-default btn-sm" role="button" id="consulter">Consulter</a> </td>
     </tr>

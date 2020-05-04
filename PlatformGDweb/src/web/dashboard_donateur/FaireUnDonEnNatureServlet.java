@@ -8,7 +8,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,7 +61,13 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 		
 			String id_etablissement = req.getParameter("nom_etablissement");
 			String id_besoin = req.getParameter("nom_besoin");
-			String date_planifiee = req.getParameter("date_planifiee");
+			Date date_planifiee = new Date();
+			try {
+				date_planifiee = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_planifiee"));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			String visibilite = req.getParameter("visibilite");
 			double prix_totale = Double.parseDouble(req.getParameter("prixTotal"));
 			int quantite = Integer.parseInt(req.getParameter("quantite"));

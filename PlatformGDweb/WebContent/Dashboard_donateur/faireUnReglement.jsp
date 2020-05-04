@@ -27,7 +27,7 @@
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Date
 							de réception</label> 
-							<input type="text" id="new_fund_name"
+							<input type="date" id="date_reception"
 							name="date_planifiee" class="form-control" required/>
 					</div>
 					<div class="form-group">
@@ -44,7 +44,8 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label required" for="new_fund_name">Date
-							de réglement </label> <input type="text" id="new_fund_name"
+							de réglement </label> 
+							<input type="date" id="date_reglement"
 							name="date_reglement" class="form-control" />
 					</div>
 					<div class="form-group">
@@ -78,4 +79,20 @@
 		</div>
 	</div>
 </section>
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("date_reception").setAttribute("min", today);
+document.getElementById("date_reglement").setAttribute("min", today);
+</script>
 <%@ include file="__footer.jsp"%>
