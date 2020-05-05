@@ -21,7 +21,7 @@
 							<select id="nom_etablissement" name="nom_etablissement" class="form-control" disabled>
 								<option value="${etablisement.getIdEtablissement()}" selected>${etablisement.getNomEtablissement()}</option>
 							</select>
-							<input type="hidden" name="nom_etablissement" value="${beneficiaire.getIdEtablissement()}" />
+							<input type="hidden" name="nom_etablissement" value="${etablisement.getIdEtablissement()}" />
 						</div>
 					</div>
 					<div class="form-group">
