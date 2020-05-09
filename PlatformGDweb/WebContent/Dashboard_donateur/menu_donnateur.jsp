@@ -18,7 +18,7 @@
 							<span class="icon-bar"></span> <span class="icon-bar"></span>
 						</button>
 
-						<a class="navbar-brand scroll" href="../../index.html#"> <img
+						<a class="navbar-brand scroll" href="besoinsByEtablissement"> <img
 							src="images/Logo/Capture.PNG" style="width: 70px; height: 60px;">
 						</a>
 					</div>
@@ -26,7 +26,7 @@
 					<div class="navbar-collapse collapse">
 						<!-- nav -->
 						<ul class="nav navbar-nav">
-							<li><a href="#">Profil</a></li>
+							<li><a href="profilDonateur">Profil</a></li>
 							<li><a href="LogOut">Deconnexion</a></li>
 						</ul>
 						<!-- Right nav -->

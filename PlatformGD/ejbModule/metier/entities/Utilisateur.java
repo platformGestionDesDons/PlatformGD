@@ -27,7 +27,6 @@ public class Utilisateur implements Serializable {
 	@Id
 	private String idut=UUID.randomUUID().toString();
 	private String email;
-
 	private String Nom;
 	private String Prenom;
 	private String mdp;
@@ -45,7 +44,7 @@ public class Utilisateur implements Serializable {
 	@OneToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
 	//@JoinTable(name = "T_UTILISATEUR_TELEPHONE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
-	private Collection<Telephone> telephone;
+	private List<Telephone> telephone;
 
 	
 	@OneToMany
@@ -87,11 +86,11 @@ public class Utilisateur implements Serializable {
 		this.reclamations = reclamations;
 	}
 
-	public Collection<Telephone> getTelephone() {
+	public List<Telephone> getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(Collection<Telephone> telephone) {
+	public void setTelephone(List<Telephone> telephone) {
 		this.telephone = telephone;
 	}
 

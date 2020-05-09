@@ -13,6 +13,8 @@ public interface PlatformGDRemote {
 	public List<Reglement> getAllDonsReglement();
 	public List<Don> getDonByEtablissement(String nom_etabliessement);
 	public List<Don> getDonByDonnateur(String mail_donnateur);
+	public List<DonEnNature> getDonEnNatureByDonnateur(String idD);
+	public List<Reglement> getReglementByDonnateur(String idD);
 	public List<Don> getDonEnNatureNotAcceptedByMinistere();
 	public List<Don> getDonReglementNotAcceptedByMinistere();
 	public List<Don> getDonEnNatureDeletedByMinistere();
@@ -67,7 +69,8 @@ public interface PlatformGDRemote {
 		public void updateUniteDeMesure(UniteDeMesure uM);
 		public void updateFournisseur(Fournisseur f);
 		public void updateEtablisement(Etablisement e);
-		
+		public void updateAdresse(Adresse a);
+		public void updateTelephone(Telephone t);
 		//read
 		
 		public Produit getProduitById(String idP);
@@ -138,4 +141,5 @@ public interface PlatformGDRemote {
 		public void updateReclamatiom(boolean codeReclamation, Reclamation reclamation);
 		public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur);
 		public void updateUtilisateur(Utilisateur utilisateur);
+
 }

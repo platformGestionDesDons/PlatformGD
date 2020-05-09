@@ -31,7 +31,7 @@ public class DaoManagement {
 		}
 
 	}
-	public Utilisateur hashPassword(String username, String clearPassword) {
+	public Utilisateur checkUser(String username, String clearPassword) {
 		MessageDigest digest = null;
 		try {
 			try {
@@ -63,4 +63,26 @@ public class DaoManagement {
 		utilisateur.setMdp(hashedPassword);
 		metier.ajouteUtilisateur(utilisateur);
 	}
+	
+	public String hashPassword(String clearPassword)
+	{
+		MessageDigest digest = null;
+		try {
+			try {
+				digest = MessageDigest.getInstance("SHA-256");
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			byte[] hash = digest.digest(clearPassword.getBytes(StandardCharsets.UTF_8));
+			String hashedPassword = Base64.getEncoder().encodeToString(hash);
+			return hashedPassword;
+		} catch (NoSuchEJBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
 }

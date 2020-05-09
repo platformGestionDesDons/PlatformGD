@@ -99,7 +99,7 @@ public class ServletManagement extends HttpServlet {
 			String username = request.getParameter("username");
 			String clearPassword = request.getParameter("password");
 			DaoManagement daoManagement = new DaoManagement();
-			Utilisateur utilisateur = daoManagement.hashPassword(username, clearPassword);
+			Utilisateur utilisateur = daoManagement.checkUser(username, clearPassword);
 			
 			// User found
 			if (utilisateur!=null) 

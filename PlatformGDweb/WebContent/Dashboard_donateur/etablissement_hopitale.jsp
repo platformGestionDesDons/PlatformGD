@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="__header.jsp"%>
+<%@ include file="menu_donnateur.jsp"%>
 <section class="page-section">
 <div class="overlay"></div>
 	<div class="container">

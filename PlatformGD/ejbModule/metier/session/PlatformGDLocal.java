@@ -15,6 +15,8 @@ public interface PlatformGDLocal {
 	public List<Reglement> getAllDonsReglement();
 	public List<Don> getDonByEtablissement(String nom_etabliessement);
 	public List<Don> getDonByDonnateur(String mail_donnateur);
+	public List<DonEnNature> getDonEnNatureByDonnateur(String idD);
+	public List<Reglement> getReglementByDonnateur(String idD);
 	public List<Don> getDonEnNatureNotAcceptedByMinistere();
 	public List<Don> getDonReglementNotAcceptedByMinistere();
 	public List<Don> getDonEnNatureDeletedByMinistere();
@@ -69,7 +71,9 @@ public interface PlatformGDLocal {
 	public void updateUniteDeMesure(UniteDeMesure uM);
 	public void updateFournisseur(Fournisseur f);
 	public void updateEtablisement(Etablisement e);
-	
+	public void updateAdresse(Adresse a);
+	public void updateTelephone(Telephone t);
+
 	
 	//read
 	
@@ -141,4 +145,5 @@ public interface PlatformGDLocal {
 		public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur);
 		public void updateUtilisateur(Utilisateur utilisateur);
 
+		public void deleteDon(String idDon);
 }

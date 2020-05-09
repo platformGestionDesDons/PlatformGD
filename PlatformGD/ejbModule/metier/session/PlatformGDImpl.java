@@ -1,5 +1,6 @@
 package metier.session;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -716,6 +717,37 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		return etablisement;
 	}
 
+	@Override
+	public List<DonEnNature> getDonEnNatureByDonnateur(String idD) {
+		Query req = em.createQuery("select d from DonEnNature d where d.utilisateur.idut=:x");
+		req.setParameter("x", idD);
+		return req.getResultList();
+	}
 
+	@Override
+	public List<Reglement> getReglementByDonnateur(String idD) {
+		Query req = em.createQuery("select d from Reglement d where d.utilisateur.idut=:x");
+		req.setParameter("x", idD);
+		return req.getResultList();
+	}
 
+	@Override
+	public void deleteDon(String idDon) {
+		em.remove(em.find(Don.class, idDon));
+		
+	}
+
+	@Override
+	public void updateAdresse(Adresse a) {
+		if(!a.equals(null))
+			em.merge(a);
+		
+	}
+
+	@Override
+	public void updateTelephone(Telephone t) {
+		if(!t.equals(null))
+			em.merge(t);
+		
+	}
 }
