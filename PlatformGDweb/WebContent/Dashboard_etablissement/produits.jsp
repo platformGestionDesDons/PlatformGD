@@ -18,17 +18,23 @@
       <th scope="col">Prix max</th>
       <th scope="col">Catégorie</th>
       <th scope="col">Unite de mesure</th> 
+      <th scope="col">Fournisseurs</th>
     </tr>
   </thead>
   <tbody>
 <c:forEach var="produit" items="${ListProduits}">			
     <tr id="${produit.getIdProduit()}">
-      <td><a href="produit?idProduit=${produit.getIdProduit()}">${produit.getLibelle() } </a> </td>    
+      <td>${produit.getLibelle() }</td>    
       <td><c:out value="${produit.getDescriptionTechnique()}"></c:out></td>
       <td><c:out value="${produit.getPrixMin() }"></c:out></td>
       <td><c:out value="${produit.getPrixMax()}"></c:out></td>
       <td><c:out value="${produit.getCategorie().getLibelle()}"></c:out></td>
       <td><c:out value="${produit.getUniteDeMesure().getIdUnite()}"></c:out></td>
+      <td>
+      	<c:forEach items="${produit.getFournisseurs()}" var="a">
+			<p>${a.getLibelle()} / <p>
+		</c:forEach>
+      </td>
 <td><a href="editProduit?idProduit=${produit.getIdProduit()}" class="btn btn-warning btn-sm" role="button" id="editproduit">Editer</a> </td>
 <td><button class="btn btn-danger btn-sm" id="deleteproduct">
 					Supprimer </button></td>

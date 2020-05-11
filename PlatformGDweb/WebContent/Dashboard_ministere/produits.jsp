@@ -38,8 +38,13 @@
 								<strong><span class="text-color">Catégorie</span></strong>
 								
 							</div>
-							<div class="col-xs-2 col-sm-2 text-center lr-pad-10"></div>
-							<div class="col-xs-2 col-sm-2 text-center lr-pad-10"></div>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Fournisseurs</span></strong>
+								
+							</div>
+							<div class="col-xs-1 col-sm-1 text-center lr-pad-10"></div>
+							<div class="col-xs-1 col-sm-1 text-center lr-pad-10"></div>
 						</div>
 						<hr class="margin-20">
 						<c:forEach var="produit" items="${ListProduits}">
@@ -59,10 +64,15 @@
 								<div class="col-xs-2 col-sm-2 text-center">
 									<h6>${produit.getCategorie().getLibelle()}</h6>
 								</div>
-								<div class="col-xs-2 col-sm-2 text-center">
+								<div class="col-xs-2 col-sm-2">
+									<c:forEach items="${produit.getFournisseurs()}" var="a">
+										<p>${a.getLibelle()} / <p>
+									</c:forEach>
+								</div>
+								<div class="col-xs-1 col-sm-1">
 									<a href="editProduitMinistere?idProduit=${produit.getIdProduit()}" class="btn btn-warning btn-sm" role="button" id="editproduit">Editer</a>
 								</div>
-								<div class="col-xs-2 col-sm-2 text-center" id="${produit.getIdProduit()}">
+								<div class="col-xs-1 col-sm-1" id="${produit.getIdProduit()}">
 									<button class="btn btn-danger btn-sm" id="deleteproduct">
 					Supprimer </button>
 								</div>

@@ -82,6 +82,7 @@
 						</div>
 						<hr class="margin-20">
 						<c:forEach items="${besoin_etab}" var="b">
+						<c:if test="${b.getReaffected() == false }">
 							<div class="row">
 								<div class="col-xs-2 col-sm-2 text-center">
 									<img src="uploads/images/bavette.jpg"
@@ -109,6 +110,7 @@
 								</div>
 							</div>
 							<hr class="margin-20">
+							</c:if>
 						</c:forEach>
 						<div class="row">
 							<div class="col-md-12 text-center top-pad-10">

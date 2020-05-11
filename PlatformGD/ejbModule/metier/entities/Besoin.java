@@ -27,18 +27,22 @@ public class Besoin implements Serializable
 	private String priorite;
 	private boolean annule;
 	private String motif;
+	private Boolean reaffected;
 	
 	@OneToOne
 	private Produit produit;
 	
-	@OneToOne( cascade = CascadeType.ALL )
+	@ManyToOne
 	private PhotoBesoin photoBesoin;
 
 	@ManyToOne
 	private Etablisement etablisement;
 
 	
-	public Besoin() {}
+	public Besoin() {
+		super();
+		this.idBesoin = UUID.randomUUID().toString();
+	}
 	
 	
 	
@@ -129,6 +133,18 @@ public class Besoin implements Serializable
 
 	public void setEtablisement(Etablisement etablisement) {
 		this.etablisement = etablisement;
+	}
+
+
+
+	public Boolean getReaffected() {
+		return reaffected;
+	}
+
+
+
+	public void setReaffected(Boolean reaffected) {
+		this.reaffected = reaffected;
 	}
 
 

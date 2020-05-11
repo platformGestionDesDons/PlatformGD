@@ -62,12 +62,27 @@ public class ServletBesoinMinistere extends HttpServlet {
 		String motif = (String) request.getParameter("motif");
 		Besoin besoin = dao.getBesoinById(id_besoin);
 		Etablisement etablissement = dao.findetablissement(id_etab);
-		besoin.setEtablisement(etablissement);
+		besoin.setReaffected(true);
 		besoin.setMotif(motif);
+		
+		
+		
+		Besoin nouveau_besoin = new Besoin();
+		nouveau_besoin.setDateBesoin(besoin.getDateBesoin());
+		nouveau_besoin.setEtat(besoin.getEtat());
+		nouveau_besoin.setQuantiteRestante(besoin.getQuantiteRestante());
+		nouveau_besoin.setQuantiteInitiale(besoin.getQuantiteInitiale());
+		nouveau_besoin.setProduit(besoin.getProduit());
+		nouveau_besoin.setPriorite(besoin.getPriorite());
+		nouveau_besoin.setPhotoBesoin(besoin.getPhotoBesoin());
+		nouveau_besoin.setMotif("réaffecter par le ministere");
+		nouveau_besoin.setEtablisement(etablissement);
+		nouveau_besoin.setReaffected(false);
 		dao.updateBesoin(besoin);
+		dao.ajoutBesoin(nouveau_besoin);
 		List<Besoin> liste_besoin = new ArrayList<Besoin>();
 		liste_besoin = etablissement.getBesoins();
-		liste_besoin.add(besoin);
+		liste_besoin.add(nouveau_besoin);
 		etablissement.setBesoins(liste_besoin);
 		dao.updateEtablisement(etablissement);
 		}catch (Exception e) {

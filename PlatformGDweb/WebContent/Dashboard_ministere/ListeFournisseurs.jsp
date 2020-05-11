@@ -35,8 +35,13 @@
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Produits
+										</span></strong>
 							</div>
-							<div class="col-xs-2 col-sm-2 text-center lr-pad-10"></div>
+							<div
+								class="col-xs-1 col-sm-1 text-center  lr-pad-10">
+							</div>
+							<div class="col-xs-1 col-sm-1 text-center lr-pad-10"></div>
 						</div>
 						<hr class="margin-20">
 						<c:forEach var="fournisseur" items="${fournisseurs}">
@@ -56,11 +61,16 @@
 									<h6>${fournisseur.getNumTelF()}</h6>
 								</div>
 								<div class="col-xs-2 col-sm-2 text-center">
+									<c:forEach items="${fournisseur.getProduits()}" var="p">
+										${p.getLibelle()} / 
+									</c:forEach>
+								</div>
+								<div class="col-xs-1 col-sm-1 text-center">
 									<a href="editFournisseur?idFournisseur=${fournisseur.getIdF()}"
-										class="btn btn-warning btn-sm" role="button"
+										class="btn btn-warning btn-sm"
 										id="editfournisseur">Editer</a>
 								</div>
-								<div class="col-xs-2 col-sm-2 text-center" id="${fournisseur.getIdF()}">
+								<div class="col-xs-1 col-sm-1 text-center" id="${fournisseur.getIdF()}">
 									<button class="btn btn-danger btn-sm" id="deletefournisseur">
 										Supprimer</button>
 								</div>

@@ -27,13 +27,17 @@ public class Fournisseur
 	private long numTelF;
 	
 	@ManyToMany
-	@JoinTable(name="produit_fournisseur")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Produit> produits;
 	
 	public Fournisseur() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.idF = UUID.randomUUID().toString();
+	}
+	public Fournisseur(String libelle) {
+		super();
+		this.idF = UUID.randomUUID().toString();
+		this.Libelle = libelle;
 	}	
 	
 	public Fournisseur(String libelle, String emailF, String adresseF, String gouvernorat, String codePostal,

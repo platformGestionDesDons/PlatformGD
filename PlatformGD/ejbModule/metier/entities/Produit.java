@@ -15,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 
 @Entity
 @Table(name="Produit")
@@ -34,14 +37,17 @@ public class Produit
 	@ManyToOne
 	private Categorie categorie;
 
-	@ManyToMany(mappedBy = "produits", cascade = CascadeType.ALL )
-	
+	@ManyToMany(mappedBy = "produits")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Fournisseur> fournisseurs;
 
 
 	
 	
-	public Produit() {	}
+	public Produit() {	
+		super();	
+		this.idProduit = UUID.randomUUID().toString();
+	}
 	
 	
 	public Produit( String libelle, String descriptionTechnique, 

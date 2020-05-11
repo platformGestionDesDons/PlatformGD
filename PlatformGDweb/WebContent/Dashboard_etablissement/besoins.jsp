@@ -17,18 +17,32 @@
       <th scope="col">Etat</th>
       <th scope="col">Date création</th>
       <th scope="col">Priorité</th> 
+      <th scope="col">Motif</th>
     </tr>
   </thead>
   <tbody>
 <c:forEach var="besoin" items="${ListBesoins}">			
     <tr >
+    <c:if test="${besoin.getReaffected() == false }">
       <td><c:out value="${besoin.getProduit().getLibelle()}"></c:out></td>    
       <td><c:out value="${besoin.getQuantiteInitiale()} ${besoin.getProduit().getUniteDeMesure().getIdUnite()}"></c:out></td>
       <td><c:out value="${besoin.getQuantiteRestante()} ${besoin.getProduit().getUniteDeMesure().getIdUnite()}"></c:out></td>
       <td><c:out value="${besoin.getEtat()}"></c:out></td>
       <td><c:out value="${besoin.getDateBesoin()}"></c:out></td>
       <td><c:out value="${besoin.getPriorite()}"></c:out></td>
+      <td><c:out value="${besoin.getMotif()}"></c:out></td>
       <td><a href="besoin?idBesoin=${besoin.getIdBesoin()}" class="btn btn-default btn-sm" role="button" id="consulter">Consulter</a> </td>
+    </c:if>
+    <c:if test="${besoin.getReaffected() == true }">
+      <td><c:out value="${besoin.getProduit().getLibelle()}"></c:out></td>    
+      <td><c:out value="${besoin.getQuantiteInitiale()} ${besoin.getProduit().getUniteDeMesure().getIdUnite()}"></c:out></td>
+      <td><c:out value="${besoin.getQuantiteRestante()} ${besoin.getProduit().getUniteDeMesure().getIdUnite()}"></c:out></td>
+      <td><c:out value="${besoin.getEtat()}"></c:out></td>
+      <td><c:out value="${besoin.getDateBesoin()}"></c:out></td>
+      <td><c:out value="${besoin.getPriorite()}"></c:out></td>
+      <td><c:out value="${besoin.getMotif()}"></c:out></td>
+      <td style="color: red;">Réaffecter par le ministere</td>
+    </c:if>
     </tr>
     </c:forEach>
   </tbody>

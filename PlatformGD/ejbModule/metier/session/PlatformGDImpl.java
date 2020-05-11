@@ -366,7 +366,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	@Override
 	public List<Produit> getProduitByFounisseur(String idF)
 	{
-	    	Query req= em.createQuery("select p from produit p where p.fournisseurs.idF=:x");
+	    	Query req= em.createQuery("select p from Produit p join fetch p.fournisseurs ps where ps.idF =:x");
 	    	req.setParameter("x", idF);
 	    	return req.getResultList();
 	}	
@@ -376,7 +376,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	@Override
 	public List<Fournisseur> getFournisseurByProduit(String idP) 
 	{
-    	Query req= em.createQuery("select f from Fournisseur f join fetch f.produits ps where ps.idProduit=: x");
+    	Query req= em.createQuery("select f from Fournisseur f join fetch f.produits ps where ps.idProduit =:x");
     	//Query req= entityManager.createQuery("select f from Fournisseur f where  f.produits.idProduit=:x");
     	req.setParameter("x", idP);
     	return req.getResultList();

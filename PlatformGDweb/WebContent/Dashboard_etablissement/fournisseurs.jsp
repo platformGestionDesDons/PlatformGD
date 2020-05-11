@@ -16,6 +16,7 @@
       <th scope="col">Adresse</th>
       <th scope="col">Email</th>
       <th scope="col">Numero de Télèphone</th>
+      <th scope="col">Produits</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,11 @@
       <td><c:out value="${fournisseur.getAdresseF()}, ${fournisseur.getCodePostal()}, ${fournisseur.getGouvernorat()}"></c:out></td>
       <td><c:out value="${fournisseur.getEmailF()}"></c:out></td>
       <td><c:out value="${fournisseur.getNumTelF()}"></c:out></td>
+      <td>
+      	<c:forEach items="${fournisseur.getProduits()}" var="p">
+      		${p.getLibelle()} / 
+      	</c:forEach>
+      </td>
       <td><a href="editFournisseur?idFournisseur=${fournisseur.getIdF()}" 
       	class="btn btn-warning btn-sm" role="button" id="editfournisseur">Editer</a> </td>
 	  <td><button class="btn btn-danger btn-sm" id="deletefournisseur">

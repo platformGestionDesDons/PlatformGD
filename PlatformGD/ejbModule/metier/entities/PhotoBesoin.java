@@ -24,7 +24,9 @@ public class PhotoBesoin
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Photo> photos;
 	
-
+	@OneToMany(mappedBy="photoBesoin")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<Besoin> besoins;
 
 	public PhotoBesoin() {
 		super();
@@ -45,6 +47,14 @@ public class PhotoBesoin
 
 	public void setPhotos(List<Photo> photos) {
 		this.photos = photos;
+	}
+	
+	public List<Besoin> getBesoins() {
+		return besoins;
+	}
+
+	public void setBesoins(List<Besoin> besoins) {
+		this.besoins = besoins;
 	}
 
 	@Override
