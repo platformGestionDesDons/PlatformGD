@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import metier.entities.DonEnNature;
 import metier.entities.Etablisement;
 import metier.entities.Photo;
 import metier.entities.PhotoDon;
@@ -38,11 +37,12 @@ public class FaireUnDonReglement extends HttpServlet{
 	private static final String UPLOAD_DIRECTORY = "uploads\\images\\Reglement";
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+	{
+		
 		String code_etablissement = (String) req.getParameter("id_etablissement");
 		req.setAttribute("etablisement", metier.getEtablissementById(code_etablissement));
 		req.getRequestDispatcher("Dashboard_donateur/faireUnReglement.jsp").forward(req, resp);
-		//req.getRequestDispatcher("Dashboard_donateur/faireUnReglement.jsp").forward(req, resp);
 	}
 
 	@Override
@@ -50,22 +50,16 @@ public class FaireUnDonReglement extends HttpServlet{
 		
 		HttpSession session = req.getSession(false);
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
-//		
-			
+		
 			String id_beneficiaie = req.getParameter("nom_etablissement");
-			
 			Date date_planifiee = new Date();
 			try {
 				date_planifiee = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_planifiee"));
-			} catch (java.text.ParseException e) {
+			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
-			
-			
 			String visibilite = req.getParameter("visibilite");
-			
 			Date date_reglement = new Date();
 			try {
 				date_reglement = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_reglement"));
@@ -73,12 +67,11 @@ public class FaireUnDonReglement extends HttpServlet{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 			String mode_reglement = req.getParameter("mode_reglement");
 			double montant = Double.parseDouble((req.getParameter("montant")));
-			//String id_beneficiaie = req.getParameter("nom_bene");
+			
 			Reglement reglement = new Reglement(date_planifiee, false, false, visibilite, montant, 
-					date_reglement, mode_reglement, false);
+			date_reglement, mode_reglement, false);
 			Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
 			reglement.setEtablissement(beneficiaire);
 			
@@ -102,6 +95,11 @@ public class FaireUnDonReglement extends HttpServlet{
 			 {				 
 				 for (Part part : fileParts) 
 				{
+					 if(!(part.getContentType().equalsIgnoreCase("image/jpeg"))&&!(part.getContentType().equalsIgnoreCase("image/png")))
+					 {
+							req.setAttribute("errMsg", "Format de photo non supporté");
+							req.getRequestDispatcher("404.jsp").forward(req, resp);
+					 }
 					fileName = part.getSubmittedFileName();
 					extension = fileName.substring(fileName.lastIndexOf(".") + 1);
 				    fileName = reglement.getId_don();
@@ -123,6 +121,6 @@ public class FaireUnDonReglement extends HttpServlet{
 			 metier.updateReglement(reglement);
 			
 			req.getRequestDispatcher("Dashboard_donateur/besoinsByEtablissement.jsp").forward(req, resp);
-		}
-	
+		
+	}
 }

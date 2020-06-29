@@ -1,13 +1,9 @@
 package web.dashboard_donateur;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.nio.file.Paths;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,14 +20,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
-
 import metier.entities.Besoin;
-import metier.entities.Categorie;
+
 import metier.entities.DonEnNature;
 import metier.entities.Etablisement;
 import metier.entities.Photo;
-import metier.entities.PhotoBesoin;
+
 import metier.entities.PhotoDon;
 import metier.entities.Utilisateur;
 import metier.session.PlatformGDLocal;
@@ -49,6 +43,7 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		req.getRequestDispatcher("Dashboard_donateur/faireUnDonEnNature.jsp").forward(req, resp);
 		
 	}
@@ -59,36 +54,23 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 		HttpSession session = req.getSession(false);
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
 		
-		
-//		String action = req.getParameter("action");
-//		if (action.equals("Faire un don en nature")) {
-//			String id_besoin = req.getParameter("nom_produit");
-//			String date_planifiee = req.getParameter("date_planifiee");
-//			String visibilite = req.getParameter("visibilite");
-//			String id_beneficiaie = req.getParameter("nom_etab");
-//			double prix_totale = Double.parseDouble(req.getParameter("prix_totale"));
-//			int quantite = Integer.parseInt(req.getParameter("quantite"));
 			String id_etablissement = req.getParameter("nom_etablissement");
-			System.out.println(id_etablissement);
 			String id_besoin = req.getParameter("nom_besoin");
 			Date date_planifiee = new Date();
-				try {
-					date_planifiee = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_planifiee"));
-				} catch (java.text.ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			
+			try {
+				date_planifiee = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date_planifiee"));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			String visibilite = req.getParameter("visibilite");
 			double prix_totale = Double.parseDouble(req.getParameter("prixTotal"));
 			int quantite = Integer.parseInt(req.getParameter("quantite"));
+
 			DonEnNature don_en_nature = new DonEnNature(date_planifiee, false, false, visibilite, prix_totale, quantite, false);
 			
 			Besoin besoin = metier.getBesoinById(id_besoin);
 			Etablisement beneficiaire = metier.findetablissement(id_etablissement);
-			////Etablisement beneficiaire = metier.findetablissement(id_beneficiaie);
-			
-			
 			//System.out.println(beneficiaire.toString());
 			//Utilisateur donnateur = metier.findUtilisateurById(idut);
 			//don_en_nature.setUtilisateur(donnateur);
@@ -112,9 +94,14 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 					         toList());
 			 
 			 if(fileParts.get(0).getSubmittedFileName().length()>0)
-			 {				 
+			 {
 				 for (Part part : fileParts) 
 				{
+					 if(!(part.getContentType().equalsIgnoreCase("image/jpeg"))&&!(part.getContentType().equalsIgnoreCase("image/png")))
+					 {
+							req.setAttribute("errMsg", "Format de photo non supporté");
+							req.getRequestDispatcher("404.jsp").forward(req, resp);
+					 }
 					fileName = part.getSubmittedFileName();
 					extension = fileName.substring(fileName.lastIndexOf(".") + 1);
 				    fileName = don_en_nature.getId_don();
@@ -134,8 +121,8 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 			 user.addDon(don_en_nature);
 			 metier.updateUtilisateur(user);
 			 metier.updateDonEnNature(don_en_nature);
-			 req.getRequestDispatcher("/besoinsByEtablissement").forward(req, resp);
-		}
-	
+			 req.getRequestDispatcher("Dashboard_donateur/besoinsByEtablissement.jsp").forward(req, resp);
+		
+	}
 
 }

@@ -170,10 +170,10 @@
 											</td>
 											<td>
 												
-												<a href="accepter_don_reglement?code_reglement=${r.getId_don()}" class="btn btn-success btn-sm" role="button">Accepter</a>
+												<a href="accepter_don?code_reglement=${r.getId_don()}" class="btn btn-success btn-sm" role="button">Accepter</a>
 											</td>
 											<td>
-												<a href="supprimer_don_reglement?code_reglement=${r.getId_don()}" class="btn btn-danger btn-sm" role="button">Supprimer</a>
+												<a href="supprimer_don?code_reglement=${r.getId_don()}" class="btn btn-danger btn-sm" role="button">Supprimer</a>
 											</td>
 											</tr>
 											</c:if>

@@ -38,8 +38,12 @@ public class ServletCategories extends HttpServlet {
 			throws ServletException, IOException {
 		String libelle = request.getParameter("libelle");
 
-		Categorie c = new Categorie(libelle);
-		dao.ajoutCategorie(c);
+		if(libelle!=null) 
+		{
+			Categorie c = new Categorie(libelle);
+			dao.ajoutCategorie(c);
+			
+		}
 
 		List<Categorie> categories = dao.getAllCategorie();
 		request.setAttribute("categories", categories);
